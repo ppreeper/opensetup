@@ -1,0 +1,6 @@
+[submodule "ansible_roles"]
+	path = ansible_roles
+	url = https://github.com/ppreeper/ansible_roles
+[submodule "ansible_playbooks"]
+	path = ansible_playbooks
+	url = https://github.com/ppreeper/ansible_playbooks
