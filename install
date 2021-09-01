@@ -9,12 +9,24 @@ help(){
     printf "\nOperations:\n"
     printf "\nplay [guest] [playbook]\t\tdeploy ansible playbook onto guest container"
     printf "\nrole [guest] [role]\t\tdeploy ansible role onto guest container"
+    printf "\nsetup\t\t\t\tsetup dependencys and download roles/playbooks"
     printf "\n"
 }
 
 case "$#" in
     0)
         help
+        ;;
+    1)
+        case "$1" in
+            setup)
+                pip install -r requirements.txt
+                git submodule update --init --recursive --remote
+                ;;
+            *)
+                help
+                ;;
+        esac
         ;;
     *)
         case "$1" in
