@@ -19,6 +19,14 @@ case "$#" in
         ;;
     1)
         case "$1" in
+            apt)
+                sudo apt install -y python3-pip python3-venv pipenv direnv git
+                echo 'eval "$(direnv hook bash)"' >> $HOME/.bashrc
+                ;;
+            pkcon)
+                sudo pkcon install -y python3-pip python3-venv pipenv direnv git
+                echo 'eval "$(direnv hook bash)"' >> $HOME/.bashrc
+                ;;
             setup)
                 pipenv install
                 git clone https://github.com/ppreeper/ansible_roles
