@@ -23,11 +23,15 @@ case "$#" in
                 sudo apt update
                 sudo apt install -y python3-pip python3-venv pipenv direnv git
                 echo 'eval "$(direnv hook bash)"' >> $HOME/.bashrc
+                git clone https://github.com/ppreeper/ansible_installer
+                source $HOME/.bashrc
                 ;;
             pkcon)
                 pkcon update
                 sudo pkcon install -y python3-pip python3-venv pipenv direnv git
                 echo 'eval "$(direnv hook bash)"' >> $HOME/.bashrc
+                git clone https://github.com/ppreeper/ansible_installer
+                source $HOME/.bashrc
                 ;;
             setup)
                 pipenv install
