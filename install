@@ -5,17 +5,33 @@ GRP=$(pwd | awk -F'/' '{print $NF}')
 [ -n "${PLAYBOOK_DIR}" ] || export PLAYBOOK_DIR='./ansible_playbooks'
 
 help(){
-    printf "install Usage:\n"
+    printf "${0} Usage:\n"
     printf "\nOperations:\n"
-    printf "\nplay [guest] [playbook]\t\tdeploy ansible playbook onto guest container"
-    printf "\nrole [guest] [role]\t\tdeploy ansible role onto guest container"
-    printf "\nsetup\t\t\t\tsetup dependencys and download roles/playbooks"
+    printf "\nplay [playbook] [guest]\tdeploy ansible playbook onto target"
+    printf "\n"
+    printf "\nrole [role] [guest]\tdeploy ansible role onto target"
+    printf "\n"
+    printf "\nsetup\t\t\tsetup dependencies and download roles/playbooks"
     printf "\n"
 }
 
 case "$#" in
-    0)
-        help
+    3) 
+        case "$1" in
+            play)
+                shift
+                [ ${2} = "localhost" ] && export BECOME="-K" || export BECOME=""
+                echo ansible-playbook -l ${2} -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
+                ansible-playbook -l ${2} -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
+                ;;
+            role)
+                shift
+                [ ${2} = "localhost" ] && export BECOME="-K" || export BECOME=""
+                echo ansible-playbook -l ${2} -e role=${1} -b ${PLAYBOOK_DIR}/install_role.yml $BECOME
+                ansible-playbook -l ${2} -e role=${1} -b ${PLAYBOOK_DIR}/install_role.yml $BECOME
+                ;;
+            *)  help ;;
+        esac
         ;;
     1)
         case "$1" in
@@ -26,45 +42,14 @@ case "$#" in
                 git clone https://github.com/ppreeper/ansible_installer
                 source $HOME/.bashrc
                 ;;
-            pkcon)
-                pkcon update
-                sudo pkcon install -y python3-pip python3-venv pipenv direnv git
-                echo 'eval "$(direnv hook bash)"' >> $HOME/.bashrc
-                git clone https://github.com/ppreeper/ansible_installer
-                source $HOME/.bashrc
-                ;;
             setup)
+                direnv allow
                 pipenv install
                 git clone https://github.com/ppreeper/ansible_roles
                 git clone https://github.com/ppreeper/ansible_playbooks
                 ;;
-            *)
-                help
-                ;;
+            *)  help ;;
         esac
         ;;
-    *)
-        case "$1" in
-            "-h")
-                help
-                ;;
-            play)
-                shift
-                [ -n "${1}" ] || echo "no guest provided" && [ -n "${2}" ] || echo "no playbook provided"
-                [ ${1} = "localhost" ] && export BECOME="-K" || export BECOME=""
-                [ -n "${1}" ] && [ -n "${2}" ] && echo ansible-playbook -l ${1} -b ${PLAYBOOK_DIR}/${2}.yml $BECOME
-                [ -n "${1}" ] && [ -n "${2}" ] &&      ansible-playbook -l ${1} -b ${PLAYBOOK_DIR}/${2}.yml $BECOME
-                ;;
-            role)
-                shift
-                [ -n "${1}" ] || echo "no guest provided" && [ -n "${2}" ] || echo "no role provided"
-                [ ${1} = "localhost" ] && export BECOME="-K" || export BECOME=""
-                [ -n "${1}" ] && [ -n "${2}" ] && echo ansible-playbook -l ${1} -e role=${2} -b ${PLAYBOOK_DIR}/install_role.yml $BECOME
-                [ -n "${1}" ] && [ -n "${2}" ] &&      ansible-playbook -l ${1} -e role=${2} -b ${PLAYBOOK_DIR}/install_role.yml $BECOME
-                ;;
-            *)
-                help
-                ;;
-        esac
-        ;;
+    *)  help ;;
 esac
