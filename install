@@ -38,12 +38,12 @@ case "$#" in
             play)
                 shift
                 echo ansible-playbook -b ${PLAYBOOK_DIR}/${1}.yml
-                # ansible-playbook -b ${PLAYBOOK_DIR}/${1}.yml
+                ansible-playbook -b ${PLAYBOOK_DIR}/${1}.yml
                 ;;
             role)
                 shift
                 echo ansible-playbook -e role=${1} -b ${PLAYBOOK_DIR}/install_role.yml
-                # ansible-playbook -e role=${1} -b ${PLAYBOOK_DIR}/install_role.yml
+                ansible-playbook -e role=${1} -b ${PLAYBOOK_DIR}/install_role.yml
                 ;;
             *)  help ;;
         esac
