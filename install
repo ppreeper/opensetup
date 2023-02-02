@@ -16,7 +16,7 @@ help(){
 }
 
 case "$#" in
-    3) 
+    3)
         case "$1" in
             play)
                 shift
@@ -33,7 +33,7 @@ case "$#" in
             *)  help ;;
         esac
         ;;
-    2) 
+    2)
         case "$1" in
             play)
                 shift
@@ -59,6 +59,7 @@ case "$#" in
                 ;;
             setup)
                 direnv allow
+                pip install pipenv
                 pipenv install
                 git clone https://github.com/ppreeper/ansible_roles
                 git clone https://github.com/ppreeper/ansible_playbooks
