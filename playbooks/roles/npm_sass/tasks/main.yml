@@ -1,0 +1,5 @@
+- name: sass
+  community.general.npm:
+    name: sass
+    global: true
+    state: present

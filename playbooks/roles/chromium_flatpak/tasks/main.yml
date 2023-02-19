@@ -1,0 +1,5 @@
+---
+- name: chromium
+  community.general.flatpak:
+    name: org.chromium.Chromium
+    state: present

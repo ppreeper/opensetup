@@ -1,0 +1,7 @@
+---
+- name: postfix
+  apt:
+    name:
+      - postfix
+      - postfix-sqlite
+    state: present

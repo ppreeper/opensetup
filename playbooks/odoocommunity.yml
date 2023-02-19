@@ -1,0 +1,21 @@
+---
+- hosts: all
+  roles:
+    - odoo_base
+    - odoo_user
+    - odoo_community_source
+    - odoo_db
+    - odoo_config
+    - odoo_apps
+    - odoo_mod_install
+    - odoo_community_systemd
+    - userhome
+    - nodejs
+    - python
+    - nvim
+    - update
+  vars:
+    home: "/var/lib/odoo"
+    config: "/var/lib/odoo/.config"
+    local: "/var/lib/odoo/.local"
+    user: "odoo"

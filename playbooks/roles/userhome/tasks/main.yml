@@ -1,0 +1,107 @@
+---
+# initialize user home
+- name: add mnt dir
+  ansible.builtin.file:
+    path: "{{ home }}/mnt"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: add bin dir
+  ansible.builtin.file:
+    path: "{{ homebin }}"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: add .cfg dir
+  ansible.builtin.file:
+    path: "{{ config }}/cfg"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: profile source bashrc
+  blockinfile:
+    path: "{{ home }}/.profile"
+    create: yes
+    marker: "# {mark} source bashrc"
+    block: |
+      if [ -f $HOME/.bashrc ]; then
+        source $HOME/.bashrc
+      fi
+
+- name: profile add .cfg dir
+  blockinfile:
+    path: "{{ home }}/.bashrc"
+    create: yes
+    marker: "# {mark} cfg loader"
+    block: |
+      for f in ${HOME}/.config/cfg/*cfg
+      do
+        source ${f}
+      done
+
+# cfg 00-prompt
+- name: 00-prompt
+  ansible.builtin.template:
+    src: "cfg/00-prompt.cfg"
+    dest: "{{ config }}/cfg/00-prompt.cfg"
+    mode: "0644"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+# cfg 01-bash_autocomplete
+- name: 01-bash_autocomplete
+  ansible.builtin.template:
+    src: "cfg/01-bash_autocomplete.cfg"
+    dest: "{{ config }}/cfg/01-bash_autocomplete.cfg"
+    mode: "0644"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+# cfg aliases.cfg
+- name: aliases
+  ansible.builtin.template:
+    src: "cfg/aliases.cfg"
+    dest: "{{ config }}/cfg/aliases.cfg"
+    mode: "0644"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+# cfg 10-homebin dir
+- name: 10-homebin
+  ansible.builtin.template:
+    src: "cfg/10-homebin.cfg"
+    dest: "{{ config }}/cfg/10-homebin.cfg"
+    mode: "0644"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: check bash installed
+  ansible.builtin.stat:
+    path: "/usr/bin/bash"
+  register: stat_bash
+
+- name: 10-homebin
+  ansible.builtin.template:
+    src: "cfg/10-homebin.cfg"
+    dest: "{{ config }}/cfg/10-homebin.cfg"
+    mode: "0644"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  when: stat_bash.stat.exists
+
+- name: check zsh installed
+  ansible.builtin.stat:
+    path: "/usr/bin/zsh"
+  register: stat_zsh
+
+- name: 10-homebin zsh
+  ansible.builtin.template:
+    src: "cfg/10-homebin.cfg"
+    dest: "{{ config }}/cfg/10-homebin.cfg"
+    mode: "0644"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  when: stat_zsh.stat.exists

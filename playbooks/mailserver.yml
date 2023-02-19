@@ -1,0 +1,18 @@
+---
+- hosts: all
+  roles:
+    # - hosts_file
+    - apt_mirror
+    - update
+    - baseline
+    - snapd
+    - sqlite3
+    - certbot
+    - vmail_user
+    - postfix
+    - postfix_config
+    - dovecot
+    - dovecot_config
+    - clamav
+    - rspamd
+    - fail2ban

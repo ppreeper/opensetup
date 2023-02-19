@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    lxdgroup: ""
+    guest: ""
+  tasks:
+    - name: start container
+      community.general.lxd_container:
+        name: "{{ guest }}"
+        state: started

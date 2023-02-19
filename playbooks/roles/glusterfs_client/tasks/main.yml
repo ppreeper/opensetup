@@ -1,0 +1,5 @@
+---
+- name: glusterfs-client
+  ansible.builtin.apt:
+    name: glusterfs-client
+    state: present

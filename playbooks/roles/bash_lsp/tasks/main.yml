@@ -1,0 +1,7 @@
+---
+- import_role: nodejs
+- name: npm bash-language-server
+  community.general.npm:
+    name: bash-language-server
+    global: yes
+    state: present

@@ -1,0 +1,28 @@
+---
+- hosts: all
+  roles:
+    - odoo_base
+    - odoo_community
+    - odoo_user_chsh
+    - odoo_config
+    - odoo_db
+    - odoo_apps
+    - odoo_app_base
+    - odoo_mod_l10n_ca
+    - odoo_mod_auth_ldap
+    - odoo_app_stock
+    - userhome
+    - python
+    - nodejs
+    - nvim_dev
+  vars:
+    home: "/var/lib/odoo"
+    config: "/var/lib/odoo/.config"
+    local: "/var/lib/odoo/.local"
+    user: "odoo"
+  tasks:
+    - name: update odoo user
+      user:
+        name: "odoo"
+        shell: "/bin/bash"
+        groups: odoo,sudo

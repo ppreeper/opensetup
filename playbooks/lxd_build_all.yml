@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    lxdgroup: ""
+    # item: ""
+  tasks:
+    - name: create containers
+      loop: "{{ query('inventory_hostnames', lxdgroup) }}"
+      lxd_container:
+        name: "{{ item }}"
+        state: started
+        source:
+          type: image
+          mode: pull
+          # server: "https://images.linuxcontainers.org"
+          protocol: lxd
+          alias: "{{ hostvars[item].distro }}"
+        profiles:
+          - "{{ hostvars[item].profile }}"
+        config:
+          security.nesting: "{{ hostvars[item].nesting }}"
+          security.privileged: "{{ hostvars[item].privileged }}"
+        devices:
+          eth0:
+            type: nic
+            nictype: bridged
+            parent: "{{ hostvars[item].bridge or lxdbr0 }}"
+            ipv4.address: "{{ hostvars[item].ip_address }}"
+        url: unix:/var/snap/lxd/common/lxd/unix.socket

@@ -1,0 +1,11 @@
+---
+- hosts: all
+  roles:
+    - update_apt
+    - cli_utils
+    - hosts_ip
+    - samba_server
+    - systemd_resolved
+    - krb5_config
+    - samba_config
+    - samba_ad_dc_primary

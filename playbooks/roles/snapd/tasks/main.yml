@@ -1,0 +1,7 @@
+---
+- name: install snapd
+  ansible.builtin.apt:
+    name:
+      - snapd
+    state: present
+  when: ansible_distribution == "Ubuntu"

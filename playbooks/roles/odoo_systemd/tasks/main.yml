@@ -1,0 +1,12 @@
+---
+- name: odoo.service file
+  ansible.builtin.template:
+    src: "odoo.service"
+    dest: "/lib/systemd/system/"
+    mode: "0644"
+- name: enable odoo.service
+  ansible.builtin.systemd:
+    name: odoo
+    enabled: yes
+    daemon_reload: yes
+    status: started

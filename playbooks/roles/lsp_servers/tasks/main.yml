@@ -1,0 +1,17 @@
+---
+# lsp servers
+- name: npm sass
+  community.general.npm:
+    name: sass
+    global: yes
+    state: present
+- name: npm bash-language-server
+  community.general.npm:
+    name: bash-language-server
+    global: yes
+    state: present
+- name: npm sql-language-server
+  community.general.npm:
+    name: sql-language-server
+    global: yes
+    state: present

@@ -1,0 +1,7 @@
+---
+- import_role: nodejs
+- name: npm sass
+  community.general.npm:
+    name: sass
+    global: yes
+    state: present

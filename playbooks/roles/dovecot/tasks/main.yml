@@ -1,0 +1,9 @@
+---
+- name: dovecot
+  ansible.builtin.apt:
+    name:
+      - dovecot-core
+      - dovecot-imapd
+      - dovecot-lmtpd
+      - dovecot-sqlite
+    state: present

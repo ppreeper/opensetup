@@ -1,0 +1,9 @@
+#!/bin/bash
+FILE="${1}"
+DOC="$(echo ${FILE%.*})"
+CFG="${HOME}/.local/asciidoc"
+FONTS="${HOME}/.fonts"
+STYLE=basic
+
+asciidoctor-pdf -a allow-uri-read -a pdf-themesdir=${CFG}/themes -a pdf-theme=${STYLE} -a pdf-fontsdir=${FONTS} -r asciidoctor-diagram "${DOC}.adoc"
+rm -f "${DOC}.html"

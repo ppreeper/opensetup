@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    lxdgroup: ""
+    guest: ""
+  tasks:
+    - name: stop container
+      # loop: "{{ query('inventory_hostnames', lxdgroup) }}"
+      lxd_container:
+        name: "{{ guest }}"
+        state: stopped

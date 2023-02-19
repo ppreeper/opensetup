@@ -1,0 +1,7 @@
+---
+- name: mariadb server
+  ansible.builtin.apt:
+    name:
+    - mariadb-server
+    state: present
+  when: ansible_os_family == 'Debian'

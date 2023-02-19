@@ -1,0 +1,8 @@
+---
+- hosts: all
+  roles:
+    - update
+    - cli_utils
+    # - hosts_ip
+    - db_postgresql_repo
+    - db_postgresql_server

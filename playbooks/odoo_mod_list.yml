@@ -1,0 +1,15 @@
+---
+- hosts: all
+  roles:
+    - odoo_mod_install
+  vars:
+    user: "odoo"
+    home: "/var/lib/odoo"
+    mods:
+      - mtr
+      - documents
+      - purchase
+      - sale_management
+      - stock
+      - mrp
+      - website_slides

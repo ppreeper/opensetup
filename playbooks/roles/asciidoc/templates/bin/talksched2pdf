@@ -1,0 +1,13 @@
+#!/bin/bash
+FILE="${1}"
+DOC="$(echo ${FILE%.*})"
+CFG="${HOME}/.local/asciidoc"
+FONTS="${HOME}/.local/share/fonts"
+STYLE=sched
+DUID=$(id -u)
+DGID=$(id -g)
+
+docker run --rm -it -v "${PWD}":/documents -v ${CFG}:/asciidoc -v ${FONTS}:/fonts asciidoctor/docker-asciidoctor asciidoctor-pdf -a allow-uri-read -a pdf-themesdir=/asciidoc/themes -a pdf-theme=${STYLE} -a pdf-fontsdir=/fonts -r asciidoctor-diagram "${DOC}.adoc"
+docker run --rm -it -v "${PWD}:/documents" alpine:latest chown $DUID:$DGID "/documents/${DOC}.pdf"
+docker run --rm -it -v "${PWD}:/documents" alpine:latest rm -f "/documents/${DOC}.html"
+

@@ -1,0 +1,6 @@
+---
+- name: fail2ban
+  community.general.apt:
+    name:
+      - fail2ban
+    state: present

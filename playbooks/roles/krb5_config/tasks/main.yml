@@ -1,0 +1,15 @@
+---
+- name: krb5.conf
+  ansible.builtin.file:
+    path: "/etc/krb5.conf"
+    state: absent
+- name: krb5.conf
+  blockinfile:
+    path: "/etc/krb5.conf"
+    create: yes
+    marker: "# {mark}"
+    block: |
+      [libdefaults]
+        default_realm = {{ realm }}
+        dns_lookup_realm = false
+        dns_lookup_kdc = true

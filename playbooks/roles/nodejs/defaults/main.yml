@@ -1,0 +1,7 @@
+---
+home: "{{lookup('env', 'HOME')}}"
+config: "{{lookup('env', 'HOME')}}/.config"
+local: "{{lookup('env', 'HOME')}}/.local"
+user: "{{lookup('env', 'USER')}}"
+homebin: "{{lookup('env', 'HOME')}}/.local/bin"
+node_version: 16

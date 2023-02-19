@@ -1,0 +1,5 @@
+---
+- name: google chrome
+  community.general.flatpak:
+    name: com.google.Chrome
+    state: present

@@ -1,0 +1,52 @@
+---
+- name: vscode extensions
+  ansible.builtin.command: "code --install-extension {{ item.pkg }}"
+  become_user: "{{ user }}"
+  with_items:
+    - { pkg: "aaron-bond.better-comments" }
+    - { pkg: "akmittal.hugofy" }
+    - { pkg: "asciidoctor.asciidoctor-vscode" }
+    - { pkg: "batisteo.vscode-django" }
+    - { pkg: "bibhasdn.django-snippets" }
+    - { pkg: "ckolkman.vscode-postgres" }
+    - { pkg: "DavidAnson.vscode-markdownlint" }
+    - { pkg: "dbaeumer.jshint" }
+    - { pkg: "dbaeumer.vscode-eslint" }
+    - { pkg: "eamodio.gitlens" }
+    - { pkg: "ecmel.vscode-html-css" }
+    - { pkg: "eg2.tslint" }
+    - { pkg: "eriklynd.json-tools" }
+    - { pkg: "esbenp.prettier-vscode" }
+    - { pkg: "formulahendry.vscode-mysql" }
+    - { pkg: "golang.go" }
+    - { pkg: "GrapeCity.gc-excelviewer" }
+    - { pkg: "Gruntfuggly.todo-tree" }
+    - { pkg: "gruntfuggly.todo-tree" }
+    - { pkg: "HookyQR.beautify" }
+    - { pkg: "jebbs.plantuml" }
+    - { pkg: "joaompinto.asciidoctor-vscode" }
+    - { pkg: "rust-lang.rust" }
+    - { pkg: "mdickin.markdown-shortcuts" }
+    - { pkg: "mechatroner.rainbow-csv" }
+    - { pkg: "ms-azuretools.vscode-docker" }
+    - { pkg: "ms-mssql.mssql" }
+    - { pkg: "ms-python.python" }
+    - { pkg: "ms-python.vscode-pylance" }
+    - { pkg: "ms-toolsai.jupyter" }
+    - { pkg: "golang.go" }
+    - { pkg: "ms-vscode.powershell" }
+    - { pkg: "mtxr.sqltools" }
+    - { pkg: "mtxr.sqltools-driver-mysql" }
+    - { pkg: "mtxr.sqltools-driver-pg" }
+    - { pkg: "mtxr.sqltools-driver-sqlite" }
+    - { pkg: "octref.vetur" }
+    - { pkg: "rangav.vscode-thunder-client" }
+    - { pkg: "redhat.ansible" }
+    - { pkg: "redhat.vscode-xml" }
+    - { pkg: "redhat.vscode-yaml" }
+    - { pkg: "ritwickdey.LiveServer" }
+    - { pkg: "shd101wyy.markdown-preview-enhanced" }
+    - { pkg: "svelte.svelte-vscode" }
+    - { pkg: "syler.sass-indented" }
+    - { pkg: "yzhang.markdown-all-in-one" }
+    - { pkg: "Zignd.html-css-class-completion" }

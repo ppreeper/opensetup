@@ -1,0 +1,7 @@
+---
+- name: enable syncthing@{{ lookup('env', 'USER') }} service
+  ansible.builtin.systemd:
+    name: syncthing@{{ lookup('env', 'USER') }}
+    enabled: yes
+    daemon_reload: yes
+    state: started

@@ -1,0 +1,19 @@
+---
+- name: vagrant
+  ansible.builtin.apt:
+    #deb: "https://releases.hashicorp.com/vagrant/{{ VAGRANT_VERSION }}/vagrant_{{ VAGRANT_VERSION }}_x86_64.deb"
+    name:
+      - vagrant
+      - vagrant-libvirt
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: vagrant cli helpers
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  with_items:
+    - { src: "bin/vagrantup", dest: "{{ home }}/bin/", mode: "0755" }

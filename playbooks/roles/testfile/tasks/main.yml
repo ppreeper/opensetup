@@ -1,0 +1,11 @@
+---
+- name: hostvars
+  ansible.builtin.template:
+    src: hostvars
+    dest: /opt/hostvars
+    mode: 0440
+- name: ansible_facts
+  ansible.builtin.template:
+    src: ansible_facts
+    dest: /opt/ansible_facts
+    mode: 0440

@@ -1,0 +1,18 @@
+---
+- name: nerdfont installer
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  with_items:
+    - { src: "bin/nerdfonts", dest: "{{ home }}/bin/", mode: "0755" }
+- name: install nerdfonts
+  ansible.builtin.command: "{{ home }}/bin/nerdfonts {{ item.font }}"
+  become_user: "{{ user }}"
+  with_items:
+    - { font: "Ubuntu" }
+    - { font: "UbuntuMono" }
+    - { font: "Hack" }
+    - { font: "Noto" }

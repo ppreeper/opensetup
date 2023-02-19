@@ -1,0 +1,7 @@
+---
+- name: install haproxy
+  ansible.builtin.apt:
+    name:
+      - haproxy
+    state: latest
+  when: ansible_os_family == 'Debian'

@@ -1,0 +1,8 @@
+---
+- hosts: all
+  vars:
+    schema: "http"
+  roles:
+    - update_apt
+    - cli_utils
+    - gitlab-ce

@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+    - name: diff config
+      aruba_config:
+        diff_against: intended
+        intended_config: "{{ lookup('file', 'master.cfg') }}"

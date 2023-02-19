@@ -1,0 +1,25 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - apt_mirror
+    - update
+    - hosts_file
+    - sysctl_custom
+    - baseline
+    - nfs_common
+    - lang_python
+    - nodejs
+    - npm_sass
+    - db_postgresql_client
+    - wkhtmltopdf
+    # - odoo_user
+    - rex_user
+    - odoo_base
+    - odoo_log
+    - odoo_fstab
+    - odoo_service
+    - odoo_service_enable
+    - ssh_keys_artg_oerp
+    - update
+    - reboot

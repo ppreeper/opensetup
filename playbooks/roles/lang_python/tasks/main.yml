@@ -1,0 +1,13 @@
+---
+- name: update
+  apt:
+    update_cache: yes
+    force_apt_get: yes
+
+# python3
+- name: python3
+  apt:
+    name:
+      - python3
+      - python3-pip
+    state: present

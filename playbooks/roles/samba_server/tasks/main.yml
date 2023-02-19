@@ -1,0 +1,35 @@
+---
+- name: remote file systems
+  ansible.builtin.apt:
+    name:
+      - samba
+      - cifs-utils
+      - krb5-user
+      - acl
+      - attr
+      - krb5-config
+      - krb5-user
+      - libpam-krb5
+      - winbind
+      - libpam-winbind
+      - libnss-winbind
+      - smbclient
+    state: latest
+  when: ansible_os_family == 'Debian'
+- name: remove winbind
+  ansible.builtin.replace:
+    path: /etc/nsswitch.conf
+    regexp: '\s+winbind'
+    replace: ""
+- name: passwd winbind
+  ansible.builtin.replace:
+    backup: yes
+    path: /etc/nsswitch.conf
+    regexp: "^(passwd.*)$"
+    replace: '\1 winbind'
+- name: group winbind
+  ansible.builtin.replace:
+    backup: yes
+    path: /etc/nsswitch.conf
+    regexp: "^(group.*)$"
+    replace: '\1 winbind'

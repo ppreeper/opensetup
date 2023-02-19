@@ -1,0 +1,37 @@
+---
+# asciidoc config dirs
+- name: asciidoc config dirs
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  with_items:
+    - { path: "{{ local }}/asciidoc" }
+    - { path: "{{ local }}/asciidoc/themes" }
+- name: theme files
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ local }}/asciidoc/themes/"
+    mode: "0640"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  with_items:
+    - { src: "config/themes/basic-theme.yml" }
+    - { src: "config/themes/policy-theme.yml" }
+    - { src: "config/themes/talk-theme.yml" }
+- name: asciidoctor helpers
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  with_items:
+    - { src: "bin/adoc2pdf", dest: "{{ home }}/bin/", mode: "0755" }
+    - { src: "bin/talk2pdf", dest: "{{ home }}/bin/", mode: "0755" }
+    - { src: "bin/talksched2pdf", dest: "{{ home }}/bin/", mode: "0755" }
+- import_role:
+    name: nerdfonts
+- import_role:
+    name: asciidoctor_pdf_fonts

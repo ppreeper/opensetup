@@ -1,0 +1,23 @@
+---
+- name: network vpn connectors
+  ansible.builtin.apt:
+    name:
+      - wireguard
+    state: latest
+  when: ansible_os_family == 'Debian'
+- name: add config dir
+  ansible.builtin.file:
+    path: "{{ config }}/wgvpn"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+- name: wireguard cli helpers
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  with_items:
+    - { src: "bin/wgadd", dest: "{{ homebin }}", mode: "0755" }
+    - { src: "bin/wgdel", dest: "{{ homebin }}", mode: "0755" }

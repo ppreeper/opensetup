@@ -1,0 +1,11 @@
+---
+- hosts: proxy
+  roles:
+    - hosts_file
+    - sysctl_custom
+    - apt_mirror
+    - update
+    - baseline
+    - tls_keys
+    - nginx
+    - nginx_odoo_proxy

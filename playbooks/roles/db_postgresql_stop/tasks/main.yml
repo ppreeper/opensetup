@@ -1,0 +1,13 @@
+---
+- name: postgresql default service stop
+  systemd:
+    name: postgresql@{{POSTGRES_VERSION}}-main.service
+    state: stopped
+    enabled: no
+    daemon_reload: yes
+- name: postgresql main service stop
+  systemd:
+    name: postgresql.service
+    state: stopped
+    enabled: no
+    daemon_reload: yes

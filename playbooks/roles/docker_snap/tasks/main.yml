@@ -1,0 +1,12 @@
+---
+- name: docker
+  community.general.snap:
+    name: docker
+    state: present
+  when: ansible_distribution == "Ubuntu"
+- name: add existing user "{{ user }}" to group docker
+  ansible.builtin.user:
+    name: "{{ user }}"
+    groups:
+      - docker
+    append: yes

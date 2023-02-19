@@ -1,0 +1,21 @@
+---
+# nextcloud-client
+- name: nextcloud desktop client repo remove
+  ansible.builtin.apt_repository:
+    validate_certs: no
+    repo: "ppa:nextcloud-devs/client"
+    state: absent
+  when: ansible_distribution == "Ubuntu"
+- name: nextcloud desktop client repo add
+  ansible.builtin.apt_repository:
+    validate_certs: no
+    repo: "ppa:nextcloud-devs/client"
+    state: present
+  when: ansible_distribution == "Ubuntu"
+- name: nextcloud desktop client
+  ansible.builtin.apt:
+    name:
+      - nextcloud-desktop
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"

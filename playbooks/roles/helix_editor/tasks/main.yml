@@ -1,0 +1,20 @@
+---
+- name: add helix dir
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  with_items:
+    - { path: "{{ config }}/helix" }
+# install helix
+- name: helixup
+  ansible.builtin.template:
+    src: "helixup"
+    dest: "{{ homebin }}/helixup"
+    mode: "0750"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+- name: install nvim
+  ansible.builtin.command: "{{ homebin }}/helixup"
+  become_user: "{{ user }}"

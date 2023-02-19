@@ -1,0 +1,14 @@
+---
+- name: install microk8s
+  community.general.snap:
+    name: microk8s
+    state: present
+    classic: yes
+  when: ansible_distribution == "Ubuntu"
+- name: add .kube dir
+  ansible.builtin.file:
+    path: "{{ home }}/.kube"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  when: ansible_distribution == "Ubuntu"

@@ -1,0 +1,15 @@
+---
+- name: create {{ user }} group
+  community.general.group:
+    name: "{{ user }}"
+    gid: "{{ gid }}"
+    state: present
+- name: create {{ user }} user
+  community.general.user:
+    name: "{{ user }}"
+    uid: "{{ uid }}"
+    groups:
+      - "{{ user }}"
+    home: "{{ home }}"
+    shell: /usr/sbin/nologin
+    state: present

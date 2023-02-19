@@ -1,0 +1,27 @@
+---
+- import_role:
+    name: baseline
+
+- name: repo key
+  ansible.builtin.apt_key:
+    url: "{{url}}/x{{distro}}/Release.key"
+    state: present
+  when: ansible_distribution == "Ubuntu"
+
+- name: repository add
+  ansible.builtin.apt_repository:
+    validate_certs: no
+    repo: "deb {{url}}/x{{distro}}/ /"
+    filename: podman
+    state: present
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"
+
+- name: podman
+  ansible.builtin.apt:
+    name:
+      - podman
+      - buildah
+    state: present
+    update_cache: yes
+  when: ansible_distribution == 'Debian'

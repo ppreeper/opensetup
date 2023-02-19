@@ -1,0 +1,9 @@
+---
+- import_role:
+    name: kubuntu_ppa
+- name: kubuntu updates
+  ansible.builtin.apt_repository:
+    validate_certs: no
+    repo: "ppa:kubuntu-ppa/backports"
+    state: present
+  when: ansible_distribution == "Ubuntu"

@@ -1,0 +1,6 @@
+---
+- name: youtube-dl
+  ansible.builtin.apt:
+    name: youtube-dl
+    state: present
+  when: ansible_os_family == 'Debian'

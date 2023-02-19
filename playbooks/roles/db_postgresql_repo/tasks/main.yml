@@ -1,0 +1,21 @@
+---
+- import_role:
+    name: baseline
+- name: postgresql repo key
+  ansible.builtin.apt_key:
+    url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
+    state: present
+  when: ansible_os_family == 'Debian'
+- name: postgres repository stat
+  ansible.builtin.stat:
+    path: "/etc/apt/sources.list.d/postgres.list"
+  register: stat_result
+  when: ansible_os_family == 'Debian'
+- name: postgres repository add
+  ansible.builtin.apt_repository:
+    validate_certs: no
+    repo: "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ {{ ansible_lsb.codename|lower }}-pgdg main"
+    state: present
+    filename: postgres
+    update_cache: yes
+  when: ansible_os_family == 'Debian'

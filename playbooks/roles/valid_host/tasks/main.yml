@@ -1,0 +1,27 @@
+---
+- name: Upgra
+  apt:
+    name: "*"
+    state: latest
+    autoremove: yes
+    autoclean: yes
+    update_cache: yes
+    cache_valid_time: 3600
+  when: ansible_os_family == 'Debian'
+  dnf:
+    name: "*"
+    state: latest
+  when: ansible_distribution == 'Fedora'
+- name: Upgrade all packages on Centos
+  yum:
+    name: "*"
+    state: latest
+  when: ansible_distribution == 'CentOS'
+- name: check package_facts
+  package_facts:
+    manager: "auto"
+- name: Update flatpak packages
+  flatpak:
+    name: "*"
+    state: present
+  when: "'flatpak' in ansible_facts.packages"

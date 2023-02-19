@@ -1,0 +1,7 @@
+---
+- import_role: nodejs
+- name: npm sql-language-server
+  community.general.npm:
+    name: sql-language-server
+    global: yes
+    state: present

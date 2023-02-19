@@ -1,0 +1,19 @@
+---
+- name: root ssh keys
+  ansible.builtin.blockinfile:
+    path: /root/.ssh/authorized_keys
+    create: true
+    mode: 0600
+    marker: "# {mark} OERP sshkeys"
+    block: |
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMobcbvlVFuUKp3Mrd5jXI/q0Lma3wa3frvsKPqnEfTRLqEpV+Tk2gKZBj13NhiHV9Njik2CVBlYCD9n9eLtxiSUfED44KDYKss1Q5GNWXlBaYE5FDIUJfONnneK/FNHyvzXdtp1mPboEGjGS8pnqXGCqgb8mDh/H5SJ5AhS2t26SzWRX5rP+emUDLPVZyD64VUnSja9IV7kumUH6JnP/c/SOaSSq/gcjPonByqdPMXKfwv+eev1WlOnfAWFUqQ4OxaPxRjrgf9fhKCEwCxaQnsCDT59sWz7iCc4ufEwe+5SueoIGuyzi0XrGZmsjGh2Jgl0DQFC2zpq57vIkJRyg7 lj@persondesktop
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6RtDWlpLmfQ6tQqgje1oWccy7Ubgr2B0Orc3gAVau6gR33pu4oQXUsDxeCgdZWBJLcwshVS/fN2lF7jFYVahNhHR56+9vSin14uLUM9SOrwO9GR14gVZTHrV9OCgYTC0u8TFnPsxIzjKBJErKjUhO6z0NM2beBFvHpEkS96AUy47f7RrKWOHIV7ANNBYy5pVl4y+X2A0/1bZAHjlnp2Xm4CeEvQFoy5jkV08ObQMBqr9q+62YzL1PFP3ryC+xrIBZK4vyuEWt3dGLhG6204x3jUalmVA8+aEI8dX1F8v7B94UyU9wZ/sVDafhtYi8uRo/e1fTzoI4jbdIdjsPcuur ddico@ddmac2.lan
+- name: rex ssh keys
+  ansible.builtin.blockinfile:
+    path: /home/rex/.ssh/authorized_keys
+    create: true
+    mode: 0600
+    marker: "# {mark} OERP sshkeys"
+    block: |
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMobcbvlVFuUKp3Mrd5jXI/q0Lma3wa3frvsKPqnEfTRLqEpV+Tk2gKZBj13NhiHV9Njik2CVBlYCD9n9eLtxiSUfED44KDYKss1Q5GNWXlBaYE5FDIUJfONnneK/FNHyvzXdtp1mPboEGjGS8pnqXGCqgb8mDh/H5SJ5AhS2t26SzWRX5rP+emUDLPVZyD64VUnSja9IV7kumUH6JnP/c/SOaSSq/gcjPonByqdPMXKfwv+eev1WlOnfAWFUqQ4OxaPxRjrgf9fhKCEwCxaQnsCDT59sWz7iCc4ufEwe+5SueoIGuyzi0XrGZmsjGh2Jgl0DQFC2zpq57vIkJRyg7 lj@persondesktop
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6RtDWlpLmfQ6tQqgje1oWccy7Ubgr2B0Orc3gAVau6gR33pu4oQXUsDxeCgdZWBJLcwshVS/fN2lF7jFYVahNhHR56+9vSin14uLUM9SOrwO9GR14gVZTHrV9OCgYTC0u8TFnPsxIzjKBJErKjUhO6z0NM2beBFvHpEkS96AUy47f7RrKWOHIV7ANNBYy5pVl4y+X2A0/1bZAHjlnp2Xm4CeEvQFoy5jkV08ObQMBqr9q+62YzL1PFP3ryC+xrIBZK4vyuEWt3dGLhG6204x3jUalmVA8+aEI8dX1F8v7B94UyU9wZ/sVDafhtYi8uRo/e1fTzoI4jbdIdjsPcuur ddico@ddmac2.lan

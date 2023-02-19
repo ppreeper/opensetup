@@ -1,0 +1,16 @@
+---
+- import_role:
+      name: db_postgresql_repo
+- import_role:
+      name: db_postgresql_server
+- import_role:
+      name: db_postgresql_server_open
+- import_role:
+      name: odoo_user
+- name: update odoo db role
+  become_user: postgres
+  community.postgresql.postgresql_user:
+      name: odoo
+      password: odoo
+      state: present
+      role_attr_flags: "CREATEDB"

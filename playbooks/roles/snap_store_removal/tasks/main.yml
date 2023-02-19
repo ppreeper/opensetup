@@ -1,0 +1,15 @@
+---
+# snap store removal
+- name: remove snap-store
+  community.general.snap:
+    name: snap-store
+    state: absent
+  when: ansible_distribution == "Ubuntu"
+# gnome software store
+- name: gnome software store
+  ansible.builtin.apt:
+    name:
+      - gnome-software
+      - gnome-software-plugin-snap
+    state: present
+  when: ansible_distribution == "Ubuntu"

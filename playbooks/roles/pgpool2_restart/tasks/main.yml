@@ -1,0 +1,9 @@
+---
+- name: pgpool2 service stop
+  systemd:
+    name: pgpool2.service
+    state: stopped
+- name: pgpool2 service start
+  systemd:
+    name: pgpool2.service
+    state: started
