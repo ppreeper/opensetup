@@ -1,0 +1,231 @@
+---
+- hosts: all
+  become: yes
+  roles:
+    - nsswitch
+    - sysctl_custom
+    - fonts-nerdfonts
+    - fonts-pdf-fonts
+    - golang
+    - nodejs
+    - python
+    - hugo
+
+base
+    - baseline
+    - zsh
+    - userhome
+    - cli_utils
+    - cli_helpers
+    - cli_network
+    - cli_filesystems
+    - cli_file_utils
+    - cli_remote_filesystems
+    - libreoffice
+
+
+    - media-codecs
+    - media-images
+    - media-audio
+    - media-video
+    - wgvpn
+    - syncthing
+    - syncthing_systemd
+    - bottles_flatpak
+    - remmina_flatpak
+    - virt_viewer
+    - zoom-client_flatpak
+
+dev
+    - python
+    - pyenv
+    - helix_editor
+    - vscode
+    - vscode_addons
+    - db_sqlite3
+    - db_beaver
+    - wkhtmltopdf
+
+gnome
+
+
+    - baseline
+
+    - userhome
+    - zsh
+    - cli_utils
+    - cli_helpers
+    - cli_network
+    - cli_filesystems
+    - cli_file_utils
+    - cli_remote_filesystems
+    - terminator
+    - libreoffice
+    - email_evolution
+    - nextcloud_client
+    - syncthing
+    - wgvpn
+    - remotedesk
+    - nvim_dev
+
+
+    - python
+    - java
+    - ruby
+    - vscode
+    - kvm
+    - db_sqlite3
+    - db_beaver
+    - media
+    - cadcam
+    - asciidoc
+
+    - zoom-client
+
+kubuntu-backports
+    - kubuntu_ppa_backports
+    - update
+
+    - baseline
+
+    - userhome
+    - cli_utils
+    - cli_helpers
+    - cli_network
+    - cli_filesystems
+    - cli_file_utils
+    - cli_remote_filesystems
+    - libreoffice
+    - google_chrome
+    - nextcloud_client
+    - syncthing
+    - syncthing_systemd
+    - wgvpn
+    - remmina
+    - virt_viewer
+    - teamviewer
+    - nvim
+
+
+    - python
+    - kvm
+    - docker_io
+    - vscode
+    - db_sqlite3
+    - db_beaver
+    - media
+    - cadcam
+    - asciidoc
+
+    - update
+
+kubuntu
+    - update
+
+    - baseline
+
+    - userhome
+    - cli_utils
+    - cli_helpers
+    - cli_network
+    - cli_filesystems
+    - cli_file_utils
+    - cli_remote_filesystems
+    - libreoffice
+    - google_chrome
+    - nextcloud_client
+    - syncthing
+    - syncthing_systemd
+    - wgvpn
+    - remmina
+    - virt_viewer
+    - teamviewer
+    - nvim
+
+
+    - python
+    - kvm
+    - docker_io
+    - vscode
+    - db_sqlite3
+    - db_beaver
+    - media
+    - cadcam
+    - asciidoc
+
+    - update
+
+mint
+
+
+
+
+
+
+
+
+neon
+
+    - baseline
+
+    - userhome
+    - cli_utils
+    - cli_helpers
+    - cli_network
+    - cli_filesystems
+    - cli_file_utils
+    - cli_remote_filesystems
+    - libreoffice
+    - syncthing
+    - wgvpn
+    - teamviewer
+
+
+    - python
+    - vscode
+    - virt_viewer
+    - microk8s
+    - db_sqlite3
+    - db_beaver
+    - media-codecs
+    - media-images
+    - media-audio
+    - media-video
+    - cadcam
+
+
+
+  desktop
+
+    - baseline
+
+    - userhome
+    - cli_utils
+    - cli_helpers
+    - cli_network
+    - cli_filesystems
+    - cli_file_utils
+    - cli_remote_filesystems
+    - terminator
+    - libreoffice
+    - email_evolution
+    - chromium
+    - nextcloud_client
+    - syncthing
+    - wgvpn
+    - remotedesk
+    - nvim_dev
+
+
+    - java
+    - python
+    - ruby
+    - vscode
+    - docker_io
+    - lxd
+    - kvm
+    - db_sqlite3
+    - db_beaver
+    - media
+    - cadcam
+    - asciidoc

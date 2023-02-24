@@ -1,0 +1,5 @@
+---
+nodes:
+  hosts:
+    dbb.arthomson.com:
+      ip_address: 10.0.100.122
