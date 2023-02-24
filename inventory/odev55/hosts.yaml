@@ -1,5 +1,0 @@
----
-nodes:
-  hosts:
-    vmnas55.arthomson.com:
-      ip_address: 10.0.100.55

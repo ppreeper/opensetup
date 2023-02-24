@@ -1,5 +1,0 @@
----
-nodes:
-  hosts:
-    odev.preeper.org:
-      ip_address: 10.0.30.12
