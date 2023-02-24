@@ -15,7 +15,7 @@ apiserver_endpoint: "10.0.100.220"
 
 # k3s_token is required  masters can talk together securely
 # this token should be alpha numeric only
-k3s_token: "e77e9bc4debc1bebf0b09afe3e4081e28ea9b736"
+k3s_token: "exampletokenvalue"
 
 # change these to your liking, the only required one is--no-deploy servicelb
 extra_server_args: "--no-deploy servicelb --no-deploy traefik"
