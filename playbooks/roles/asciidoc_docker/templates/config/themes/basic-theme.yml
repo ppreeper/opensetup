@@ -1,3 +1,4 @@
+extends: base
 font:
   catalog:
     mplus1p:
@@ -22,19 +23,14 @@ font:
       bold_italic: Noto Serif Bold Italic Nerd Font Complete.ttf
     Noto Sans:
       normal: Noto Sans Regular Nerd Font Complete.ttf
-      bold: Noto Sans Display Bold Nerd Font Complete.ttf
+      bold: Noto Sans SemiCondensed Bold Nerd Font Complete.ttf
       italic: Noto Sans Italic Nerd Font Complete.ttf
-      bold_italic: Noto Sans Display Bold Italic Nerd Font Complete.ttf
+      bold_italic: Noto Sans SemiCondensed Bold Italic Nerd Font Complete.ttf
     Hack:
       normal: Hack Regular Nerd Font Complete.ttf
       bold: Hack Bold Nerd Font Complete.ttf
       italic: Hack Italic Nerd Font Complete.ttf
       bold_italic: Hack Bold Italic Nerd Font Complete.ttf
-    Ubuntu Mono:
-      bold_italic: Ubuntu Mono Bold Italic Nerd Font Complete.ttf
-      bold: Ubuntu Mono Bold Nerd Font Complete.ttf
-      italic: Ubuntu Mono Italic Nerd Font Complete.ttf
-      normal: Ubuntu Mono Nerd Font Complete.ttf
 page:
   background_color: ffffff
   layout: portrait
@@ -45,7 +41,7 @@ page:
   size: Letter
 base:
   align: justify
-  font_color: #000000
+  font_color: 000000
   font_family: Noto Sans
   font_size: 10
   line_height_length: round($base_font_size * 1.156)
@@ -65,15 +61,18 @@ role:
 vertical_rhythm: $base_line_height_length
 horizontal_rhythm: $base_line_height_length
 vertical_spacing: $vertical_rhythm
+block:
+  margin_top: 0
+  margin_bottom: $vertical_rhythm
 link:
   font_color: 428bca
-literal:
+codespan:
   font_color: b12146
   font_family: Hack
 button:
   content: "[\u2009%s\u2009]"
   font_style: bold
-key:
+kbd:
   background_color: f5f5f5
   border_color: cccccc
   border_offset: 1.5
@@ -91,146 +90,16 @@ heading:
   font_color: $base_font_color
   font_family: $base_font_family
   font_style: bold
-  h1_font_size: floor($base_font_size * 2.062)
-  h2_font_size: round($base_font_size * 1.784)
-  h3_font_size: round($base_font_size * 1.544)
-  h4_font_size: round($base_font_size * 1.336)
-  h5_font_size: round($base_font_size * 1.156)
-  h6_font_size: $base_font_size
+  h1_font_size: floor($base_font_size * 2.6)
+  h2_font_size: floor($base_font_size * 2.15)
+  h3_font_size: round($base_font_size * 1.7)
+  h4_font_size: $base_font_size_large
+  h5_font_size: $base_font_size
+  h6_font_size: $base_font_size_small
   line_height: 1
-  margin_top: round($vertical_rhythm * 0.865)
-  margin_bottom: round($vertical_rhythm * 0.865)
-  min_height_after: round($base_line_height_length * 1.544)
-title_page:
-  align: right
-  logo:
-    top: 10%
-  title:
-    top: 55%
-    font_size: $heading_h1_font_size
-    font_color: 999999
-    line_height: 0.9
-  subtitle:
-    font_size: $heading_h3_font_size
-    font_style: bold_italic
-    line_height: 1
-  authors:
-    margin_top: $base_font_size * 1.25
-    font_size: $base_font_size_large
-    font_color: 181818
-  revision:
-    margin_top: $base_font_size * 1.25
-block:
-  margin_top: 0
-  margin_bottom: $vertical_rhythm
-caption:
-  align: left
-  font_size: $base_font_size * 0.95
-  font_style: italic
-  margin_inside: $vertical_rhythm / 3
-  margin_outside: 0
-lead:
-  font_size: $base_font_size_large
-  line_height: 1.4
-abstract:
-  font_color: 5c6266
-  font_size: $lead_font_size
-  line_height: $lead_line_height
-  font_style: italic
-  first_line_font_style: bold
-  title:
-    align: center
-    font_color: $heading_font_color
-    font_family: $heading_font_family
-    font_size: $heading_h4_font_size
-    font_style: $heading_font_style
-admonition:
-  column_rule_color: $base_border_color
-  column_rule_width: $base_border_width
-  padding: [0, $horizontal_rhythm, 0, $horizontal_rhythm]
-  label:
-    text_transform: uppercase
-    font_style: bold
-blockquote:
-  font_color: $base_font_color
-  font_size: $base_font_size_large
-  border_color: $base_border_color
-  border_width: 5
-  padding:
-    [
-      0,
-      $horizontal_rhythm,
-      $block_margin_bottom * -0.75,
-      $horizontal_rhythm + $blockquote_border_width / 2,
-    ]
-  cite_font_size: $base_font_size_small
-  cite_font_color: 999999
-code:
-  font_color: $base_font_color
-  font_family: $literal_font_family
-  font_size: ceil($base_font_size)
-  padding: $code_font_size
-  line_height: 1.25
-  line_gap: 3.8
-  background_color: f5f5f5
-  border_color: cccccc
-  border_radius: $base_border_radius
-  border_width: 0.75
-conum:
-  font_family: $literal_font_family
-  font_color: $literal_font_color
-  font_size: $base_font_size
-  line_height: 4 / 3
-  glyphs: circled
-example:
-  border_color: $base_border_color
-  border_radius: $base_border_radius
-  border_width: 0.75
-  background_color: ffffff
-  padding: [$vertical_rhythm, $horizontal_rhythm, 0, $horizontal_rhythm]
-image:
-  align: left
-prose:
-  margin_top: $block_margin_top
-  margin_bottom: $block_margin_bottom
-sidebar:
-  background_color: eeeeee
-  border_color: e1e1e1
-  border_radius: $base_border_radius
-  border_width: $base_border_width
-  padding:
-    [$vertical_rhythm, $vertical_rhythm * 1.25, 0, $vertical_rhythm * 1.25]
-  title:
-    align: center
-    font_color: $heading_font_color
-    font_family: $heading_font_family
-    font_size: $heading_h4_font_size
-    font_style: $heading_font_style
-thematic_break:
-  border_color: $base_border_color
-  border_style: solid
-  border_width: $base_border_width
-  margin_top: $vertical_rhythm * 0.5
-  margin_bottom: $vertical_rhythm * 1.5
-description_list:
-  term_font_style: bold
-  term_spacing: $vertical_rhythm / 4
-  description_indent: $horizontal_rhythm * 1.25
-outline_list:
-  indent: $horizontal_rhythm * 1.5
-  item_spacing: $vertical_rhythm / 2
-table:
-  background_color: $page_background_color
-  border_color: dddddd
-  border_width: $base_border_width
-  cell_padding: 3
-  head:
-    font_style: bold
-    border_bottom_width: $base_border_width * 2.5
-  body:
-    stripe_background_color: f9f9f9
-  foot:
-    background_color: f0f0f0
+  margin_top: $vertical_rhythm * 0.4
+  margin_bottom: $vertical_rhythm * 0.9
+  min_height_after: $base_line_height_length * 1.5
 toc:
   indent: $horizontal_rhythm
   line_height: 1.4
@@ -275,3 +144,133 @@ footer:
       content: $footer-recto-right-content
     center:
       content: $footer-recto-center-content
+thematic_break:
+  border_color: $base_border_color
+  border_style: solid
+  border_width: $base_border_width
+  margin_top: $vertical_rhythm * 0.5
+  margin_bottom: $vertical_rhythm * 1.5
+description_list:
+  term_font_style: bold
+  term_spacing: $vertical_rhythm / 4
+  description_indent: $horizontal_rhythm * 1.25
+category_list:
+  indent: $horizontal_rhythm * 1.5
+  item_spacing: $vertical_rhythm / 2
+list:
+  indent: $horizontal_rhythm * 1.5
+  item_spacing: $vertical_rhythm / 2
+table:
+  background_color: $page_background_color
+  border_color: dddddd
+  border_width: $base_border_width
+  cell_padding: 3
+  head:
+    font_style: bold
+    border_bottom_width: $base_border_width * 2.5
+  body:
+    stripe_background_color: f9f9f9
+  foot:
+    background_color: f0f0f0
+image:
+  align: left
+prose:
+  margin_top: $block_margin_top
+  margin_bottom: $block_margin_bottom
+sidebar:
+  background_color: eeeeee
+  border_color: e1e1e1
+  border_radius: $base_border_radius
+  border_width: $base_border_width
+  padding:
+    [$vertical_rhythm, $vertical_rhythm * 1.25, 0, $vertical_rhythm * 1.25]
+  title:
+    align: center
+    font_color: $heading_font_color
+    font_family: $heading_font_family
+    font_size: $heading_h4_font_size
+    font_style: $heading_font_style
+caption:
+  align: left
+  font_size: $base_font_size * 0.95
+  font_style: italic
+  margin_inside: $vertical_rhythm / 3
+  margin_outside: 0
+lead:
+  font_size: $base_font_size_large
+  line_height: 1.4
+abstract:
+  font_color: 5c6266
+  font_size: $lead_font_size
+  line_height: $lead_line_height
+  font_style: italic
+  first_line_font_style: bold
+  title:
+    align: center
+    font_color: $heading_font_color
+    font_family: $heading_font_family
+    font_size: $heading_h4_font_size
+    font_style: $heading_font_style
+admonition:
+  column_rule_color: $base_border_color
+  column_rule_width: $base_border_width
+  padding: [0, $horizontal_rhythm, 0, $horizontal_rhythm]
+  label:
+    text_transform: uppercase
+    font_style: bold
+quote:
+  font_color: $base_font_color
+  font_size: $base_font_size_large
+  border_color: $base_border_color
+  border_width: 5
+  padding:
+    [
+      0,
+      $horizontal_rhythm,
+      $block_margin_bottom * -0.75,
+      $horizontal_rhythm + $blockquote_border_width / 2,
+    ]
+  cite_font_size: $base_font_size_small
+  cite_font_color: 999999
+code:
+  font_color: $base_font_color
+  font_family: $literal_font_family
+  font_size: ceil($base_font_size)
+  padding: $code_font_size
+  line_height: 1.25
+  line_gap: 3.8
+  background_color: f5f5f5
+  border_color: cccccc
+  border_radius: $base_border_radius
+  border_width: 0.75
+conum:
+  font_family: $literal_font_family
+  font_color: $literal_font_color
+  font_size: $base_font_size
+  line_height: 4 / 3
+  glyphs: circled
+example:
+  border_color: $base_border_color
+  border_radius: $base_border_radius
+  border_width: 0.75
+  background_color: ffffff
+  padding: [$vertical_rhythm, $horizontal_rhythm, 0, $horizontal_rhythm]
+title_page:
+  align: right
+  logo:
+    top: 10%
+  title:
+    top: 55%
+    font_size: $heading_h1_font_size
+    font_color: 999999
+    line_height: 0.9
+  subtitle:
+    font_size: $heading_h3_font_size
+    font_style: bold_italic
+    line_height: 1
+  authors:
+    margin_top: $base_font_size * 1.25
+    font_size: $base_font_size_large
+    font_color: 181818
+  revision:
+    margin_top: $base_font_size * 1.25
