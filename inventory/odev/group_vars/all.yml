@@ -12,10 +12,7 @@ odoo_data_server: vmnas53.arthomson.com
 odoo_data_share: /share/odoo
 odoo_db_host: dbc.arthomson.com
 odoo_db_port: 5432
-odoo_db_user: odoo
-odoo_db_password: AoRdToGo00
 # odoo_db_filter: "%h"
-odoo_admin_password: adminadmin
 odoo_db_maxconn: 24
 odoo_max_cron_threads: 2
 odoo_workers: 9
