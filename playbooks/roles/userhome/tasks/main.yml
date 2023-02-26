@@ -21,16 +21,6 @@
     owner: "{{ user }}"
     group: "{{ user }}"
 
-- name: profile source bashrc
-  blockinfile:
-    path: "{{ home }}/.profile"
-    create: yes
-    marker: "# {mark} source bashrc"
-    block: |
-      if [ -f $HOME/.bashrc ]; then
-        source $HOME/.bashrc
-      fi
-
 - name: profile add bash config dir
   blockinfile:
     path: "{{ home }}/.bashrc"

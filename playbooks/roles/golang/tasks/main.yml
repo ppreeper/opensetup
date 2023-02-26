@@ -29,7 +29,7 @@
 - name: cfg 20_go bash
   ansible.builtin.template:
     src: "20_go.cfg"
-    dest: "{{ config }}/cfg/20_go.cfg"
+    dest: "{{ config }}/bash/20_go.cfg"
     mode: "0644"
     owner: "{{ user }}"
     group: "{{ user }}"

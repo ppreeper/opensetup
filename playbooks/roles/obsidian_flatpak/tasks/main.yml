@@ -1,0 +1,5 @@
+---
+- name: obsidian
+  community.general.flatpak:
+    name: md.obsidian.Obsidian
+    state: present

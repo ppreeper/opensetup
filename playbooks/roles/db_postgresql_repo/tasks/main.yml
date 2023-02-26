@@ -1,6 +1,7 @@
 ---
-- import_role:
-    name: baseline
+- name: set ubuntu code name
+  set_fact:
+    ubuntu_codename: "{{ lookup('ini', 'UBUNTU_CODENAME type=properties file=' + ansible_distribution_file_path) }}"
 - name: postgresql repo key
   ansible.builtin.apt_key:
     url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"

@@ -1,6 +1,6 @@
 ---
 - name: vscodium extensions
-  ansible.builtin.command: "codium --install-extension {{ item.pkg }}"
+  ansible.builtin.command: "flatpak run com.vscodium.codium --install-extension {{ item.pkg }}"
   become_user: "{{ user }}"
   with_items:
     - { pkg: "aaron-bond.better-comments" }

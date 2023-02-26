@@ -15,23 +15,22 @@
     - terminator
     - fonts-nerdfonts
     - fonts-pdf-fonts
-    - media
-    - media-codecs
-    - media-images
-    - media-audio
-    - media-video
-    - wgvpn
-    - syncthing
-    - syncthing_systemd
     - golang
     - nodejs
     - python
     - pyenv
     - db_sqlite3
     - db_beaver
+    - wgvpn
+    - syncthing
+    - syncthing_systemd
     - docker_io
+    - media
+    - media-codecs
+    - media-images
+    - media-audio
+    - media-video
     - virt_viewer
-    - kvm
     - helix_editor
     - vscodium
     - vscodium_addons
@@ -40,6 +39,6 @@
     - bottles_flatpak
     - remmina_flatpak
     - zoom-client_flatpak
-    - asciidoc
+    - asciidoc_docker
     - hugo
-    - cadcam
+    - freecad_flatpak

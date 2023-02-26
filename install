@@ -2,7 +2,7 @@
 
 GRP=$(pwd | awk -F'/' '{print $NF}')
 
-[ -n "${PLAYBOOK_DIR}" ] || export PLAYBOOK_DIR='./ansible_playbooks'
+[ -n "${PLAYBOOK_DIR}" ] || export PLAYBOOK_DIR='./playbooks'
 
 help(){
     printf "${0} Usage:\n"
@@ -21,14 +21,14 @@ case "$#" in
             play)
                 shift
                 [ ${2} = "localhost" ] && export BECOME="-K" || export BECOME=""
-                echo ansible-playbook -l ${2} -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
-                ansible-playbook -l ${2} -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
+                echo ansible-playbook -i inventory/all -l ${2} -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
+                ansible-playbook -i inventory/all -l ${2} -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
                 ;;
             role)
                 shift
                 [ ${2} = "localhost" ] && export BECOME="-K" || export BECOME=""
-                echo ansible-playbook -l ${2} -e role=${1} -b ${PLAYBOOK_DIR}/install_role.yml $BECOME
-                ansible-playbook -l ${2} -e role=${1} -b ${PLAYBOOK_DIR}/install_role.yml $BECOME
+                echo ansible-playbook -i inventory/all -l ${2} -e role=${1} -b ${PLAYBOOK_DIR}/install_role.yml $BECOME
+                ansible-playbook -i inventory/all -l ${2} -e role=${1} -b ${PLAYBOOK_DIR}/install_role.yml $BECOME
                 ;;
             *)  help ;;
         esac

@@ -1,5 +1,24 @@
 ---
-- name: vscodium
-  community.general.flatpak:
-    name: com.vscodium.codium
+- name: vscodium repo key
+  ansible.builtin.get_url:
+    url: "https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg"
+    dest: /usr/share/keyrings/vscodium-archive-keyring.asc
+  when: ansible_os_family == 'Debian'
+- name: vscodium repo list
+  ansible.builtin.file:
+    path: "/etc/apt/sources.list.d/vscodium.list"
+    state: absent
+  when: ansible_os_family == 'Debian'
+- name: vscodium repo
+  ansible.builtin.apt_repository:
+    repo: "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.asc ] https://download.vscodium.com/debs vscodium main"
+    filename: vscodium
     state: present
+    validate_certs: no
+    update_cache: yes
+  when: ansible_os_family == 'Debian'
+- name: vscodium
+  ansible.builtin.apt:
+    name:
+      - codium
+  when: ansible_os_family == 'Debian'

@@ -72,7 +72,7 @@
 - name: cfg 21_pyenv
   ansible.builtin.template:
     src: "21_pyenv.cfg"
-    dest: "{{ config }}/cfg/21_pyenv.cfg"
+    dest: "{{ config }}/bash/21_pyenv.cfg"
     mode: "0644"
     owner: "{{ user }}"
     group: "{{ user }}"

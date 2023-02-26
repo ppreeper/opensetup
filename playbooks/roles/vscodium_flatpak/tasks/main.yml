@@ -1,0 +1,5 @@
+---
+- name: vscodium
+  community.general.flatpak:
+    name: com.vscodium.codium
+    state: present
