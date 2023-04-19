@@ -8,3 +8,8 @@
     - baseline
     - userhome
     - cli_utils
+    - cli_helpers
+    - cli_network
+    - cli_filesystems
+    - cli_file_utils
+    - cli_remote_filesystems
