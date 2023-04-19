@@ -2,7 +2,6 @@
 - hosts: all
   roles:
     - odoo_base
-    - odoo_commercial
     - odoo_user_chsh
     - odoo_config
     - odoo_db

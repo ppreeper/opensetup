@@ -3,7 +3,7 @@
     name: odoo_user
 - name: addons directory
   ansible.builtin.file:
-    path: { { addonsdir } }
+    path: "{{ addonsdir }}"
     state: directory
     group: "{{ user }}"
     owner: "{{ user }}"

@@ -1,57 +1,52 @@
 ---
 # initialize user home
-- name: add mnt dir
+- name: Add mnt dir
   ansible.builtin.file:
     path: "{{ home }}/mnt"
     state: directory
-    owner: "{{ user }}"
-    group: "{{ user }}"
-
-- name: add bin dir
+    owner: "{{ User }}"
+    group: "{{ User }}"
+    mode: "0775"
+- name: Add bin dir
   ansible.builtin.file:
     path: "{{ homebin }}"
     state: directory
-    owner: "{{ user }}"
-    group: "{{ user }}"
-
-- name: add bash config dir
+    owner: "{{ User }}"
+    group: "{{ User }}"
+    mode: "0775"
+- name: Add bash config dir
   ansible.builtin.file:
     path: "{{ config }}/bash"
     state: directory
-    owner: "{{ user }}"
-    group: "{{ user }}"
-
-- name: profile add bash config dir
-  blockinfile:
+    owner: "{{ User }}"
+    group: "{{ User }}"
+    mode: "0775"
+- name: Profile add bash config dir
+  ansible.builtin.blockinfile:
     path: "{{ home }}/.bashrc"
-    create: yes
+    create: true
+    mode: "0644"
     marker: "# {mark} cfg loader"
     block: |
       for f in ${HOME}/.config/bash/*cfg
       do
         source ${f}
       done
-
-# bash 00-prompt
-- name: 00-prompt
+- name: Bash-prompt
   ansible.builtin.template:
     src: "bash/00-prompt.cfg"
     dest: "{{ config }}/bash/00-prompt.cfg"
     mode: "0644"
     owner: "{{ user }}"
     group: "{{ user }}"
-
-# bash 01-bash_autocomplete
-- name: 01-bash_autocomplete
+- name: Bash_autocomplete
   ansible.builtin.template:
     src: "bash/01-bash_autocomplete.cfg"
     dest: "{{ config }}/bash/01-bash_autocomplete.cfg"
     mode: "0644"
     owner: "{{ user }}"
     group: "{{ user }}"
-
-# bash aliases.cfg
-- name: aliases
+- name: Aliases
   ansible.builtin.template:
     src: "bash/aliases.cfg"
     dest: "{{ config }}/bash/aliases.cfg"

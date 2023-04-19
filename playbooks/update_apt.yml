@@ -1,4 +1,4 @@
 ---
 - hosts: all
-  role:
-    - update_apt
+  roles:
+    - update

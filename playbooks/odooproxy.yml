@@ -6,6 +6,5 @@
     - apt_mirror
     - update
     - baseline
-    - tls_keys
     - nginx
     - nginx_odoo_proxy

@@ -13,8 +13,6 @@
     - npm_sass
     - db_postgresql_client
     - wkhtmltopdf
-    # - odoo_user
-    - rex_user
     - odoo_base
     - odoo_log
     - odoo_fstab

@@ -1,10 +1,4 @@
 ---
-# - hosts:
-#   tasks:
-#     - fail:
-#         msg: "{{ host }} not in inventory group"
-#       when: host not in hostvars
-#   when: inventory_hostname not in hostlist|map(attribute="name")|list
 - hosts:
   gather_facts: true
   any_errors_fatal: false
@@ -12,4 +6,3 @@
     role: ""
   roles:
     - echo_host
-    # - "{{ role }}"

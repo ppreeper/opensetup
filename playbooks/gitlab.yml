@@ -3,6 +3,6 @@
   vars:
     schema: "http"
   roles:
-    - update_apt
+    - update
     - cli_utils
     - gitlab-ce
