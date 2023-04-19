@@ -7,17 +7,22 @@ db:
     local: "/home/sysadmin/.local"
     user: "sysadmin"
     distro: "bullseye"
-    DOMAIN: "arthomson.com"
-
     POSTGRES_VERSION: "14"
+    postgresql_major_version: "14"
     POSTGRES_USERNAME: postgres
     POSTGRES_PASSWORD: ArRoToGt00
     POSTGRES_DATADIR: "/db/pgdata"
+    postgresql_data_dir_base: "/db/pgdata"    
     POSTGRES_ARCHIVE: "/db/pgarchive"
     POSTGRES_CLUSTER: "main"
+    postgresql_cluster_name: "main"
     POSTGRES_PORT: 5433
+    postgresql_port: "5432"
+    pgbouncer_port: "6432"
     REPL_USERNAME: repl
+    patroni_replication_user: "replicator"    
     REPL_PASSWORD: ArReTpGl00
+    patroni_replication_pass: "ArReTpGl0i0cator"
     PGPOOL_USERNAME: pgpool
     PGPOOL_PASSWORD: ApRoToHl00
     PGPOOL_PORT: 5432
@@ -29,16 +34,6 @@ db:
     HOST_NET: 10.0.100.0
     HOST_CIDR: 24
     SSH_KEYID: id_pgpool
-all:
-  vars:
-    ansible_python_interpreter: "/usr/bin/python3"
-    home: "/home/sysadmin"
-    config: "/home/sysadmin/.config"
-    local: "/home/sysadmin/.local"
-    user: "sysadmin"
-    distro: "bullseye"
-    DOMAIN: "arthomson.com"
-
     dcs: "etcd"
     dcs_server_ips:
      - 10.0.100.121
@@ -50,78 +45,8 @@ all:
       etcd:      2379
     consul_datacenter: "edm"
     consul_group: "consul"
-    
-    postgresql_major_version: "14"
-    postgresql_cluster_name: "main"
-    postgresql_port: "5432"
-    pgbouncer_port: "6432"
-    postgresql_data_dir_base: "/db/pgdata"
-    patroni_replication_user: "replicator"
-    patroni_replication_pass: "ArReTpGl0i0cator"
     patroni_postgres_pass: ""
     patroni_rewind_user: "postgres_rewind"
     patroni_rewind_pass: "ApRoTsGt0g0res_rewind"
     patroni_port: 8008
     vip: "10.0.100.120"
----
-ansible_python_interpreter: "/usr/bin/python3"
-home: "/home/sysadmin"
-config: "/home/sysadmin/.config"
-local: "/home/sysadmin/.local"
-user: "sysadmin"
-distro: "bullseye"
-DOMAIN: "arthomson.com"
-dcs: "etcd"
-dcs_server_ips:
-  - 10.0.100.121
-  - 10.0.100.122
-  - 10.0.100.123
-dcs_port:
-  consul: 8500
-  zookeeper: 2181
-  etcd: 2379
-consul_datacenter: "edm"
-consul_group: "consul"
-# Whether to use the regular or testing pgdg APT repository, values can be
-# `pgdg' (default) or `pgdg-testing'.
-#pgdg_repo: pgdg-testing
-postgresql_cluster_name: "main"
-postgresql_major_version: "14"
-postgresql_port: "5432"
-pgbouncer_port: "6432"
-# PostgreSQL base directory. If not set, @DATADIR_BASE@ is used, which is
-# evaluated by pg_createconfig_patroni to either the default
-# (/var/lib/postgresql) or what the data_directory variable (without %v/%c) in
-# /etc/postgresql-common/createcluster.conf is set to.
-#postgresql_data_dir_base: "/var/lib/postgresql"
-postgresql_data_dir_base: "/db/pgdata"
-patroni_replication_user: "replicator"
-patroni_replication_pass: "ArReTpGl0i0cator"
-# Password for the postgres superuser. Usually setting a password is
-# discouraged, and socket-based peer authentication to the local postgres
-# instance should be used instead. However, patroni_postgres_pass needs to be
-# set on PostgresSQL 10 and earlier if pg_rewind is to be used to get diverged
-# former primaries back online without a full re-clone.
-patroni_postgres_pass: ""
-# from Postgresql 11, pg_rewind can use a regular user with the appropriate
-# fine-grained permissions. If set, Patroni will setup the user and its
-# permissions. Note: "pg_rewind" is a reserved role and cannot be used.
-patroni_rewind_user: "postgres_rewind"
-patroni_rewind_pass: "ApRoTsGt0g0res_rewind"
-# The Patroni REST port
-patroni_port: 8008
-# vip-manager will manage the vip on each node if set
-vip: "10.0.100.120"
-# If HAProxy is to be deployed on one of the servers, add a "[haproxy_server]"
-# section to the inventory, make sure "postgresql_port" and "patroni_port" are
-# set and uncomment/edit the following HAProxy ports to be used by
-# clients/applications:
-#haproxy_write_port: 5432
-#haproxy_read_port: 5433
-# Uncomment this if the primary should also get read-only queries
-#haproxy_primary_read_scale: "on"
-# By default HAProxy uses the "haproxy" user for the read-only health check if
-# haproxy_primary_read_scale is enabled. If this user does not exist, error
-# messages will be logged in the Postgres log. Alternatively, another can be
-# specified:
-#haproxy_health_check_user: "haproxy"
