@@ -1,8 +1,10 @@
 ---
 - hosts: all
-  become: yes
+  name: Desktop-test
+  become: true
   roles:
     - nsswitch
     - sysctl_custom
     - baseline
     - userhome
+    - cli_utils

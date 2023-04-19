@@ -1,6 +1,7 @@
 ---
 - hosts: all
-  become: yes
+  name: Desktop-mint21
+  become: true
   roles:
     - nsswitch
     - sysctl_custom
