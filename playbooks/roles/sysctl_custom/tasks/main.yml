@@ -1,8 +1,8 @@
 ---
-- name: sysctl custom insert
+- name: Sysctl custom insert
   ansible.builtin.blockinfile:
     path: /etc/sysctl.conf
-    create: yes
+    create: true
     marker: "# {mark} custom settings"
     block: |
       fs.inotify.max_queued_events = 1048576
@@ -12,5 +12,5 @@
       net.core.default_qdisc=fq
       net.ipv4.tcp_congestion_control=bbr
       vm.swappiness=10
-- name: sysctl load
+- name: Sysctl load
   ansible.builtin.shell: sysctl --system

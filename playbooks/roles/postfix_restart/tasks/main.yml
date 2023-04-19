@@ -1,9 +1,9 @@
 ---
-- name: postfix service stop
+- name: Postfix service stop
   ansible.builtin.systemd:
     name: postfix.service
     state: stopped
-- name: postfix service start
+- name: Postfix service start
   ansible.builtin.systemd:
     name: postfix.service
     state: started

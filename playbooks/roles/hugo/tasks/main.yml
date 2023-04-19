@@ -1,17 +1,17 @@
 ---
-- name: git
+- name: Git
   ansible.builtin.apt:
     name:
       - git
     state: present
   when: ansible_os_family == 'Debian'
-- name: hugoup
+- name: Hugoup
   ansible.builtin.template:
     src: "bin/hugoup"
     dest: "{{ homebin }}/hugoup"
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: "0755"
-- name: install hugo
+- name: Install hugo
   ansible.builtin.command: "{{ homebin }}/hugoup"
   become_user: "{{ user }}"

@@ -18,7 +18,7 @@
     group: "{{ user }}"
   with_items:
     - { src: "config/themes/basic-theme.yml" }
-- name: asciidoctor helpers
+- name: Asciidoctor helpers
   ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -27,5 +27,6 @@
     group: "{{ user }}"
   with_items:
     - { src: "bin/adoc2pdf", dest: "{{ homebin }}", mode: "0755" }
-- import_role:
-    name: asciidoctor_pdf_fonts
+- name: Pdf fonts
+  ansible.builtin.import_role:
+    name: fonts/pdf_fonts

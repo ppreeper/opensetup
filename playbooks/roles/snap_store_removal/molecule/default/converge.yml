@@ -2,11 +2,11 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: update cache
-      apt:
+    - name: Update cache
+      ansible.builtin.apt:
         update_cache: true
         cache_valid_time: 3600
       when: ansible_os_family == 'Debian'
-    - name: snap_store_removal
-      include_role:
+    - name: Snap_store_removal
+      ansible.builtin.include_role:
         name: snap_store_removal

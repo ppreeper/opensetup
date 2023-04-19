@@ -1,12 +1,12 @@
 ---
-- name: media video tools
+- name: Media video tools
   ansible.builtin.apt:
     name:
       - dvdbackup
       - vobcopy
     state: present
   when: ansible_os_family == 'Debian'
-- name: media cli helpers
+- name: Media cli helpers
   ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"

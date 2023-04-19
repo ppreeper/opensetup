@@ -1,6 +1,0 @@
----
-- name: hugo
-  community.general.snap:
-    name: hugo
-    state: present
-  when: ansible_distribution == "Ubuntu"

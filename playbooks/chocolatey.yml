@@ -1,6 +1,7 @@
 ---
 - hosts: winhost
-  gather_facts: no
+  name: Chocolatey
+  gather_facts: false
   tasks:
     - name: Install Chocolatey on Windows10
       win_chocolatey:

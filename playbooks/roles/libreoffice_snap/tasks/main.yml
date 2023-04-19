@@ -1,5 +1,5 @@
 ---
-- name: libreoffice lang
+- name: Libreoffice lang
   community.general.snap:
     name: libreoffice
     state: present

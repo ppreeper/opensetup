@@ -1,6 +1,6 @@
 ---
-- name: fail2ban
-  community.general.apt:
+- name: Fail2ban
+  ansible.builtin.apt:
     name:
       - fail2ban
     state: present

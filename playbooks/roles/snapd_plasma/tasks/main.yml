@@ -1,5 +1,5 @@
 ---
-- name: snap support
+- name: Snap support
   ansible.builtin.apt:
     name:
       - plasma-discover-backend-snap

@@ -1,7 +1,0 @@
----
-- name: mariadb client
-  ansible.builtin.apt:
-    name:
-    - mariadb-client
-    state: present
-  when: ansible_os_family == 'Debian'

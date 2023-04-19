@@ -2,11 +2,11 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: update cache
-      apt:
+    - name: Update cache
+      ansible.builtin.apt:
         update_cache: true
         cache_valid_time: 3600
       when: ansible_os_family == 'Debian'
-    - name: unifi_controller
-      include_role:
+    - name: Unifi_controller
+      ansible.builtin.include_role:
         name: unifi_controller

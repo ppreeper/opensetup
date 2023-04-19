@@ -1,3 +1,3 @@
 ---
-- name: set papersize
+- name: Set papersize
   ansible.builtin.command: "/usr/sbin/paperconfig -p {{PAPERSIZE}}"

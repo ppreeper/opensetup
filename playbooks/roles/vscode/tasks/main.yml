@@ -1,5 +1,5 @@
 ---
-- name: visual studio code
+- name: VScode
   ansible.builtin.apt:
     deb: "https://go.microsoft.com/fwlink/?LinkID=760868"
     state: present

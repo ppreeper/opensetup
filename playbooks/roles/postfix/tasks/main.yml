@@ -1,6 +1,6 @@
 ---
-- name: postfix
-  apt:
+- name: Postfix
+  ansible.builtin.apt:
     name:
       - postfix
       - postfix-sqlite

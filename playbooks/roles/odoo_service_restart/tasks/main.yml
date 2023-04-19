@@ -1,9 +1,0 @@
----
-- name: odoo service down
-  ansible.builtin.systemd:
-    name: odoo.service
-    state: stopped
-- name: odoo service up
-  ansible.builtin.systemd:
-    name: odoo.service
-    state: started

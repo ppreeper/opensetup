@@ -1,5 +1,5 @@
 ---
-- name: install snapd
+- name: Install snapd
   ansible.builtin.apt:
     name:
       - snapd

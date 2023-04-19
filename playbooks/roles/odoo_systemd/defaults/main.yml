@@ -1,8 +1,0 @@
----
-home: "/var/lib/odoo"
-config: "/var/lib/odoo/.config"
-local: "/var/lib/odoo/.local"
-user: "odoo"
-odooversion: 15.0
-odoodir: "/opt/odoo"
-addonsdir: "/opt/addons"

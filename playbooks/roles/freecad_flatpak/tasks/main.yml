@@ -1,10 +1,10 @@
 ---
-- name: freecad
+- name: Freecad
   community.general.flatpak:
     name: org.freecadweb.FreeCAD
     state: present
 
-- name: dxf2gcode
+- name: Dxf2gcode
   ansible.builtin.apt:
     name:
       - dxf2gcode

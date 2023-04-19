@@ -1,14 +1,14 @@
 ---
-- name: docker.io
+- name: Docker.io
   ansible.builtin.apt:
     name:
       - docker.io
     state: present
   when: ansible_os_family == 'Debian'
-- name: add existing user "{{ user }}" to group docker
+- name: Add existing user to group docker "{{ user }}"
   ansible.builtin.user:
     name: "{{ user }}"
     groups:
       - docker
-    append: yes
+    append: true
   when: ansible_os_family == 'Debian'

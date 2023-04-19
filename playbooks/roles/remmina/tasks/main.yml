@@ -1,5 +1,5 @@
 ---
-- name: remmina
+- name: Remmina
   ansible.builtin.apt:
     name:
       - remmina

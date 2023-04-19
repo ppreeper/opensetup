@@ -1,25 +1,26 @@
 ---
-- import_role:
+- name: Baseline
+  ansible.builtin.import_role:
     name: baseline
-- name: microsoft repo key
+- name: Microsoft repo key
   ansible.builtin.apt_key:
     url: "https://packages.microsoft.com/keys/microsoft.asc"
     state: present
   when: ansible_os_family == 'Debian'
-- name: microsoft repository stat
+- name: Microsoft repository stat
   ansible.builtin.stat:
     path: "/etc/apt/sources.list.d/microsoft.list"
   register: stat_result
   when: ansible_os_family == 'Debian'
-- name: microsoft repository add
+- name: Microsoft repository add
   ansible.builtin.apt_repository:
-    validate_certs: no
+    validate_certs: false
     repo: "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-{{ ansible_lsb.codename|lower }}-prod {{ ansible_lsb.codename|lower }} main"
     state: present
     filename: microsoft
-    update_cache: yes
+    update_cache: true
   when: ansible_os_family == 'Debian'
-- name: powershell
+- name: Powershell
   ansible.builtin.apt:
     name:
       - "powershell"

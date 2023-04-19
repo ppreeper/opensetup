@@ -1,5 +1,5 @@
 ---
-- name: pyenv pre-requisites
+- name: Pyenv pre-requisites
   ansible.builtin.apt:
     name:
       - make
@@ -21,55 +21,55 @@
       - liblzma-dev
     state: latest
   when: ansible_os_family == 'Debian'
-- name: pyenv root setup
+- name: Pyenv root setup
   ansible.builtin.file:
     path: "{{ home }}/.pyenv"
     state: directory
     owner: "{{ user }}"
     group: "{{ user }}"
-- name: pyenv root
+- name: Pyenv root
   ansible.builtin.git:
     repo: "https://github.com/pyenv/pyenv.git"
     dest: "{{ home }}/.pyenv"
     depth: 1
-    clone: yes
-    update: yes
-- name: pyenv plugins pyenv-doctor
+    clone: true
+    update: true
+- name: Pyenv plugins pyenv-doctor
   ansible.builtin.git:
     repo: "https://github.com/pyenv/pyenv-doctor.git"
     dest: "{{ home }}/.pyenv/plugins/pyenv-doctor"
     depth: 1
-    clone: yes
-    update: yes
-- name: pyenv plugins pyenv-installer
+    clone: true
+    update: true
+- name: Pyenv plugins pyenv-installer
   ansible.builtin.git:
     repo: "https://github.com/pyenv/pyenv-installer.git"
     dest: "{{ home }}/.pyenv/plugins/pyenv-installer"
     depth: 1
-    clone: yes
-    update: yes
-- name: pyenv plugins pyenv-update
+    clone: true
+    update: true
+- name: Pyenv plugins pyenv-update
   ansible.builtin.git:
     repo: "https://github.com/pyenv/pyenv-update.git"
     dest: "{{ home }}/.pyenv/plugins/pyenv-update"
     depth: 1
-    clone: yes
-    update: yes
-- name: pyenv plugins pyenv-virtualenv
+    clone: true
+    update: true
+- name: Pyenv plugins pyenv-virtualenv
   ansible.builtin.git:
     repo: "https://github.com/pyenv/pyenv-virtualenv.git"
     dest: "{{ home }}/.pyenv/plugins/pyenv-virtualenv"
     depth: 1
-    clone: yes
-    update: yes
-- name: pyenv plugins pyenv-which-ext
+    clone: true
+    update: true
+- name: Pyenv plugins pyenv-which-ext
   ansible.builtin.git:
     repo: "https://github.com/pyenv/pyenv-which-ext.git"
     dest: "{{ home }}/.pyenv/plugins/pyenv-which-ext"
     depth: 1
-    clone: yes
-    update: yes
-- name: cfg 21_pyenv
+    clone: true
+    update: true
+- name: Cfg 21_pyenv
   ansible.builtin.template:
     src: "21_pyenv.cfg"
     dest: "{{ config }}/bash/21_pyenv.cfg"

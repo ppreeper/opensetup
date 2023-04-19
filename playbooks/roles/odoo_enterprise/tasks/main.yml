@@ -1,9 +1,0 @@
----
-- name: odoo enterprise
-  ansible.builtin.git:
-    repo: "https://github.com/odoo/enterprise"
-    dest: "{{ odoodir }}/enterprise"
-    clone: yes
-    update: yes
-    depth: 1
-    version: "{{ odooversion }}"

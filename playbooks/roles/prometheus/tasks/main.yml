@@ -1,5 +1,5 @@
 ---
-- name: install prometheus
+- name: Prometheus
   ansible.builtin.apt:
     name:
       - prometheus-node-exporter

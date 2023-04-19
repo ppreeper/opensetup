@@ -1,5 +1,5 @@
 ---
-- name: image tools (system)
+- name: Image tools (system)
   ansible.builtin.apt:
     name:
       - jpegoptim
@@ -7,12 +7,12 @@
       - gifsicle
     state: latest
   when: ansible_os_family == 'Debian'
-- name: image tools (npm)
+- name: Image tools (npm)
   community.general.npm:
     name: svgo
-    global: yes
+    global: true
     state: latest
-- name: av codec lib
+- name: AV codec lib
   ansible.builtin.apt:
     name:
       - gstreamer1.0-libav
@@ -21,7 +21,7 @@
       - gstreamer1.0-plugins-ugly
       - libavcodec-extra
   when: ansible_os_family == 'Debian'
-- name: av tools
+- name: AV tools
   ansible.builtin.apt:
     name:
       - ffmpeg
@@ -40,7 +40,7 @@
       - mediainfo
     state: present
   when: ansible_os_family == 'Debian'
-- name: av cli helpers
+- name: AV cli helpers
   ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -64,22 +64,10 @@
     - { src: "bin/iso2vob", dest: "{{ home  }}/bin/", mode: "0755" }
     - { src: "bin/mp42mp4", dest: "{{ home  }}/bin/", mode: "0755" }
     - { src: "bin/rip2vob", dest: "{{ home  }}/bin/", mode: "0755" }
-    - {
-        src: "bin/sox-blueboxtone-generator.sh",
-        dest: "{{ home  }}/bin/",
-        mode: "0755",
-      }
+    - { src: "bin/sox-blueboxtone-generator.sh", dest: "{{ home  }}/bin/", mode: "0755" }
     - { src: "bin/sox-pinknoise.sh", dest: "{{ home  }}/bin/", mode: "0755" }
-    - {
-        src: "bin/sox-startrekenginewhitenoise.sh",
-        dest: "{{ home  }}/bin/",
-        mode: "0755",
-      }
-    - {
-        src: "bin/sox-touchtone-generator.sh",
-        dest: "{{ home  }}/bin/",
-        mode: "0755",
-      }
+    - { src: "bin/sox-startrekenginewhitenoise.sh", dest: "{{ home  }}/bin/", mode: "0755" }
+    - { src: "bin/sox-touchtone-generator.sh", dest: "{{ home  }}/bin/", mode: "0755" }
     - { src: "bin/sox-wavesonbeach.sh", dest: "{{ home  }}/bin/", mode: "0755" }
     - { src: "bin/sox-whitenoise.sh", dest: "{{ home  }}/bin/", mode: "0755" }
     - { src: "bin/toopus", dest: "{{ home  }}/bin/", mode: "0755" }

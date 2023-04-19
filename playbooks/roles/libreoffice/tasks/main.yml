@@ -1,8 +1,8 @@
 ---
-- name: libreoffice
+- name: Libreoffice
   ansible.builtin.apt:
     name:
       - libreoffice
     state: latest
-    update_cache: yes
+    update_cache: true
   when: ansible_os_family == 'Debian'

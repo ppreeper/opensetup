@@ -1,18 +1,18 @@
 ---
-- name: resolved
+- name: Resolved
   ansible.builtin.systemd:
     name: systemd-resolved
     state: stopped
-    enabled: no
-    force: yes
-- name: resolv.conf
+    enabled: false
+    force: true
+- name: Resolv.conf remove
   ansible.builtin.file:
     path: "/etc/resolv.conf"
     state: absent
-- name: resolv.conf
+- name: Resolv.conf re-write
   ansible.builtin.blockinfile:
     path: "/etc/resolv.conf"
-    create: yes
+    create: true
     marker: "# {mark}"
     block: |
       nameserver 1.1.1.1

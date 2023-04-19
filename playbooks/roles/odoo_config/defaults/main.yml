@@ -1,7 +1,0 @@
----
-home: "/var/lib/odoo"
-config: "/var/lib/odoo/.config"
-local: "/var/lib/odoo/.local"
-user: "odoo"
-odoodir: "/opt/odoo"
-addonsdir: "/opt/addons"

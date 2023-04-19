@@ -1,10 +1,10 @@
 ---
-- name: pgpool2
-  apt:
+- name: Pgpool2
+  ansible.builtin.apt:
     name:
       - postgresql-{{ POSTGRES_VERSION }}-pgpool2
     state: present
-- name: copy templates
+- name: Copy templates
   ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"

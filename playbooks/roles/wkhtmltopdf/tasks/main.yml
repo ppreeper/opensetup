@@ -1,12 +1,6 @@
 ---
-- name: wkhtmltopdf
+- name: Wkhtmltopdf
   ansible.builtin.apt:
-    deb: "https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.{{ ansible_lsb.codename|lower }}_amd64.deb"
+    deb: "{{ repo }}/{{ version }}/wkhtmltox_{{ version }}.{{ ansible_lsb.codename|lower }}_amd64.deb"
     state: present
   when: ansible_os_family == 'Debian' and ansible_lsb.codename != 'elsie'
-
-- name: wkhtmltopdf
-  ansible.builtin.apt:
-    deb: "https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.buster_amd64.deb"
-    state: present
-  when: ansible_os_family == 'Debian' and ansible_lsb.codename == 'elsie'

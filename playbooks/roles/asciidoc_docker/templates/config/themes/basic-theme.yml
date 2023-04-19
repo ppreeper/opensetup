@@ -12,10 +12,10 @@ font:
       italic: mplus1mn-italic-subset.ttf
       normal: mplus1mn-regular-subset.ttf
     noto-serif:
-      bold_italic: notoserif-bold_italic-subset.ttf
-      bold: notoserif-bold-subset.ttf
-      italic: notoserif-italic-subset.ttf
-      normal: notoserif-regular-subset.ttf
+      bold_italic: falsetoserif-bold_italic-subset.ttf
+      bold: falsetoserif-bold-subset.ttf
+      italic: falsetoserif-italic-subset.ttf
+      normal: falsetoserif-regular-subset.ttf
     Noto Serif:
       normal: Noto Serif Regular Nerd Font Complete.ttf
       bold: Noto Serif Bold Nerd Font Complete.ttf
@@ -49,7 +49,7 @@ base:
   font_size_large: round($base_font_size * 1.156)
   font_size_small: round($base_font_size * 0.865)
   font_size_min: round($base_font_size * 0.749)
-  font_style: normal
+  font_style: falsermal
   border_color: eeeeee
   border_radius: 4
   border_width: 0.5

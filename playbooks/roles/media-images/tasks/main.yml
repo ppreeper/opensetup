@@ -1,5 +1,5 @@
 ---
-- name: image tools (system)
+- name: Image tools (system)
   ansible.builtin.apt:
     name:
       - jpegoptim
@@ -7,12 +7,12 @@
       - gifsicle
     state: latest
   when: ansible_os_family == 'Debian'
-- name: image tools (npm)
+- name: Image tools (npm)
   community.general.npm:
     name: svgo
-    global: yes
+    global: true
     state: latest
-- name: media image cli helpers
+- name: Media image cli helpers
   ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"

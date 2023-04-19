@@ -1,4 +1,4 @@
 ---
-- name: debugout
+- name: Debug out
   ansible.builtin.debug:
     var: ansible_facts

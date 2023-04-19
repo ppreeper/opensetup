@@ -1,5 +1,6 @@
 ---
-- hosts: proxy
+- hosts: all
+  name: Odoo Proxy
   roles:
     - hosts_file
     - sysctl_custom

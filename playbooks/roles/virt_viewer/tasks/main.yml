@@ -1,5 +1,5 @@
 ---
-- name: virt-viewer
+- name: Virt-viewer
   ansible.builtin.apt:
     name:
       - virt-viewer

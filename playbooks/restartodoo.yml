@@ -1,5 +1,5 @@
 ---
-- hosts: all
-  become: true
+- hosts: odoo
+  name: Odoo Restart
   roles:
-    - odoo_service_restart
+    - odoo/service_restart

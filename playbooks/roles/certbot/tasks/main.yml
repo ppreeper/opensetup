@@ -1,7 +1,7 @@
 ---
-- name: certbot
+- name: Certbot
   community.general.snap:
     name:
       - certbot
     state: present
-    classic: yes
+    classic: true

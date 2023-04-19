@@ -1,8 +1,8 @@
 ---
-- hosts: all
+- hosts: pgdb
+  name: PostgreSQL Database
   roles:
     - update
-    - cli_utils
-    # - hosts_ip
-    - db_postgresql_repo
-    - db_postgresql_server
+    - cli/utils
+    - db/postgresql_repo
+    - db/postgresql_server

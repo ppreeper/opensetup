@@ -1,8 +1,0 @@
----
-- hosts: all
-  roles:
-    - sysctl_custom
-    - hosts_file
-    - apt_mirror
-    - update
-    - baseline

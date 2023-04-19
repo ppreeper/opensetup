@@ -1,9 +1,0 @@
----
-- import_role:
-    name: db_postgresql_repo
-- name: postgresql-client
-  ansible.builtin.apt:
-    name:
-      - "postgresql-client-{{ POSTGRES_VERSION }}"
-    state: present
-  when: ansible_os_family == 'Debian'

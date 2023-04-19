@@ -1,5 +1,0 @@
----
-- name: odoo service down
-  ansible.builtin.systemd:
-    name: odoo.service
-    state: stopped

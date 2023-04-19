@@ -1,5 +1,0 @@
----
-- name: odoo service up
-  ansible.builtin.systemd:
-    name: odoo.service
-    state: started

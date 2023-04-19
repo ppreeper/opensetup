@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: update
-      include_role:
+    - name: Update
+      ansible.builtin.include_role:
         name: update

@@ -1,5 +1,5 @@
 ---
-- name: vscodium extensions
+- name: VScodium extensions
   ansible.builtin.command: "flatpak run com.vscodium.codium --install-extension {{ item.pkg }}"
   become_user: "{{ user }}"
   with_items:
@@ -26,4 +26,3 @@
     - { pkg: "rust-lang.rust-analyzer" }
     - { pkg: "svelte.svelte-vscode" }
     - { pkg: "syler.sass-indented" }
-

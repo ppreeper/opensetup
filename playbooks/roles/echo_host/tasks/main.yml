@@ -1,4 +1,4 @@
 ---
-- name: Print hostname
+- name: Echo hostname
   ansible.builtin.debug:
     msg: "inventory_hostname: {{ inventory_hostname }}"

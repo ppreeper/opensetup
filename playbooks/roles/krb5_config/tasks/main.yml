@@ -1,12 +1,12 @@
 ---
-- name: krb5.conf
+- name: Krb5.conf
   ansible.builtin.file:
     path: "/etc/krb5.conf"
     state: absent
-- name: krb5.conf
-  blockinfile:
+- name: Krb5.conf
+  ansible.builtin.blockinfile:
     path: "/etc/krb5.conf"
-    create: yes
+    create: true
     marker: "# {mark}"
     block: |
       [libdefaults]

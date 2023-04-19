@@ -1,5 +1,5 @@
 ---
-- name: kvm virtualization
+- name: Kvm virtualization
   ansible.builtin.apt:
     name:
       - qemu

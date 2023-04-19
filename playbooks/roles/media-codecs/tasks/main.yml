@@ -1,5 +1,5 @@
 ---
-- name: av codec libs
+- name: AV codec libs
   ansible.builtin.apt:
     name:
       - gstreamer1.0-libav

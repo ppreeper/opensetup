@@ -1,5 +1,5 @@
 ---
-- name: virtualbox
+- name: Virtualbox
   ansible.builtin.apt:
     name:
       - virtualbox

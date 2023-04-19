@@ -1,6 +1,6 @@
 ---
-- hosts: all
-  become: true
+- hosts: odoo
+  name: Odoo Node
   roles:
     - apt_mirror
     - update
@@ -8,16 +8,14 @@
     - sysctl_custom
     - baseline
     - nfs_common
-    - lang_python
-    - nodejs
-    - npm_sass
-    - db_postgresql_client
+    - lang/python
+    - lang/nodejs
+    - db/postgresql_client
     - wkhtmltopdf
-    - odoo_base
-    - odoo_log
-    - odoo_fstab
-    - odoo_service
-    - odoo_service_enable
-    - ssh_keys_artg_oerp
+    - odoo/base
+    - odoo/log
+    - odoo/fstab
+    - odoo/service
+    - odoo/service_enable
     - update
     - reboot

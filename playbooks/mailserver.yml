@@ -1,7 +1,7 @@
 ---
-- hosts: all
+- hosts: mail
+  name: Mailserver
   roles:
-    # - hosts_file
     - apt_mirror
     - update
     - baseline
@@ -11,8 +11,8 @@
     - vmail_user
     - postfix
     - postfix_config
-    - dovecot
-    - dovecot_config
+    - dovecot/install
+    - dovecot/config
     - clamav
     - rspamd
     - fail2ban

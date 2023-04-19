@@ -1,24 +1,24 @@
 ---
-- name: munin-node
+- name: Munin-node
   ansible.builtin.apt:
     name:
       - munin-node
     state: present
-- name: copy odoo-requests
+- name: Copy odoo-requests
   ansible.builtin.copy:
     src: "odoo-requests"
     dest: "/etc/munin/plugins/odoo-requests"
-    mode: 0755
-- name: copy odoo-response
+    mode: "0755"
+- name: Copy odoo-response
   ansible.builtin.copy:
     src: "odoo-response"
     dest: "/etc/munin/plugins/odoo-response"
-    mode: 0755
-- name: munin-node service down
+    mode: "0755"
+- name: Munin-node service down
   ansible.builtin.systemd:
     name: munin-node.service
     state: stopped
-- name: munin-node service up
+- name: Munin-node service up
   ansible.builtin.systemd:
     name: munin-node.service
     state: started

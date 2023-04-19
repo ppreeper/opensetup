@@ -1,34 +1,34 @@
 ---
 # syncthing
-- name: syncthing repo key
+- name: Syncthing repo key
   ansible.builtin.get_url:
     url: "https://syncthing.net/release-key.gpg"
     dest: /usr/share/keyrings/syncthing-archive-keyring.gpg
     mode: "0644"
   when: ansible_os_family == 'Debian'
 
-- name: syncthing repository stat
+- name: Syncthing repository stat
   ansible.builtin.stat:
     path: "/etc/apt/sources.list.d/syncthing.list"
   register: stat_result
   when: ansible_os_family == 'Debian'
 
-- name: syncthing repository remove
+- name: Syncthing repository remove
   ansible.builtin.file:
     path: "/etc/apt/sources.list.d/syncthing.list"
     state: absent
   when: stat_result.stat.exists and ansible_os_family == 'Debian'
 
-- name: syncthing repository add
+- name: Syncthing repository add
   ansible.builtin.apt_repository:
-    validate_certs: no
+    validate_certs: false
     repo: "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable"
     state: present
     filename: syncthing
-    update_cache: yes
+    update_cache: true
   when: ansible_os_family == 'Debian'
 
-- name: syncthing
+- name: Syncthing
   ansible.builtin.apt:
     name:
       - syncthing

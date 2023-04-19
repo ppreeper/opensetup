@@ -1,10 +1,10 @@
 ---
-- name: hosts remove notfound
+- name: Hosts remove notfound
   ansible.builtin.replace:
     path: /etc/nsswitch.conf
     regexp: '\s+\[NOTFOUND=return\]'
     replace: ""
-- name: hosts remove unvavail
+- name: Hosts remove unvavail
   ansible.builtin.replace:
     path: /etc/nsswitch.conf
     regexp: '\s+\[!UNAVAIL=return\]'

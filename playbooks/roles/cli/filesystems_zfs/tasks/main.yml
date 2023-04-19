@@ -1,0 +1,9 @@
+---
+- name: FS utils
+  ansible.builtin.apt:
+    name:
+      - zfsutils-linux
+    update_cache: true
+    force: true
+    state: latest
+  when: ansible_os_family == 'Debian'

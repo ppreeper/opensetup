@@ -1,5 +1,5 @@
 ---
-- name: teamviewer
+- name: Teamviewer
   ansible.builtin.apt:
     deb: "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
     state: present

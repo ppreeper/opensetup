@@ -1,5 +1,6 @@
 ---
 - hosts: all
+  name: Apply Role
   gather_facts: true
   vars:
     role: ""

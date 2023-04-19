@@ -1,5 +1,5 @@
 ---
-- name: vscode extensions
+- name: VScode extensions
   ansible.builtin.command: "code --install-extension {{ item.pkg }}"
   become_user: "{{ user }}"
   with_items:
@@ -26,4 +26,3 @@
     - { pkg: "rust-lang.rust-analyzer" }
     - { pkg: "svelte.svelte-vscode" }
     - { pkg: "syler.sass-indented" }
-

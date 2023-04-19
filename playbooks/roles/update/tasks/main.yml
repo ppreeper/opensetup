@@ -3,9 +3,9 @@
   ansible.builtin.apt:
     name: "*"
     state: latest
-    autoremove: yes
-    autoclean: yes
-    update_cache: yes
+    autoremove: true
+    autoclean: true
+    update_cache: true
     cache_valid_time: 3600
   when: ansible_os_family == 'Debian'
 
@@ -21,7 +21,7 @@
     state: latest
   when: ansible_distribution == 'CentOS'
 
-- name: check snap installed
+- name: Check snap installed
   ansible.builtin.stat:
     path: "/usr/bin/snap"
   register: stat_snap
@@ -31,7 +31,7 @@
     cmd: snap refresh
   when: stat_snap.stat.exists
 
-- name: check flatpak installed
+- name: Check flatpak installed
   ansible.builtin.stat:
     path: "/usr/bin/flatpak"
   register: stat_flatpak
@@ -45,7 +45,7 @@
   register: reboot_required_file
   ansible.builtin.stat:
     path: "/var/run/reboot-required"
-    get_md5: no
+    get_md5: false
 
 - name: Reboot the box if kernel updated
   ansible.builtin.reboot:

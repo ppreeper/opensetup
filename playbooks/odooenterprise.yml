@@ -1,28 +1,18 @@
 ---
-- hosts: all
+- hosts: odoo
+  name: Odoo Enterprise
   roles:
     - apt_mirror
-    - odoo_base
-    - odoo_user
-    - odoo_community_source
-    - odoo_enterprise_source
-    - odoo_db
-    - odoo_config
-    - odoo_apps
-    - odoo_mod_install
-    - odoo_community_systemd
+    - odoo/base
+    - odoo/user
+    - odoo/community
+    - odoo/enterprise
+    - odoo/db
+    - odoo/config
+    - odoo/service
+    - odoo/service_enable
     - userhome
-    - nodejs
-    - python
-    - nvim
+    - lang/nodejs
+    - lang/python
+    - neovim/install
     - update
-  vars:
-    home: "/var/lib/odoo"
-    config: "/var/lib/odoo/.config"
-    local: "/var/lib/odoo/.local"
-    user: "odoo"
-    mods:
-      - base
-      - l10n_ca
-      - auth_ldap
-      - web_enterprise

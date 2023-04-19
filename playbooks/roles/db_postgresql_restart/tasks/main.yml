@@ -1,9 +1,0 @@
----
-- name: postgresql service stop
-  systemd:
-    name: postgresql.service
-    state: stopped
-- name: postgresql service start
-  systemd:
-    name: postgresql.service
-    state: started

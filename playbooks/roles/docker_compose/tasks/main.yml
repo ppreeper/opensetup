@@ -1,11 +1,11 @@
 ---
-- name: docker-compose
-  pip:
+- name: Docker compose
+  ansible.builtin.pip:
     executable: pip3
     name:
       - docker-compose
     state: present
-- name: container cli helpers
+- name: CLI helpers
   ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
