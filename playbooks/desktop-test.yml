@@ -5,3 +5,4 @@
     - nsswitch
     - sysctl_custom
     - baseline
+    - userhome
