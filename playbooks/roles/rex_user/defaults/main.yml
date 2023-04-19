@@ -1,5 +1,0 @@
----
-rex_home: "/home/rex"
-config: "/home/rex/.config"
-local: "/home/rex/.local"
-rex_user: "rex"

@@ -1,7 +1,0 @@
----
-- name: flatpak support
-  ansible.builtin.apt:
-    name:
-      - plasma-discover-backend-flatpak
-    state: present
-  when: ansible_os_family == 'Debian'
