@@ -5,14 +5,14 @@
 
 - name: Podman repo key
   ansible.builtin.apt_key:
-    url: "{{url}}/x{{distro}}/Release.key"
+    url: "{{ url }}/x{{ distro }}/Release.key"
     state: present
   when: ansible_distribution == "Ubuntu"
 
 - name: Podman repository add
   ansible.builtin.apt_repository:
     validate_certs: false
-    repo: "deb {{url}}/x{{distro}}/ /"
+    repo: "deb {{ url }}/x{{ distro }}/ /"
     filename: podman
     state: present
     update_cache: true

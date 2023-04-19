@@ -17,7 +17,7 @@
 - name: Virtualbox repository add
   ansible.builtin.apt_repository:
     validate_certs: false
-    repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ ansible_lsb.codename|lower }} contrib non-free"
+    repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ ansible_lsb.codename | lower }} contrib non-free"
     state: present
     filename: virtualbox
     update_cache: true

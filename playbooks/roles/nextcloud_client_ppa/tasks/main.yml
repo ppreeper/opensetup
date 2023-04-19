@@ -15,6 +15,6 @@
   ansible.builtin.apt:
     name:
       - nextcloud-desktop
-    state: latest
+    state: present
     update_cache: true
   when: ansible_distribution == "Ubuntu"

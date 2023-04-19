@@ -8,7 +8,9 @@
   notify: reboot
 
 - name: Install iptables
-  ansible.builtin.apt: name=iptables state=present
+  ansible.builtin.apt:
+    name: iptables
+    state: present
 
 - name: Flush iptables before changing to iptables-legacy
   ansible.builtin.iptables:

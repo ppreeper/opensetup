@@ -1,7 +1,7 @@
 ---
 - name: Odoo user
   ansible.builtin.import_role:
-    name: odoo/user
+    name: "odoo/user"
 - name: Addons directory
   ansible.builtin.file:
     path: "{{ addonsdir }}"

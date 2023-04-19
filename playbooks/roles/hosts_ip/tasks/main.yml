@@ -16,4 +16,4 @@
     backup: true
     path: /etc/hosts
     regexp: "^({{ adia }}.*)$"
-    replace: "{{ adia }}\t{{ ih }}.{{ domain }} {{ ih }}"
+    replace: "{{ adia }}    {{ ih }}.{{ domain }} {{ ih }}"

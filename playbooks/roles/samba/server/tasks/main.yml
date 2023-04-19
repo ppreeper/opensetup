@@ -14,7 +14,7 @@
       - libpam-winbind
       - libnss-winbind
       - smbclient
-    state: latest
+    state: present
   when: ansible_os_family == 'Debian'
 - name: Remove winbind
   ansible.builtin.replace:

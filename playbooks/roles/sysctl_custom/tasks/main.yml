@@ -2,6 +2,7 @@
 - name: Sysctl custom insert
   ansible.builtin.blockinfile:
     path: /etc/sysctl.conf
+    mode: "0644"
     create: true
     marker: "# {mark} custom settings"
     block: |
@@ -13,4 +14,4 @@
       net.ipv4.tcp_congestion_control=bbr
       vm.swappiness=10
 - name: Sysctl load
-  ansible.builtin.shell: sysctl --system
+  ansible.builtin.command: sysctl --system

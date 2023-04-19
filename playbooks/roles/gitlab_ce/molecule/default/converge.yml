@@ -9,4 +9,4 @@
       when: ansible_os_family == 'Debian'
     - name: Gitlab-ce
       ansible.builtin.include_role:
-        name: gitlab-ce
+        name: gitlab_ce

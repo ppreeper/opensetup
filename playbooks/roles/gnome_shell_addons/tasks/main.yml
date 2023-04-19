@@ -4,5 +4,5 @@
     name:
       - chrome-gnome-shell
       - gnome-tweaks
-    state: latest
+    state: present
   when: ansible_os_family == 'Debian'

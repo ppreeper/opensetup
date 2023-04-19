@@ -3,7 +3,8 @@
   ansible.builtin.set_fact:
     ubuntu_codename: "{{ lookup('ini', 'UBUNTU_CODENAME type=properties file=' + ansible_distribution_file_path) }}"
 - name: System details
-  ansible.builtin.debug: msg="{{ item }}"
+  ansible.builtin.debug:
+    msg: "{{ item }}"
   with_items:
     - "{{ ansible_distribution }}"
     - "{{ ansible_distribution_version }}"

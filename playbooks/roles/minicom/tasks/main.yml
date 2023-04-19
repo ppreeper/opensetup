@@ -6,6 +6,8 @@
 - name: Minicom config
   ansible.builtin.blockinfile:
     path: "{{ home }}/.minirc.dfl"
+    mode: "0640"
+    group: "{{ user }}"
     create: true
     marker: ""
     block: |

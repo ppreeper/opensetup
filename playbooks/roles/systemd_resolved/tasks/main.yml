@@ -12,6 +12,7 @@
 - name: Resolv.conf re-write
   ansible.builtin.blockinfile:
     path: "/etc/resolv.conf"
+    mode: "0644"
     create: true
     marker: "# {mark}"
     block: |

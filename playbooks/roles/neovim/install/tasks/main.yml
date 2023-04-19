@@ -20,6 +20,7 @@
     state: directory
     owner: "{{ user }}"
     group: "{{ user }}"
+    mode: "0755"
   with_items:
     - { path: "{{ config }}/nvim" }
     - { path: "{{ config }}/nvim/lua" }

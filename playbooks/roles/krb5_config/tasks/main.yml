@@ -6,6 +6,7 @@
 - name: Krb5.conf
   ansible.builtin.blockinfile:
     path: "/etc/krb5.conf"
+    mode: "0644"
     create: true
     marker: "# {mark}"
     block: |

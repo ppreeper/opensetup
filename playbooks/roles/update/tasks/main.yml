@@ -27,7 +27,7 @@
   register: stat_snap
 
 - name: Update snap packages
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: snap refresh
   when: stat_snap.stat.exists
 
@@ -37,7 +37,7 @@
   register: stat_flatpak
 
 - name: Update flatpak packages
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: flatpak update --noninteractive
   when: stat_flatpak.stat.exists
 

@@ -5,5 +5,5 @@
       - zfsutils-linux
     update_cache: true
     force: true
-    state: latest
+    state: present
   when: ansible_os_family == 'Debian'

@@ -5,13 +5,13 @@
       - curl
       - openssh-server
       - ca-certificates
-    state: latest
+    state: present
   when: ansible_os_family == 'Debian'
 - name: Postfix
   ansible.builtin.apt:
     name:
       - postfix
-    state: latest
+    state: present
   when: ansible_os_family == 'Debian'
 - name: Download install script
   ansible.builtin.get_url:
@@ -22,14 +22,14 @@
     owner: "{{ user }}"
   when: ansible_os_family == 'Debian'
 - name: Run install script
-  ansible.builtin.shell: "{{ home }}/script.deb.sh"
+  ansible.builtin.command: "{{ home }}/script.deb.sh"
   become_user: root
   when: ansible_os_family == 'Debian'
 - name: Install gitlab
   environment:
-    EXTERNAL_URL: "{{ schema }}://{{ inventory_hostname }}.{{domain}}"
+    EXTERNAL_URL: "{{ schema }}://{{ inventory_hostname }}.{{ domain }}"
   ansible.builtin.apt:
     name:
       - gitlab-ce
-    state: latest
+    state: present
   when: ansible_os_family == 'Debian'

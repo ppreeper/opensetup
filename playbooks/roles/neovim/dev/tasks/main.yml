@@ -25,6 +25,7 @@
   ansible.builtin.file:
     path: "{{ config }}/coc/ultisnips/"
     state: directory
+    mode: "0755"
     owner: "{{ user }}"
     group: "{{ user }}"
 - name: Coc snippets javascript

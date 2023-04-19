@@ -6,6 +6,7 @@
 - name: Smb.conf re-write
   ansible.builtin.blockinfile:
     path: "/etc/samba/smb.conf"
+    mode: "0644"
     create: true
     marker: "# {mark}"
     block: |

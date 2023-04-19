@@ -5,13 +5,13 @@
       - jpegoptim
       - pngquant
       - gifsicle
-    state: latest
+    state: present
   when: ansible_os_family == 'Debian'
 - name: Image tools (npm)
   community.general.npm:
     name: svgo
     global: true
-    state: latest
+    state: present
 - name: Media image cli helpers
   ansible.builtin.template:
     src: "{{ item.src }}"

@@ -15,7 +15,7 @@
 - name: Microsoft repository add
   ansible.builtin.apt_repository:
     validate_certs: false
-    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-{{ ansible_lsb.codename|lower }}-prod {{ ansible_lsb.codename|lower }} main"
+    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-{{ ansible_lsb.codename | lower }}-prod {{ ansible_lsb.codename | lower }} main"
     state: present
     filename: microsoft
     update_cache: true

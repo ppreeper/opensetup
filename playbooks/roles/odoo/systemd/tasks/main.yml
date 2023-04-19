@@ -9,4 +9,4 @@
     name: odoo
     enabled: true
     daemon_reload: true
-    status: started
+    state: started

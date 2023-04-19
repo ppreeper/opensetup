@@ -10,7 +10,7 @@
       - "{{ user }}"
       - sudo
     home: "{{ home }}"
-    ansible.builtin.shell: /bin/bash
+    shell: /bin/bash
     state: present
 - name: Change ownership
   ansible.builtin.file:

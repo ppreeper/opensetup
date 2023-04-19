@@ -19,7 +19,7 @@
       - libxmlsec1-dev
       - libffi-dev
       - liblzma-dev
-    state: latest
+    state: present
   when: ansible_os_family == 'Debian'
 - name: Pyenv root setup
   ansible.builtin.file:
@@ -27,6 +27,7 @@
     state: directory
     owner: "{{ user }}"
     group: "{{ user }}"
+    mode: "0755"
 - name: Pyenv root
   ansible.builtin.git:
     repo: "https://github.com/pyenv/pyenv.git"

@@ -2,5 +2,5 @@
 - name: Update odoo shell
   ansible.builtin.user:
     name: odoo
-    ansible.builtin.shell: /bin/bash
+    shell: /bin/bash
     groups: odoo,sudo

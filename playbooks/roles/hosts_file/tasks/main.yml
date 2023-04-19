@@ -3,3 +3,4 @@
   ansible.builtin.template:
     src: hosts
     dest: /etc/hosts
+    mode: "0644"

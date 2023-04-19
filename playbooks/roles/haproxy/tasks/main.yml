@@ -3,5 +3,5 @@
   ansible.builtin.apt:
     name:
       - haproxy
-    state: latest
+    state: present
   when: ansible_os_family == 'Debian'
