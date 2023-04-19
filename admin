@@ -41,7 +41,7 @@ case "$#" in
         case "$1" in
             play)
                 [ ${3} = "localhost" ] && export BECOME="-K" || export BECOME=""
-                echo ansible-playbook -l ${3} -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
+                echo ansible-playbook -l ${3} -b ${PLAYBOOK_DIR}/${2}.yml $BECOME
                 # ansible-playbook -l ${3} -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
                 # [ -n "${1}" ] &&      ansible-playbook -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
                 ;;
