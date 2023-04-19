@@ -1,8 +1,5 @@
 ---
-# $HOME/.local/share/asciidoctor
-
-# asciidoc config dirs
-- name: asciidoc config dirs
+- name: Asciidoc config dirs
   ansible.builtin.file:
     path: "{{ item.path }}"
     state: directory
@@ -12,7 +9,7 @@
     - { path: "{{ local }}/share/asciidoctor" }
     - { path: "{{ local }}/share/asciidoctor/fonts" }
     - { path: "{{ local }}/share/asciidoctor/themes" }
-- name: theme files
+- name: Asciidoc theme files
   ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ local }}/share/asciidoctor/themes/"

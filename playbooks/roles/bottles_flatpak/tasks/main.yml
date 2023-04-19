@@ -1,5 +1,5 @@
 ---
-- name: bottles
+- name: Bottles
   community.general.flatpak:
     name: com.usebottles.bottles
     state: present
