@@ -42,12 +42,13 @@ case "$#" in
             play)
                 [ ${3} = "localhost" ] && export BECOME="-K" || export BECOME=""
                 echo ansible-playbook -l ${3} -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
-                ansible-playbook -l ${3} -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
+                # ansible-playbook -l ${3} -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
                 # [ -n "${1}" ] &&      ansible-playbook -b ${PLAYBOOK_DIR}/${1}.yml $BECOME
                 ;;
             role)
                 [ ${3} = "localhost" ] && export BECOME="-K" || export BECOME=""
                 echo ansible-playbook -l ${3} -e role=${2} -b ${PLAYBOOK_DIR}/apply_role.yml $BECOME
+                # ansible-playbook -l ${3} -e role=${2} -b ${PLAYBOOK_DIR}/apply_role.yml $BECOME
                 # [ -n "${1}" ] &&      ansible-playbook -e role=${1} -b ${PLAYBOOK_DIR}/apply_role.yml $BECOME
                 ;;
             *) help ;;
