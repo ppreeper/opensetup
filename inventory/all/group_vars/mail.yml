@@ -1,5 +1,5 @@
 ---
-all:
+mail:
   vars:
     ansible_python_interpreter: "/usr/bin/python3"
     home: "/home/vmail"
@@ -12,6 +12,3 @@ all:
     DOMAIN: "preeper.org"
     rspamd_password: password
     rspamd_enable_password: password
-  hosts:
-    dmail.preeper.org:
-      name: dmail

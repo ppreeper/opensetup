@@ -1,9 +1,0 @@
----
-- hosts: all
-  roles:
-    - cli_utils
-    - hosts_ip
-    - samba_server
-    - systemd_resolved
-    - krb5_config
-    - samba_config

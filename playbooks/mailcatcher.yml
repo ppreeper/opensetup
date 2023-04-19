@@ -1,9 +1,0 @@
----
-- hosts: all
-  become: yes
-  roles:
-    - apt_mirror
-    - update
-    - cli_utils
-    - hosts_ip
-    - mailcatcher
