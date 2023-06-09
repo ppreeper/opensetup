@@ -12,8 +12,12 @@
     - font: mplus1mn-italic-subset.ttf
     - font: mplus1mn-regular-subset.ttf
     - font: mplus1p-regular-fallback.ttf
-    - font: falsetoserif-bold-subset.ttf
-    - font: falsetoserif-bold_italic-subset.ttf
-    - font: falsetoserif-italic-subset.ttf
-    - font: falsetoserif-regular-subset.ttf
-    - font: falsetoemoji-subset.ttf
+    - font: notoemoji-subset.ttf
+    - font: notosans-bold-subset.ttf
+    - font: notosans-bold_italic-subset.ttf
+    - font: notosans-italic-subset.ttf
+    - font: notosans-regular-subset.ttf
+    - font: notoserif-bold-subset.ttf
+    - font: notoserif-bold_italic-subset.ttf
+    - font: notoserif-italic-subset.ttf
+    - font: notoserif-regular-subset.ttf
