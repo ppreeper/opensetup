@@ -1,13 +1,13 @@
 ---
 - name: Minicom config clear
   ansible.builtin.file:
-    path: "{{ home }}/.minirc.dfl"
+    path: "{{ HOME }}/.minirc.dfl"
     state: absent
 - name: Minicom config
   ansible.builtin.blockinfile:
-    path: "{{ home }}/.minirc.dfl"
+    path: "{{ HOME }}/.minirc.dfl"
     mode: "0640"
-    group: "{{ user }}"
+    group: "{{ USER }}"
     create: true
     marker: ""
     block: |
@@ -19,9 +19,9 @@
       pu rtscts           No
 - name: Minicom config set ownership
   ansible.builtin.file:
-    path: "{{ home }}/.minirc.dfl"
-    group: "{{ user }}"
-    owner: "{{ user }}"
+    path: "{{ HOME }}/.minirc.dfl"
+    group: "{{ USER }}"
+    owner: "{{ USER }}"
     mode: "0640"
 - name: Minicom
   ansible.builtin.apt:
@@ -29,9 +29,9 @@
       - minicom
     state: present
   when: ansible_os_family == 'Debian'
-- name: Add existing user to tty,dialout "{{ user }}"
+- name: Add existing user to tty,dialout "{{ USER }}"
   ansible.builtin.user:
-    name: "{{ user }}"
+    name: "{{ USER }}"
     groups:
       - tty
       - dialout

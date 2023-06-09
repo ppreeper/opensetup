@@ -4,9 +4,9 @@
     name: lxd
     state: present
   when: ansible_distribution == "Ubuntu"
-- name: Add existing user to group lxd "{{ user }}"
+- name: Add existing user to group lxd "{{ USER }}"
   ansible.builtin.user:
-    name: "{{ user }}"
+    name: "{{ USER }}"
     groups:
       - lxd
     append: true

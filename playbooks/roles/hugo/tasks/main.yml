@@ -8,10 +8,10 @@
 - name: Hugoup
   ansible.builtin.template:
     src: "bin/hugoup"
-    dest: "{{ homebin }}/hugoup"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    dest: "{{ USERBIN }}/hugoup"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
     mode: "0755"
 - name: Install hugo
-  ansible.builtin.command: "{{ homebin }}/hugoup"
-  become_user: "{{ user }}"
+  ansible.builtin.command: "{{ USERBIN }}/hugoup"
+  become_user: "{{ USER }}"

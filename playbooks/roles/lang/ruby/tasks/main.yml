@@ -9,10 +9,10 @@
 - name: Cfg gemrc
   ansible.builtin.template:
     src: "cfg/gemrc"
-    dest: "{{ home }}/.gemrc"
+    dest: "{{ HOME }}/.gemrc"
     mode: "0640"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
 - name: Check bash installed
   ansible.builtin.stat:
     path: "/usr/bin/bash"
@@ -20,10 +20,10 @@
 - name: Cfg 20_ruby bash
   ansible.builtin.template:
     src: "20_ruby.cfg"
-    dest: "{{ config }}/cfg/20_ruby.cfg"
+    dest: "{{ CONFIGDIR }}/cfg/20_ruby.cfg"
     mode: "0640"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   when: stat_bash.stat.exists
 - name: Check zsh installed
   ansible.builtin.stat:
@@ -32,8 +32,8 @@
 - name: Cfg 20_ruby zsh
   ansible.builtin.template:
     src: "20_ruby.cfg"
-    dest: "{{ config }}/zsh/cfg/20_ruby.cfg"
+    dest: "{{ CONFIGDIR }}/zsh/cfg/20_ruby.cfg"
     mode: "0640"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   when: stat_zsh.stat.exists

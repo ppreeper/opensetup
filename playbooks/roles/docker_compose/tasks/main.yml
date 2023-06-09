@@ -10,9 +10,9 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: "{{ item.mode }}"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   with_items:
-    - { src: "bin/dapp", dest: "{{ homebin }}", mode: "0755" }
-    - { src: "bin/dockreset", dest: "{{ homebin }}", mode: "0755" }
-    - { src: "bin/genregcred", dest: "{{ homebin }}", mode: "0755" }
+    - { src: "bin/dapp", dest: "{{ USERBIN }}", mode: "0755" }
+    - { src: "bin/dockreset", dest: "{{ USERBIN }}", mode: "0755" }
+    - { src: "bin/genregcred", dest: "{{ USERBIN }}", mode: "0755" }

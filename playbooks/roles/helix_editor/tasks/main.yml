@@ -4,17 +4,17 @@
     path: "{{ item.path }}"
     state: directory
     mode: "0755"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   with_items:
-    - { path: "{{ config }}/helix" }
+    - { path: "{{ CONFIGDIR }}/helix" }
 - name: Helixup
   ansible.builtin.template:
     src: "helixup"
-    dest: "{{ homebin }}/helixup"
+    dest: "{{ USERBIN }}/helixup"
     mode: "0755"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
 - name: Install helix editor
-  ansible.builtin.command: "{{ homebin }}/helixup"
-  become_user: "{{ user }}"
+  ansible.builtin.command: "{{ USERBIN }}/helixup"
+  become_user: "{{ USER }}"

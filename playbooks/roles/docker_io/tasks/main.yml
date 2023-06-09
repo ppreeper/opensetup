@@ -5,9 +5,9 @@
       - docker.io
     state: present
   when: ansible_os_family == 'Debian'
-- name: Add existing user to group docker "{{ user }}"
+- name: Add existing user to group docker "{{ USER }}"
   ansible.builtin.user:
-    name: "{{ user }}"
+    name: "{{ USER }}"
     groups:
       - docker
     append: true

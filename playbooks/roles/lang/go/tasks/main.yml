@@ -11,15 +11,15 @@
 - name: Goup installer
   ansible.builtin.template:
     src: "goup"
-    dest: "{{ homebin }}/goup"
+    dest: "{{ USERBIN }}/goup"
     mode: "0755"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
 
 # install go
 - name: Install go
-  ansible.builtin.command: "{{ homebin }}/goup"
-  become_user: "{{ user }}"
+  ansible.builtin.command: "{{ USERBIN }}/goup"
+  become_user: "{{ USER }}"
 
 - name: Check bash installed
   ansible.builtin.stat:
@@ -29,10 +29,10 @@
 - name: Cfg 20_go bash
   ansible.builtin.template:
     src: "20_go.cfg"
-    dest: "{{ config }}/bash/20_go.cfg"
+    dest: "{{ CONFIGDIR }}/bash/20_go.cfg"
     mode: "0644"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   when: stat_bash.stat.exists
 
 - name: Check zsh installed
@@ -43,8 +43,8 @@
 - name: Cfg 20_go zsh
   ansible.builtin.template:
     src: "20_go.cfg"
-    dest: "{{ config }}/zsh/cfg/20_go.cfg"
+    dest: "{{ CONFIGDIR }}/zsh/cfg/20_go.cfg"
     mode: "0644"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   when: stat_zsh.stat.exists
