@@ -4,8 +4,8 @@
   ansible.builtin.file:
     path: "{{ lookup('env', 'HOME') }}/mnt"
     state: directory
-    owner: "{{ User }}"
-    group: "{{ User }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
     mode: "0775"
 - name: Add bin dir
   ansible.builtin.file:
