@@ -1,7 +1,7 @@
 ---
 - name: VScode extensions
   ansible.builtin.command: "code --install-extension {{ item.pkg }}"
-  become_user: "{{ user }}"
+  become_user: "{{ USER }}"
   with_items:
     - { pkg: "aaron-bond.better-comments" }
     - { pkg: "asciidoctor.asciidoctor-vscode" }
