@@ -1,0 +1,5 @@
+---
+vars:
+  - HOME: "{{ lookup('env', 'HOME') }}"
+  - USER: "{{ lookup('env', 'USER') }}"
+  - CONFIGDIR: "{{ lookup('env', 'HOME') }}/.config"
