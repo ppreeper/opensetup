@@ -7,18 +7,18 @@
   when: ansible_os_family == 'Debian'
 - name: Add config dir
   ansible.builtin.file:
-    path: "{{ config }}/wgvpn"
+    path: "{{ CONFIGDIR }}/wgvpn"
     state: directory
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
     mode: "0750"
 - name: Wireguard cli helpers
   ansible.builtin.template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: "{{ item.mode }}"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   with_items:
-    - { src: "bin/wgadd", dest: "{{ homebin }}", mode: "0755" }
-    - { src: "bin/wgdel", dest: "{{ homebin }}", mode: "0755" }
+    - { src: "bin/wgadd", dest: "{{ USERBIN }}", mode: "0755" }
+    - { src: "bin/wgdel", dest: "{{ USERBIN }}", mode: "0755" }
