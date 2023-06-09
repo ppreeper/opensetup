@@ -4,13 +4,13 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: "{{ item.mode }}"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   with_items:
-    - { src: "bin/nerdfonts", dest: "{{ homebin }}", mode: "0755" }
+    - { src: "bin/nerdfonts", dest: "{{ USERBIN }}", mode: "0755" }
 - name: Install Nerdfonts
-  ansible.builtin.command: "{{ home }}/bin/nerdfonts {{ item.font }}"
-  become_user: "{{ user }}"
+  ansible.builtin.command: "{{ USERBIN }}/nerdfonts {{ item.font }}"
+  become_user: "{{ USER }}"
   with_items:
     - { font: "Ubuntu" }
     - { font: "UbuntuMono" }

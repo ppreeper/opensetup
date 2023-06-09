@@ -4,19 +4,19 @@
     path: "{{ item.path }}"
     state: directory
     mode: "0755"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   with_items:
-    - { path: "{{ local }}/share/asciidoctor" }
-    - { path: "{{ local }}/share/asciidoctor/fonts" }
-    - { path: "{{ local }}/share/asciidoctor/themes" }
+    - { path: "{{ LOCALDIR }}/share/asciidoctor" }
+    - { path: "{{ LOCALDIR }}/share/asciidoctor/fonts" }
+    - { path: "{{ LOCALDIR }}/share/asciidoctor/themes" }
 - name: Asciidoc theme files
   ansible.builtin.template:
     src: "{{ item.src }}"
-    dest: "{{ local }}/share/asciidoctor/themes/"
+    dest: "{{ LOCALDIR }}/share/asciidoctor/themes/"
     mode: "0640"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   with_items:
     - { src: "config/themes/basic-theme.yml" }
 - name: Asciidoctor helpers
@@ -24,10 +24,10 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: "{{ item.mode }}"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   with_items:
-    - { src: "bin/adoc2pdf", dest: "{{ homebin }}", mode: "0755" }
+    - { src: "bin/adoc2pdf", dest: "{{ USERBIN }}", mode: "0755" }
 - name: Pdf fonts
   ansible.builtin.import_role:
     name: fonts/pdf_fonts
