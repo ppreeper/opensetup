@@ -15,7 +15,6 @@
     - cli/remote_filesystems
     - terminator
     - fonts/nerdfonts
-    - fonts/pdf_fonts
     - lang/go
     - lang/nodejs
     - lang/python
