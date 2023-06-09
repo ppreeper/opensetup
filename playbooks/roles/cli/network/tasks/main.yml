@@ -12,7 +12,7 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: "{{ item.mode }}"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   with_items:
-    - { src: "nscan", dest: "{{ homebin }}", mode: "0755" }
+    - { src: "nscan", dest: "{{ USERBIN }}", mode: "0755" }
