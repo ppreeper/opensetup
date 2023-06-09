@@ -54,4 +54,4 @@
     owner: "{{ USER }}"
     group: "{{ USER }}"
   with_items:
-    - { src: "tordown", dest: "{{ home }}/bin/", mode: "0755" }
+    - { src: "tordown", dest: "{{ USERBIN }}", mode: "0755" }
