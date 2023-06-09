@@ -2,28 +2,28 @@
 # initialize user home
 - name: Add mnt dir
   ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/mnt"
+    path: "{{ HOME }}/mnt"
     state: directory
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
+    owner: "{{ USER) }}"
+    group: "{{ USER) }}"
     mode: "0775"
 - name: Add bin dir
   ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.local/bin"
+    path: "{{ HOME }}/.local/bin"
     state: directory
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
+    owner: "{{ USER) }}"
+    group: "{{ USER) }}"
     mode: "0775"
 - name: Add bash config dir
   ansible.builtin.file:
-    path: "{{ config }}/bash"
+    path: "{{ CONFIGDIR }}/bash"
     state: directory
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
+    owner: "{{ USER) }}"
+    group: "{{ USER) }}"
     mode: "0775"
 - name: Profile add bash config dir
   ansible.builtin.blockinfile:
-    path: "{{ home }}/.bashrc"
+    path: "{{ HOME }}/.bashrc"
     create: true
     mode: "0644"
     marker: "# {mark} cfg loader"
@@ -35,21 +35,21 @@
 - name: Bash-prompt
   ansible.builtin.template:
     src: "bash/00-prompt.cfg"
-    dest: "{{ config }}/bash/00-prompt.cfg"
+    dest: "{{ CONFIGDIR }}/bash/00-prompt.cfg"
     mode: "0644"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
+    owner: "{{ USER) }}"
+    group: "{{ USER) }}"
 - name: Bash_autocomplete
   ansible.builtin.template:
     src: "bash/01-bash_autocomplete.cfg"
-    dest: "{{ config }}/bash/01-bash_autocomplete.cfg"
+    dest: "{{ CONFIGDIR }}/bash/01-bash_autocomplete.cfg"
     mode: "0644"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
+    owner: "{{ USER) }}"
+    group: "{{ USER) }}"
 - name: Aliases
   ansible.builtin.template:
     src: "bash/aliases.cfg"
-    dest: "{{ config }}/bash/aliases.cfg"
+    dest: "{{ CONFIGDIR }}/bash/aliases.cfg"
     mode: "0644"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
+    owner: "{{ USER) }}"
+    group: "{{ USER) }}"
