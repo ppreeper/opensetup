@@ -42,10 +42,10 @@
 - name: Npmrc
   ansible.builtin.template:
     src: npmrc
-    dest: "{{ home }}/.npmrc"
+    dest: "{{ HOME }}/.npmrc"
     mode: "0644"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
 
 - name: Check bash installed
   ansible.builtin.stat:
@@ -55,10 +55,10 @@
 - name: Cfg 20_js bash
   ansible.builtin.template:
     src: "20_js.cfg"
-    dest: "{{ config }}/bash/20_js.cfg"
+    dest: "{{ CONFIGDIR }}/bash/20_js.cfg"
     mode: "0644"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   when: stat_bash.stat.exists
 
 - name: Check zsh installed
@@ -69,8 +69,8 @@
 - name: Cfg 20_js zsh
   ansible.builtin.template:
     src: "20_js.cfg"
-    dest: "{{ config }}/zsh/cfg/20_js.cfg"
+    dest: "{{ CONFIGDIR }}/zsh/cfg/20_js.cfg"
     mode: "0644"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
   when: stat_zsh.stat.exists
