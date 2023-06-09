@@ -9,17 +9,17 @@
     mode: "0775"
 - name: Add bin dir
   ansible.builtin.file:
-    path: "{{ homebin }}"
+    path: "{{ lookup('env', 'HOME') }}/.local/bin"
     state: directory
-    owner: "{{ User }}"
-    group: "{{ User }}"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
     mode: "0775"
 - name: Add bash config dir
   ansible.builtin.file:
     path: "{{ config }}/bash"
     state: directory
-    owner: "{{ User }}"
-    group: "{{ User }}"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
     mode: "0775"
 - name: Profile add bash config dir
   ansible.builtin.blockinfile:
@@ -37,19 +37,19 @@
     src: "bash/00-prompt.cfg"
     dest: "{{ config }}/bash/00-prompt.cfg"
     mode: "0644"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
 - name: Bash_autocomplete
   ansible.builtin.template:
     src: "bash/01-bash_autocomplete.cfg"
     dest: "{{ config }}/bash/01-bash_autocomplete.cfg"
     mode: "0644"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
 - name: Aliases
   ansible.builtin.template:
     src: "bash/aliases.cfg"
     dest: "{{ config }}/bash/aliases.cfg"
     mode: "0644"
-    owner: "{{ user }}"
-    group: "{{ user }}"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
