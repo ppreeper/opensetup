@@ -2,10 +2,10 @@
 # initialize user home
 - name: Add mnt dir
   ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/mnt"
+    path: "{{ home }}/mnt"
     state: directory
-    owner: "{{ username }}"
-    group: "{{ username }}"
+    owner: "{{ name }}"
+    group: "{{ name }}"
     mode: "0775"
 - name: Add bin dir
   ansible.builtin.file:
