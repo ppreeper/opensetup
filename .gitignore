@@ -134,3 +134,4 @@ ansible_roles/
 ansible_playbooks/
 collections/ansible_collections/**/*
 ansible_collections/
+.vscode/
