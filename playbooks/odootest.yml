@@ -2,15 +2,15 @@
 - hosts: odoo
   name: Odoo Test
   roles:
-    - odoo/base
-    - odoo/community
-    - odoo/user_chsh
-    - odoo/config
-    - odoo/db
+    - odoo_base
+    - odoo_community
+    - odoo_user_chsh
+    - odoo_config
+    - odoo_db
     - userhome
-    - lang/python
-    - lang/nodejs
-    - neovim/dev
+    - lang_python
+    - lang_nodejs
+    - neovim_dev
   tasks:
     - name: Update odoo user
       user:

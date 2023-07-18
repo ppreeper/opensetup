@@ -55,14 +55,14 @@
     - config
 
 - name: Create patroni configuration
-  ansible.builtin.command: pg_createconfig_patroni --force --hostip={{ ansible_default_ipv4.address }} {% if postgresql_port is defined %}--port={{ postgresql_port }}{% endif %} {% if vip is defined %}--vip={{ vip }} {% if dcs_ips | length > 1 %}--endpoint=http://{{ ansible_default_ipv4.address }}:2379{% endif %}{% endif %} {{ postgresql_major_version }} {{ postgresql_cluster_name }}
+  ansible.builtin.command: pg_createconfig_patroni --force --hostip={{ ansible_default_ipv4.address }} {% if postgresql_port is defined %}--port={{ postgresql_port }}{% endif %} {% if vip is defined %}--vip={{ vip }} {% if dcs_ips | length > 1 %}--endpoint=http://{{ ansible_default_ipv4.address }}:2379{% endif %}{% endif %} {{ POSTGRES_VERSION }} {{ POSTGRES_CLUSTER }}
   tags:
     - config
 
 - name: Systemctl daemon-reload / start patroni
   ansible.builtin.systemd:
     daemon_reload: true
-    name: patroni@{{ postgresql_major_version }}-{{ postgresql_cluster_name }}
+    name: patroni@{{ POSTGRES_VERSION }}-{{ POSTGRES_CLUSTER }}
     state: restarted
     enabled: true
   tags:
@@ -71,7 +71,7 @@
 - name: Systemctl daemon-reload / start vip-manager
   ansible.builtin.systemd:
     daemon_reload: true
-    name: vip-manager@{{ postgresql_major_version }}-{{ postgresql_cluster_name }}
+    name: vip-manager@{{ POSTGRES_VERSION }}-{{ POSTGRES_CLUSTER }}
     state: restarted
     enabled: true
   when: vip is defined and vip != ""

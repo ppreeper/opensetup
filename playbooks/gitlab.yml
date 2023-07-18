@@ -5,5 +5,5 @@
     schema: "http"
   roles:
     - update
-    - cli/utils
+    - cli_utils
     - gitlab-ce

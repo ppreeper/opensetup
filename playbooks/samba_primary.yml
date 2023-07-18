@@ -3,10 +3,10 @@
   name: Samba Primary DC
   roles:
     - update
-    - cli/utils
+    - cli_utils
     - hosts_ip
-    - samba/server
+    - samba_server
     - systemd_resolved
     - krb5_config
-    - samba/config
-    - samba/ad_dc_primary
+    - samba_config
+    - samba_ad_dc_primary

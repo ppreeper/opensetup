@@ -7,19 +7,19 @@
     - sysctl_custom
     - baseline
     - userhome
-    - cli/utils
-    - cli/helpers
-    - cli/network
-    - cli/filesystems
-    - cli/file_utils
-    - cli/remote_filesystems
+    - cli_utils
+    - cli_helpers
+    - cli_network
+    - cli_filesystems
+    - cli_file_utils
+    - cli_remote_filesystems
     - terminator
-    - fonts/nerdfonts
-    - lang/go
-    - lang/nodejs
-    - lang/python
+    - fonts_nerdfonts
+    - lang_go
+    - lang_nodejs
+    - lang_python
     - pyenv
-    - db/sqlite3
+    - db_sqlite3
     - db_beaver
     - wgvpn
     - syncthing

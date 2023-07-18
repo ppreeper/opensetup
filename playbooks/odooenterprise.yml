@@ -3,16 +3,16 @@
   name: Odoo Enterprise
   roles:
     - apt_mirror
-    - odoo/base
-    - odoo/user
-    - odoo/community
-    - odoo/enterprise
-    - odoo/db
-    - odoo/config
-    - odoo/service
-    - odoo/service_enable
+    - odoo_base
+    - odoo_user
+    - odoo_community
+    - odoo_enterprise
+    - odoo_db
+    - odoo_config
+    - odoo_service
+    - odoo_service_enable
     - userhome
-    - lang/nodejs
-    - lang/python
-    - neovim/install
+    - lang_nodejs
+    - lang_python
+    - neovim_install
     - update

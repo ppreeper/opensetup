@@ -2,4 +2,4 @@
 - hosts: odoo
   name: Odoo Restart
   roles:
-    - odoo/service_restart
+    - odoo_service_restart

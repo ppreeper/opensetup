@@ -11,8 +11,8 @@
     - vmail_user
     - postfix
     - postfix_config
-    - dovecot/install
-    - dovecot/config
+    - dovecot_install
+    - dovecot_config
     - clamav
     - rspamd
     - fail2ban

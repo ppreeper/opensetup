@@ -1,7 +1,8 @@
 ---
 
 - hosts: k3s
+  name: K3S reset
   gather_facts: true
   become: true
   roles:
-    - role: k3s/reset
+    - role: k3s_reset

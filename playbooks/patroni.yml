@@ -1,8 +1,9 @@
 ---
-- hosts: pgdb
+- hosts: patroni
   name: PostgreSQL Database
   roles:
     - update
     - cli_utils
     - db_postgresql_repo
     - db_postgresql_server
+    - patroni

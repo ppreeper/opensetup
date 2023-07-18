@@ -8,14 +8,14 @@
     - sysctl_custom
     - baseline
     - nfs_common
-    - lang/python
-    - lang/nodejs
-    - db/postgresql_client
+    - lang_python
+    - lang_nodejs
+    - db_postgresql_client
     - wkhtmltopdf
-    - odoo/base
-    - odoo/log
-    - odoo/fstab
-    - odoo/service
-    - odoo/service_enable
+    - odoo_base
+    - odoo_log
+    - odoo_fstab
+    - odoo_service
+    - odoo_service_enable
     - update
     - reboot
