@@ -1,0 +1,9 @@
+---
+- name: Install gup
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/ppreeper/gup/main/gup
+    dest: /usr/local/bin/gup
+    mode: '0775'
+
+- name: Oda install update
+  ansible.builtin.command: "/usr/local/bin/gup install update"

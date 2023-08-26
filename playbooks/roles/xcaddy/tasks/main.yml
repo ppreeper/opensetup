@@ -1,0 +1,32 @@
+---
+- name: Install Dependencies
+  ansible.builtin.apt:
+    name:
+      - debian-keyring
+      - debian-archive-keyring
+      - apt-transport-https
+    state: present
+
+- name: Xcaddy repo key
+  ansible.builtin.apt_key:
+    url: "https://dl.cloudsmith.io/public/caddy/xcaddy/gpg.key"
+    state: present
+    keyring: /usr/share/keyrings/caddy-xcaddy-archive-keyring.gpg
+  become: true
+  when: ansible_os_family == 'Debian'
+
+- name: Xcaddy repo
+  ansible.builtin.get_url:
+    url: https://dl.cloudsmith.io/public/caddy/xcaddy/debian.deb.txt
+    dest: /etc/apt/sources.list.d/caddy-xcaddy.list
+    mode: '0644'
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+
+- name: Install xcaddy
+  ansible.builtin.apt:
+    name:
+      - xcaddy
+    state: present

@@ -1,0 +1,35 @@
+---
+- name: Gup
+  ansible.builtin.import_role:
+    name: gup
+
+- name: Oda install via gup
+  ansible.builtin.command: "/usr/local/bin/gup install go"
+
+- name: Caddy Install
+  ansible.builtin.command: "/usr/local/bin/gup install caddy2"
+
+- name: Add /etc/caddy
+  ansible.builtin.file:
+    path: /etc/caddy
+    state: directory
+    mode: "0775"
+
+- name: Caddyfile
+  ansible.builtin.template:
+    src: Caddyfile
+    dest: /etc/caddy/Caddyfile
+    mode: "0644"
+
+- name: Caddy service
+  ansible.builtin.template:
+    src: caddy.service
+    dest: /etc/systemd/system/caddy.service
+    mode: "0644"
+
+- name: Caddy service enable
+  ansible.builtin.systemd_service:
+    name: caddy.service
+    state: stopped
+    enabled: true
+    daemon_reload: true

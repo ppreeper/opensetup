@@ -1,0 +1,224 @@
+---
+- name: Get distro code name
+  ansible.builtin.set_fact:
+    ubuntu_codename: "{{ lookup('ini', 'UBUNTU_CODENAME type=properties file=' + ansible_distribution_file_path) }}"
+    version_codename: "{{ lookup('ini', 'VERSION_CODENAME type=properties file=' + ansible_distribution_file_path) }}"
+- name: Set distro code name
+  ansible.builtin.set_fact:
+    ver_code: "{% if ubuntu_codename %}{{ ubuntu_codename }}{% else %}{{ version_codename }}{% endif %}"
+
+- name: Add hosts marker in fstab
+  ansible.builtin.blockinfile:
+    path: "/etc/fstab"
+    marker: "#{mark}ODOO"
+    block: |
+      # add mount odoo mountpoints
+- name: Add hosts to template
+  ansible.builtin.blockinfile:
+    path: "/etc/cloud/templates/hosts.debian.tmpl"
+    create: true
+    mode: "0644"
+    marker: "#{mark}ODOO"
+    block: |
+      {{ fs_ip }} odoofs
+      {{ db_ip }} db
+      {{ logger_ip }} logger
+- name: Create group odoo
+  ansible.builtin.group:
+    name: odoo
+    gid: 1001
+    state: present
+
+- name: Create user odoo
+  ansible.builtin.user:
+    name: odoo
+    group: odoo
+    uid: 1001
+    home: "/home/odoo"
+    shell: /usr/sbin/nologin
+    state: present
+
+- name: Add /opt/odoo
+  ansible.builtin.file:
+    path: /opt/odoo
+    state: directory
+    owner: odoo
+    group: odoo
+    mode: "0775"
+
+# install gup
+- name: Download gup
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/ppreeper/gup/main/gup
+    dest: /usr/local/bin/gup
+    mode: '0775'
+
+# postgresql
+- name: Postgresql repo
+  ansible.builtin.import_role:
+    name: db_postgresql_repo
+
+# python
+- name: Python3
+  ansible.builtin.apt:
+    name:
+      - python3
+      - python3-pip
+      - python3-venv
+    state: present
+  when: ansible_os_family == 'Debian'
+
+# javascript nodejs
+- name: Nodejs repo key
+  ansible.builtin.apt_key:
+    url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+    state: present
+    keyring: /usr/share/keyrings/nodesource.gpg
+  become: true
+  when: ansible_os_family == 'Debian'
+
+- name: Nodejs repository remove nodesource.list
+  ansible.builtin.file:
+    path: "/etc/apt/sources.list.d/nodesource.list"
+    state: absent
+  when: ansible_os_family == 'Debian'
+
+- name: Nodejs repository add nodesource
+  ansible.builtin.apt_repository:
+    validate_certs: false
+    repo: deb [arch=amd64 signed-by=/usr/share/keyrings/nodesource.gpg] http://deb.nodesource.com/node_{{ node_version }}.x {{ ver_code }} main
+    state: present
+    filename: falsedesource
+  when: ansible_os_family == 'Debian'
+
+- name: Nodejs repository add nodesource
+  ansible.builtin.apt_repository:
+    validate_certs: false
+    repo: deb-src [arch=amd64 signed-by=/usr/share/keyrings/nodesource.gpg] http://deb.nodesource.com/node_{{ node_version }}.x {{ ver_code }} main
+    state: present
+    filename: falsedesource
+  when: ansible_os_family == 'Debian'
+
+- name: Nodejs install
+  ansible.builtin.apt:
+    name:
+      - nodejs
+    state: present
+  when: ansible_os_family == 'Debian'
+
+# javascript
+- name: Rtlcss
+  community.general.npm:
+    name: rtlcss
+    global: true
+    state: present
+- name: Less
+  community.general.npm:
+    name: less
+    global: true
+    state: present
+- name: Scss
+  community.general.npm:
+    name: scss
+    global: true
+    state: present
+
+# dependencies
+- name: Install some deps
+  ansible.builtin.apt:
+    name:
+      - bzip2
+      - ca-certificates
+      - curl
+      - dirmngr
+      - fonts-liberation
+      - fonts-noto
+      - fonts-noto-cjk
+      - fonts-noto-mono
+      - gnupg 
+      - gsfonts
+      - inetutils-ping
+      - libgnutls-dane0
+      - libgts-bin
+      - libpaper-utils
+      - locales
+      - nfs-common
+      - postgresql-client-15
+      - qemu-guest-agent
+      - shared-mime-info
+      - unzip
+      - xz-utils
+      - zip
+      - python3-babel
+      - python3-chardet
+      - python3-cryptography
+      - python3-cups
+      - python3-dateutil
+      - python3-decorator
+      - python3-docutils
+      - python3-feedparser
+      - python3-freezegun
+      - python3-geoip2
+      - python3-gevent
+      - python3-greenlet
+      - python3-html2text
+      - python3-idna
+      - python3-jinja2
+      - python3-ldap
+      - python3-libsass
+      - python3-lxml
+      - python3-markupsafe
+      - python3-num2words
+      - python3-ofxparse
+      - python3-olefile
+      - python3-openssl
+      - python3-paramiko
+      - python3-passlib
+      - python3-pdfminer
+      - python3-phonenumbers
+      - python3-pil
+      - python3-polib
+      - python3-psutil
+      - python3-psycopg2
+      - python3-pydot
+      - python3-pylibdmtx
+      - python3-pyparsing
+      - python3-pypdf2
+      - python3-pytzdata
+      - python3-qrcode
+      - python3-renderpm
+      - python3-reportlab
+      - python3-reportlab-accel
+      - python3-requests
+      - python3-rjsmin
+      - python3-serial
+      - python3-stdnum
+      - python3-urllib3
+      - python3-usb
+      - python3-vobject
+      - python3-werkzeug
+      - python3-xlrd
+      - python3-xlsxwriter
+      - python3-xlwt
+      - python3-zeep
+    state: present
+#
+- name: Pip addons
+  ansible.builtin.pip:
+    executable: pip3
+    name:
+      - ebaysdk
+      - google-auth
+    state: present
+
+# Wkhtmltopdf
+- name: Wkhtmltopdf install via gup
+  ansible.builtin.command: "/usr/local/bin/gup install wkhtmltopdf"
+
+# Oda tool
+- name: Oda install via gup
+  ansible.builtin.command: "/usr/local/bin/gup install oda"
+
+# Oda systemd
+- name: Oda systemd
+  ansible.builtin.command: "/usr/local/bin/oda node systemd"
