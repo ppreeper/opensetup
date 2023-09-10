@@ -30,4 +30,4 @@
     - { src: "bin/adoc2pdf", dest: "{{ USERBIN }}", mode: "0755" }
 - name: Pdf fonts
   ansible.builtin.import_role:
-    name: fonts/pdf_fonts
+    name: fonts_pdf_fonts
