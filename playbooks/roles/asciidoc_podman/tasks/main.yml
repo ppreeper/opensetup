@@ -1,4 +1,11 @@
 ---
+- name: Podman install
+  ansible.builtin.import_role:
+    name: podman
+- name: Pdf fonts
+  ansible.builtin.import_role:
+    name: fonts_pdf_fonts
+
 - name: Asciidoc config dirs
   ansible.builtin.file:
     path: "{{ item.path }}"
@@ -28,6 +35,3 @@
     group: "{{ USER }}"
   with_items:
     - { src: "bin/adoc2pdf", dest: "{{ USERBIN }}", mode: "0755" }
-- name: Pdf fonts
-  ansible.builtin.import_role:
-    name: fonts_pdf_fonts

@@ -1,5 +1,5 @@
 ---
-- name: Bun
+- name: Bun install
   ansible.builtin.import_role:
     name: lang_js_bun
 

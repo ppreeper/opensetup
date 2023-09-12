@@ -1,15 +1,11 @@
 ---
-- name: Nerdfont Installer
-  ansible.builtin.template:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    mode: "{{ item.mode }}"
-    owner: "{{ USER }}"
-    group: "{{ USER }}"
-  with_items:
-    - { src: "bin/nerdfonts", dest: "{{ USERBIN }}", mode: "0755" }
+# requirement
+- name: Gup
+  ansible.builtin.import_role:
+    name: gup
+
 - name: Install Nerdfonts
-  ansible.builtin.command: "{{ USERBIN }}/nerdfonts {{ item.font }}"
+  ansible.builtin.command: "/usr/local/bin/gup install {{ item.font }}"
   become_user: "{{ USER }}"
   with_items:
     - { font: "Ubuntu" }

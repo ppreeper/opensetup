@@ -8,6 +8,7 @@
     - baseline
     - userhome
     - gup
+    - neovim
     - cli_utils
     - cli_helpers
     - cli_network
@@ -16,9 +17,8 @@
     - cli_remote_filesystems
     - terminator
     - fonts_nerdfonts
-    - lang_go
     - lang_go_config
-    - lang_js_bun
+    - lang_js_bun_config
     - lang_python
     - pyenv
     - db_sqlite3
@@ -33,14 +33,13 @@
     - media-audio
     - media-video
     - virt_viewer
-    - helix_editor
     - vscode
-    - vscode_addons
     - google_chrome
     - libreoffice
     - bottles_flatpak
     - remmina_flatpak
     - zoom_client_flatpak
-    - asciidoc_docker
+    - signal_flatpak
+    - asciidoc_podman
     - hugo
     - freecad_flatpak

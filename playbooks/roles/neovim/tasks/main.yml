@@ -1,0 +1,9 @@
+---
+# requirement
+- name: Gup
+  ansible.builtin.import_role:
+    name: gup
+
+# install neovim
+- name: Neovim install
+  ansible.builtin.command: "/usr/local/bin/gup install neovim"
