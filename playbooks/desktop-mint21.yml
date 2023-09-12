@@ -7,6 +7,7 @@
     - sysctl_custom
     - baseline
     - userhome
+    - gup
     - cli_utils
     - cli_helpers
     - cli_network
@@ -16,7 +17,8 @@
     - terminator
     - fonts_nerdfonts
     - lang_go
-    - lang_nodejs
+    - lang_go_config
+    - lang_js_bun
     - lang_python
     - pyenv
     - db_sqlite3

@@ -1,9 +1,17 @@
 ---
+# requirement
+- name: Git
+  ansible.builtin.apt:
+    name:
+      - git
+    state: present
+  when: ansible_os_family == 'Debian'
+
 - name: Install gup
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/ppreeper/gup/main/gup
     dest: /usr/local/bin/gup
     mode: '0775'
 
-- name: Oda install update
+- name: Gup install update
   ansible.builtin.command: "/usr/local/bin/gup install update"

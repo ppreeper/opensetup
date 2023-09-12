@@ -1,0 +1,5 @@
+---
+- name: Bun
+  ansible.builtin.command: "/usr/local/bin/gup install bun"
+  become_user: "{{ USER }}"
+  # curl -fsSL https://bun.sh/install | bash

@@ -1,0 +1,33 @@
+---
+# requirement
+- name: Go Lang
+  ansible.builtin.import_role:
+    name: lang_go
+
+- name: Check bash installed
+  ansible.builtin.stat:
+    path: "/usr/bin/bash"
+  register: stat_bash
+
+- name: Cfg 20_go bash
+  ansible.builtin.template:
+    src: "20_go.cfg"
+    dest: "{{ CONFIGDIR }}/bash/20_go.cfg"
+    mode: "0644"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
+  when: stat_bash.stat.exists
+
+- name: Check zsh installed
+  ansible.builtin.stat:
+    path: "/usr/bin/zsh"
+  register: stat_zsh
+
+- name: Cfg 20_go zsh
+  ansible.builtin.template:
+    src: "20_go.cfg"
+    dest: "{{ CONFIGDIR }}/zsh/cfg/20_go.cfg"
+    mode: "0644"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
+  when: stat_zsh.stat.exists

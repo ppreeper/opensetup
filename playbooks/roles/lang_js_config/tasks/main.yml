@@ -1,0 +1,32 @@
+---
+- name: Bun
+  ansible.builtin.import_role:
+    name: lang_js_bun
+
+- name: Check bash installed
+  ansible.builtin.stat:
+    path: "/usr/bin/bash"
+  register: stat_bash
+
+- name: Cfg 20_js bash
+  ansible.builtin.template:
+    src: "20_js.cfg"
+    dest: "{{ CONFIGDIR }}/bash/20_js.cfg"
+    mode: "0644"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
+  when: stat_bash.stat.exists
+
+- name: Check zsh installed
+  ansible.builtin.stat:
+    path: "/usr/bin/zsh"
+  register: stat_zsh
+
+- name: Cfg 20_js zsh
+  ansible.builtin.template:
+    src: "20_js.cfg"
+    dest: "{{ CONFIGDIR }}/zsh/cfg/20_js.cfg"
+    mode: "0644"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
+  when: stat_zsh.stat.exists
