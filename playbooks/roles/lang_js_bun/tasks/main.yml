@@ -1,5 +1,10 @@
 ---
-- name: Bun
-  ansible.builtin.command: "/usr/local/bin/gup install bun"
-  become_user: "{{ USER }}"
-  # curl -fsSL https://bun.sh/install | bash
+- name: Bun script
+  ansible.builtin.uri:
+    url: https://bun.sh/install
+    return_content: yes
+  register: bun_installer
+- name: Bun install
+  ansible.builtin.shell:
+    cmd: bash -s --
+    stdin: "{{ bun_installer }}"

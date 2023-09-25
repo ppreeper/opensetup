@@ -18,7 +18,7 @@
     - terminator
     - fonts_nerdfonts
     - lang_go_config
-    - lang_js_bun_config
+#    - lang_js_bun_config
     - lang_python
     - pyenv
     - db_sqlite3
@@ -41,5 +41,5 @@
     - zoom_client_flatpak
     - signal_flatpak
     - asciidoc_podman
-    - hugo
+#    - hugo
     - freecad_flatpak

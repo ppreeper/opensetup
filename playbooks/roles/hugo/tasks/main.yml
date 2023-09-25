@@ -7,3 +7,4 @@
 # install hugo
 - name: Hugo install
   ansible.builtin.command: "/usr/local/bin/gup install hugo"
+  become_user: "{{ USER }}"

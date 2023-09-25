@@ -7,11 +7,11 @@
       - gifsicle
     state: present
   when: ansible_os_family == 'Debian'
-- name: Image tools (npm)
-  community.general.npm:
-    name: svgo
-    global: true
-    state: present
+#- name: Image tools (npm)
+#  community.general.npm:
+#    name: svgo
+#    global: true
+#    state: present
 - name: AV codec lib
   ansible.builtin.apt:
     name:

@@ -1,0 +1,22 @@
+---
+- name: Nodesource GPG key
+  ansible.builtin.get_url:
+    url: "https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key"
+    dest: /etc/apt/trusted.gpg.d/nodesource.gpg.asc
+    mode: "0644"
+    force: true
+  when: ansible_os_family == 'Debian'
+- name: Create deb repository
+  ansible.builtin.apt_repository:
+    validate_certs: false
+    repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/nodesource.gpg.asc] https://deb.nodesource.com/node_20.x nodistro main"
+    state: present
+    filename: nodesource
+    update_cache: true
+  when: ansible_os_family == 'Debian'
+- name: Nodejs install
+  ansible.builtin.apt:
+    name:
+      - "nodejs"
+    state: present
+  when: ansible_os_family == 'Debian'

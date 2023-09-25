@@ -7,6 +7,6 @@
         update_cache: true
         cache_valid_time: 3600
       when: ansible_os_family == 'Debian'
-    - name: Nodejs
+    - name: Lang JS Bun
       ansible.builtin.include_role:
-        name: lang/nodejs
+        name: lang_js_bun

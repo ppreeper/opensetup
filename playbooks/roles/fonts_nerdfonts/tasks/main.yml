@@ -5,7 +5,7 @@
     name: gup
 
 - name: Install Nerdfonts
-  ansible.builtin.command: "/usr/local/bin/gup install {{ item.font }}"
+  ansible.builtin.command: "/usr/local/bin/gup install nerdfonts {{ item.font }}"
   become_user: "{{ USER }}"
   with_items:
     - { font: "Ubuntu" }

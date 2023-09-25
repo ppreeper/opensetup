@@ -7,3 +7,5 @@
 # install neovim
 - name: Neovim install
   ansible.builtin.command: "/usr/local/bin/gup install neovim"
+  become_user: "{{ USER }}"
+
