@@ -4,9 +4,12 @@
     name: baseline
 
 - name: Podman repo key
-  ansible.builtin.apt_key:
+  ansible.builtin.get_url:
     url: "{{ url }}/{{ distro }}/Release.key"
-    state: present
+    dest: /etc/apt/trusted.gpg.d/podman.gpg.asc
+    mode: "0644"
+    force: true
+  when: ansible_os_family == 'Debian'
 
 - name: Podman repository add
   ansible.builtin.apt_repository:
@@ -15,6 +18,7 @@
     filename: podman
     state: present
     update_cache: true
+  when: ansible_os_family == 'Debian'
 
 - name: Podman
   ansible.builtin.apt:
@@ -23,3 +27,4 @@
       - buildah
     state: present
     update_cache: true
+  when: ansible_os_family == 'Debian'
