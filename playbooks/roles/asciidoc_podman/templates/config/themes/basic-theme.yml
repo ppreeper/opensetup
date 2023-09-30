@@ -11,26 +11,21 @@ font:
       bold: mplus1mn-bold-subset.ttf
       italic: mplus1mn-italic-subset.ttf
       normal: mplus1mn-regular-subset.ttf
-    noto-serif:
-      bold_italic: falsetoserif-bold_italic-subset.ttf
-      bold: falsetoserif-bold-subset.ttf
-      italic: falsetoserif-italic-subset.ttf
-      normal: falsetoserif-regular-subset.ttf
-    Noto Serif:
-      normal: Noto Serif Regular Nerd Font Complete.ttf
-      bold: Noto Serif Bold Nerd Font Complete.ttf
-      italic: Noto Serif Italic Nerd Font Complete.ttf
-      bold_italic: Noto Serif Bold Italic Nerd Font Complete.ttf
-    Noto Sans:
-      normal: Noto Sans Regular Nerd Font Complete.ttf
-      bold: Noto Sans SemiCondensed Bold Nerd Font Complete.ttf
-      italic: Noto Sans Italic Nerd Font Complete.ttf
-      bold_italic: Noto Sans SemiCondensed Bold Italic Nerd Font Complete.ttf
+    NotoSerif:
+      normal: NotoSerifNerdFont-Regular.ttf
+      bold: NotoSerifNerdFont-Bold.ttf
+      italic: NotoSerifNerdFont-Italic.ttf
+      bold_italic: NotoSerifNerdFont-BoldItalic.ttf
+    NotoSans:
+      normal: NotoSansNerdFont-Regular.ttf
+      bold: NotoSansNerdFont-SemiBold.ttf
+      italic: NotoSansNerdFont-Italic.ttf
+      bold_italic: NotoSansNerdFont-SemiBoldItalic.ttf
     Hack:
-      normal: Hack Regular Nerd Font Complete.ttf
-      bold: Hack Bold Nerd Font Complete.ttf
-      italic: Hack Italic Nerd Font Complete.ttf
-      bold_italic: Hack Bold Italic Nerd Font Complete.ttf
+      normal: HackNerdFont-Regular.ttf
+      bold: HackNerdFont-Bold.ttf
+      italic: HackNerdFont-Italic.ttf
+      bold_italic: HackNerdFont-BoldItalic.ttf
 page:
   background_color: ffffff
   layout: portrait
@@ -42,14 +37,14 @@ page:
 base:
   align: justify
   font_color: 000000
-  font_family: Noto Sans
+  font_family: NotoSans
   font_size: 10
   line_height_length: round($base_font_size * 1.156)
   line_height: floor($base_line_height_length / $base_font_size)
   font_size_large: round($base_font_size * 1.156)
   font_size_small: round($base_font_size * 0.865)
   font_size_min: round($base_font_size * 0.749)
-  font_style: falsermal
+  font_style: normal
   border_color: eeeeee
   border_radius: 4
   border_width: 0.5
