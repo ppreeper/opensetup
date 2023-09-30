@@ -15,7 +15,6 @@
     group: "{{ USER }}"
   with_items:
     - { path: "{{ LOCALDIR }}/share/asciidoctor" }
-    - { path: "{{ LOCALDIR }}/share/asciidoctor/fonts" }
     - { path: "{{ LOCALDIR }}/share/asciidoctor/themes" }
 - name: Asciidoc theme files
   ansible.builtin.template:

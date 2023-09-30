@@ -1,12 +1,14 @@
 #!/bin/bash
 FILE="${1}"
 DOC="$(echo ${FILE%.*})"
-RES="$HOME/.local/share/asciidoctor"
+FONTS="$HOME/.local/share/share/fonts"
+THEMES="$HOME/.local/share/asciidoctor/themes"
 GID=$(id -g)
 
 podman run --rm \
     -v "${PWD}":"/documents/" \
-    -v "${RES}":"/resources" \
+    -v "${FONTS}":"/resources/fonts" \
+    -v "${THEMES}":"/resources/themes" \
     docker.io/asciidoctor/docker-asciidoctor asciidoctor-pdf \
     -a allow-uri-read \
     -r asciidoctor-diagram \
