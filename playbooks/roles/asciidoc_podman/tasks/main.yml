@@ -25,6 +25,8 @@
     group: "{{ USER }}"
   with_items:
     - { src: "config/themes/basic-theme.yml" }
+    - { src: "config/themes/policy-theme.yml" }
+    - { src: "config/themes/talk-theme.yml" }
 - name: Asciidoctor helpers
   ansible.builtin.template:
     src: "{{ item.src }}"
