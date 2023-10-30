@@ -1,0 +1,21 @@
+---
+- name: Mozilla repo key
+  ansible.builtin.get_url:
+    url: "https://packages.mozilla.org/apt/repo-signing-key.gpg"
+    dest: /etc/apt/trusted.gpg.d/packages.mozilla.org.gpg.asc
+    mode: "0644"
+    force: true
+  when: ansible_os_family == 'Debian'
+- name: Mozilla repository stat
+  ansible.builtin.stat:
+    path: "/etc/apt/sources.list.d/mozilla.list"
+  register: stat_result
+  when: ansible_os_family == 'Debian'
+- name: Mozilla repository add
+  ansible.builtin.apt_repository:
+    validate_certs: false
+    repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.mozilla.org.gpg.asc] https://packages.mozilla.org/apt mozilla main"
+    state: present
+    filename: mozilla
+    update_cache: true
+  when: ansible_os_family == 'Debian'
