@@ -26,11 +26,6 @@
     release: "xUbuntu_22.04"
   when: ansible_os_family == 'Debian' and id == 'ubuntu'
 
-- name: Print release
-  ansible.builtin.debug:
-    msg: RELEASE {{ release }}
-  when: ansible_os_family == 'Debian'
-
 - name: Podman repo key
   ansible.builtin.get_url:
     url: "https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/{{ release }}/Release.key"
