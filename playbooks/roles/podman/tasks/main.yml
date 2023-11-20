@@ -56,11 +56,10 @@
     state: present
     update_cache: true
   when: ansible_os_family == 'Debian'
-# - name: Podman
-#   ansible.builtin.apt:
-#     name:
-#       - podman
-#       - buildah
-#     state: present
-#     update_cache: true
-#   when: ansible_os_family == 'Debian'
+- name: Podman
+  ansible.builtin.apt:
+    name:
+      - podman
+    state: present
+    update_cache: true
+  when: ansible_os_family == 'Debian'
