@@ -9,11 +9,6 @@
     ubuntu_codename: "{{ lookup('ini', 'UBUNTU_CODENAME type=properties file=' + ansible_distribution_file_path) }}"
   when: ansible_os_family == 'Debian'
 
-- name: Print variables
-  ansible.builtin.debug:
-    msg: ID {{ id }} VERSION_CODENAME {{ version_id }} VERSION_ID {{ version_id }} DEBIAN_CODENAME {{ debian_codename }} UBUNTU_CODENAME {{ ubuntu_codename }}
-  when: ansible_os_family == 'Debian'
-
 - name: Set Release LinuxMint LMDE6
   ansible.builtin.set_fact:
     release: "Debian_Testing"
@@ -36,11 +31,6 @@
     msg: RELEASE {{ release }}
   when: ansible_os_family == 'Debian'
 
-- name: Print release
-  ansible.builtin.debug:
-    msg: "https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/{{ release }}/Release.key"
-  when: ansible_os_family == 'Debian'
-
 - name: Podman repo key
   ansible.builtin.get_url:
     url: "https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/{{ release }}/Release.key"
@@ -48,6 +38,7 @@
     mode: "0644"
     force: true
   when: ansible_os_family == 'Debian'
+
 - name: Podman repository add
   ansible.builtin.apt_repository:
     validate_certs: false
@@ -56,6 +47,7 @@
     state: present
     update_cache: true
   when: ansible_os_family == 'Debian'
+
 - name: Podman
   ansible.builtin.apt:
     name:
