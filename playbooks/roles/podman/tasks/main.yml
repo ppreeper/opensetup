@@ -40,22 +40,22 @@
   ansible.builtin.debug:
     msg: "https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/{{ release }}/Release.key"
   when: ansible_os_family == 'Debian'
-# - name: Podman repo key
-#   ansible.builtin.get_url:
-#     url: "{{ url }}/{{ distro }}/Release.key"
-#     dest: /etc/apt/trusted.gpg.d/podman.gpg.asc
-#     mode: "0644"
-#     force: true
-#   when: ansible_os_family == 'Debian'
-# - name: Podman repository add
-#   ansible.builtin.apt_repository:
-#     validate_certs: false
-#     repo: "deb {{ url }}/{{ distro }}/ /"
-#     filename: podman
-#     state: present
-#     update_cache: true
-#   when: ansible_os_family == 'Debian'
 
+- name: Podman repo key
+  ansible.builtin.get_url:
+    url: "https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/{{ release }}/Release.key"
+    dest: "{{ keydir }}/podman.gpg.asc"
+    mode: "0644"
+    force: true
+  when: ansible_os_family == 'Debian'
+- name: Podman repository add
+  ansible.builtin.apt_repository:
+    validate_certs: false
+    repo: "deb [arch=amd64 signed-by={{ keydir }}/podman.gpg.asc] https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/{{ release }}/ /"
+    filename: podman
+    state: present
+    update_cache: true
+  when: ansible_os_family == 'Debian'
 # - name: Podman
 #   ansible.builtin.apt:
 #     name:
