@@ -35,6 +35,11 @@
   ansible.builtin.debug:
     msg: RELEASE {{ release }}
   when: ansible_os_family == 'Debian'
+
+- name: Print release
+  ansible.builtin.debug:
+    msg: "https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/{{ release }}/Release.key"
+  when: ansible_os_family == 'Debian'
 # - name: Podman repo key
 #   ansible.builtin.get_url:
 #     url: "{{ url }}/{{ distro }}/Release.key"
