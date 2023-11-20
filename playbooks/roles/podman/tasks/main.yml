@@ -13,6 +13,20 @@
   ansible.builtin.debug:
     msg: ID {{ id }} VERSION_CODENAME {{ version_id }} VERSION_ID {{ version_id }} DEBIAN_CODENAME {{ debian_codename }} UBUNTU_CODENAME {{ ubuntu_codename }}
   when: ansible_os_family == 'Debian'
+
+- name: Set Release LinuxMint LMDE6
+  ansible.builtin.set_fact:
+    release: "Debian_Testing"
+  when: ansible_os_family == 'Debian' and id == 'linuxmint' and debian_codename == 'bookworm'
+- name: Set Release LinuxMint 21.2
+  ansible.builtin.set_fact:
+    release: "Debian_Testing"
+  when: ansible_os_family == 'Debian' and id == 'linuxmint' and ubuntu_codename == 'jammy'
+
+- name: Print release
+  ansible.builtin.debug:
+    msg: RELEASE {{ release }}
+  when: ansible_os_family == 'Debian'
 # - name: Podman repo key
 #   ansible.builtin.get_url:
 #     url: "{{ url }}/{{ distro }}/Release.key"
