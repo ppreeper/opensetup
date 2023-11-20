@@ -20,8 +20,16 @@
   when: ansible_os_family == 'Debian' and id == 'linuxmint' and debian_codename == 'bookworm'
 - name: Set Release LinuxMint 21.2
   ansible.builtin.set_fact:
-    release: "Debian_Testing"
+    release: "xUbuntu_22.04"
   when: ansible_os_family == 'Debian' and id == 'linuxmint' and ubuntu_codename == 'jammy'
+- name: Set Release Debian 12
+  ansible.builtin.set_fact:
+    release: "Debian_Testing"
+  when: ansible_os_family == 'Debian' and id == 'debian'
+- name: Set Release Ubuntu 22.04
+  ansible.builtin.set_fact:
+    release: "xUbuntu_22.04"
+  when: ansible_os_family == 'Debian' and id == 'ubuntu'
 
 - name: Print release
   ansible.builtin.debug:
