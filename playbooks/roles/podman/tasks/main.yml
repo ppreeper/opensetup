@@ -1,6 +1,6 @@
 ---
 - name: Get distro information
-  ansible.builtin.set.fact:
+  ansible.builtin.set_fact:
     keydir: "/etc/apt/trusted.gpg.d"
     id: "{{ lookup('ini', 'ID type=properties file=' + ansible_distribution_file_path) }}"
     version_codename: "{{ lookup('ini', 'VERSION_CODENAME type=properties file=' + ansible_distribution_file_path) }}"
