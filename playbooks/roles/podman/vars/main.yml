@@ -1,5 +1,0 @@
----
-url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable"
-# distro: "{{ ansible_distribution }}_{{ ansible_distribution_version }}"
-distro: "xUbuntu_22.04"
-# distro: "Debian_12"

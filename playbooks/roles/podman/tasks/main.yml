@@ -1,30 +1,39 @@
 ---
-- name: Baseline
-  ansible.builtin.import_role:
-    name: baseline
-
-- name: Podman repo key
-  ansible.builtin.get_url:
-    url: "{{ url }}/{{ distro }}/Release.key"
-    dest: /etc/apt/trusted.gpg.d/podman.gpg.asc
-    mode: "0644"
-    force: true
+- name: Get distro information
+  ansible.builtin.set.fact:
+    keydir: "/etc/apt/trusted.gpg.d"
+    id: "{{ lookup('ini', 'ID type=properties file=' + ansible_distribution_file_path) }}"
+    version_codename: "{{ lookup('ini', 'VERSION_CODENAME type=properties file=' + ansible_distribution_file_path) }}"
+    version_id: "{{ lookup('ini', 'VERSION_ID type=properties file=' + ansible_distribution_file_path) }}"
+    debian_codename: "{{ lookup('ini', 'DEBIAN_CODENAME type=properties file=' + ansible_distribution_file_path) }}"
+    ubuntu_codename: "{{ lookup('ini', 'UBUNTU_CODENAME type=properties file=' + ansible_distribution_file_path) }}"
   when: ansible_os_family == 'Debian'
 
-- name: Podman repository add
-  ansible.builtin.apt_repository:
-    validate_certs: false
-    repo: "deb {{ url }}/{{ distro }}/ /"
-    filename: podman
-    state: present
-    update_cache: true
+- name: Print variables
+  ansible.builtin.debug:
+    msg: ID {{ id }} VERSION_CODENAME {{ version_id }} VERSION_ID {{ version_id }} DEBIAN_CODENAME {{ debian_codename }} UBUNTU_CODENAME {{ ubuntu_codename }}
   when: ansible_os_family == 'Debian'
+# - name: Podman repo key
+#   ansible.builtin.get_url:
+#     url: "{{ url }}/{{ distro }}/Release.key"
+#     dest: /etc/apt/trusted.gpg.d/podman.gpg.asc
+#     mode: "0644"
+#     force: true
+#   when: ansible_os_family == 'Debian'
+# - name: Podman repository add
+#   ansible.builtin.apt_repository:
+#     validate_certs: false
+#     repo: "deb {{ url }}/{{ distro }}/ /"
+#     filename: podman
+#     state: present
+#     update_cache: true
+#   when: ansible_os_family == 'Debian'
 
-- name: Podman
-  ansible.builtin.apt:
-    name:
-      - podman
-      - buildah
-    state: present
-    update_cache: true
-  when: ansible_os_family == 'Debian'
+# - name: Podman
+#   ansible.builtin.apt:
+#     name:
+#       - podman
+#       - buildah
+#     state: present
+#     update_cache: true
+#   when: ansible_os_family == 'Debian'
