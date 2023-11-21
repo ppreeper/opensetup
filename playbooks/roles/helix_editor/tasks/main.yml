@@ -1,20 +1,9 @@
 ---
-- name: Add helix dir
-  ansible.builtin.file:
-    path: "{{ item.path }}"
-    state: directory
-    mode: "0755"
-    owner: "{{ USER }}"
-    group: "{{ USER }}"
-  with_items:
-    - { path: "{{ CONFIGDIR }}/helix" }
-- name: Helixup
-  ansible.builtin.template:
-    src: "helixup"
-    dest: "{{ USERBIN }}/helixup"
-    mode: "0755"
-    owner: "{{ USER }}"
-    group: "{{ USER }}"
-- name: Install helix editor
-  ansible.builtin.command: "{{ USERBIN }}/helixup"
+- name: Gup
+  ansible.builtin.import_role:
+    name: gup
+
+# install neovim
+- name: Helix install
+  ansible.builtin.command: "/usr/local/bin/gup install helix"
   become_user: "{{ USER }}"

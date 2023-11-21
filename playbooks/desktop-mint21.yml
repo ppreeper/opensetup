@@ -9,6 +9,7 @@
     - userhome
     - gup
     - neovim
+    - helix_editor
     - cli_utils
     - cli_helpers
     - cli_network
@@ -18,14 +19,11 @@
     - terminator
     - fonts_nerdfonts
     - lang_go_config
-#    - lang_js_bun_config
     - lang_python
     - pyenv
     - db_sqlite3
     - db_beaver
     - wgvpn
-    - syncthing
-    - syncthing_systemd
     - podman
     - media
     - media-codecs
@@ -41,5 +39,3 @@
     - zoom_client_flatpak
     - signal_flatpak
     - asciidoc_podman
-#    - hugo
-    - freecad_flatpak
