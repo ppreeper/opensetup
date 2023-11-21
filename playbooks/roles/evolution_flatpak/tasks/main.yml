@@ -1,0 +1,5 @@
+---
+- name: Evolution client
+  community.general.flatpak:
+    name: org.gnome.Evolution
+    state: present

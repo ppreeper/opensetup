@@ -1,0 +1,18 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+platforms:
+  - name: evolution_flatpak_u2204
+    image: ubuntu:22.04
+  - name: evolution _flatpak_d12
+    image: debian:12
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
