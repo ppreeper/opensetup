@@ -47,6 +47,8 @@
   ansible.builtin.apt:
     name:
       - podman
+      - fuse-overlayfs
+      - slirp4netns
     state: present
     update_cache: true
   when: ansible_os_family == 'Debian'
