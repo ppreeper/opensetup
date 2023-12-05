@@ -1,7 +1,7 @@
 ---
 - name: PostgreSQL repo
   ansible.builtin.import_role:
-    name: db/postgresql_repo
+    name: db_postgresql_repo
 - name: PostgreSQL client
   ansible.builtin.apt:
     name:
