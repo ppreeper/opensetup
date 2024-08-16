@@ -1,0 +1,10 @@
+---
+- name: Weather.sh
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
+  with_items:
+    - { src: "weather.sh", dest: "{{ USERBIN }}", mode: "0755" }
