@@ -9,6 +9,7 @@ else
 fi
 
 # clone repo
+rm -rf $HOME/opensetup
 git clone https://github.com/ppreeper/opensetup $HOME/opensetup
 
 # reload bash
