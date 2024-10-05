@@ -1,0 +1,5 @@
+---
+- name: FreeOrion
+  community.general.flatpak:
+    name: org.freeorion.FreeOrion
+    state: present

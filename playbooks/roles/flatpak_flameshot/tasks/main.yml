@@ -1,0 +1,5 @@
+---
+- name: Flameshot
+  community.general.flatpak:
+    name: org.flameshot.Flameshot
+    state: present

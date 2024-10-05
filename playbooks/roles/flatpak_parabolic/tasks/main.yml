@@ -1,0 +1,5 @@
+---
+- name: Parabolic video downloader
+  community.general.flatpak:
+    name: org.nickvision.tubeconverter
+    state: present

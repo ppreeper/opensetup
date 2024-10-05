@@ -1,0 +1,5 @@
+---
+- name: Betterbird
+  community.general.flatpak:
+    name: eu.betterbird.Betterbird
+    state: present

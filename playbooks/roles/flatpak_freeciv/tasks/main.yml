@@ -1,0 +1,5 @@
+---
+- name: Freeciv
+  community.general.flatpak:
+    name: org.freeciv.gtk322
+    state: present
