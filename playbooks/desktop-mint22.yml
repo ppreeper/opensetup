@@ -36,6 +36,7 @@
     - flatpak_signal
     - flatpak_betterbird
     - flatpak_flameshot
+    - flatpak_parabolic
     - flatpak_obsidian
     - asciidoc_podman
     - flatpak_bitwarden
