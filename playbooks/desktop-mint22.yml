@@ -35,6 +35,6 @@
     - flatpak_evolution
     - flatpak_bottles
     - flatpak_remmina
-    - flatpakzoom_client
+    - flatpak_zoom_client
     - flatpak_signal
     - asciidoc_podman
