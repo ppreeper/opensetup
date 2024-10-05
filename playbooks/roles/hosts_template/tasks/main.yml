@@ -1,0 +1,9 @@
+---
+- name: Hosts template file add cluster info
+  ansible.builtin.blockinfile:
+    path: "/etc/cloud/templates/hosts.debian.tmpl"
+    marker: "#{mark}ODOO"
+    block: |
+      {{ cluster_fs }} odoofs
+      {{ cluster_db }} db
+      {{ cluster_logger }} logger

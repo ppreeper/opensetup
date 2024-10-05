@@ -1,0 +1,7 @@
+---
+- name: Languang packs
+  ansible.builtin.apt:
+    name:
+      - firefox-l10n-en
+      - wcanadian
+      - wbritish

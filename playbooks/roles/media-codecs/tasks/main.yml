@@ -1,5 +1,5 @@
 ---
-- name: AV codec libs
+- name: Codec libs
   ansible.builtin.apt:
     name:
       - gstreamer1.0-libav
@@ -8,5 +8,6 @@
       - gstreamer1.0-plugins-ugly
       - libavcodec-extra
       - ffmpeg
+      - mediainfo
     state: present
   when: ansible_os_family == 'Debian'

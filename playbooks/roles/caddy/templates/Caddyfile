@@ -1,0 +1,16 @@
+{{ name }} {
+    tls {
+        dns cloudflare {{ cloudflare_key }}
+    }
+    reverse_proxy http://127.0.0.1:8069 {
+        header_up X-Forwarded-Proto {scheme}
+        header_up X-Forwarded-Host {host}
+        header_up X-URL-Scheme {scheme}
+        header_up X-Real-IP {remote}
+    }
+    reverse_proxy /longpolling/* http://127.0.0.1:8072
+    reverse_proxy /websocket http://127.0.0.1:8072
+    encode gzip zstd
+    file_server
+    log
+}

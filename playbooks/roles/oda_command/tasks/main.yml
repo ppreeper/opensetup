@@ -1,0 +1,12 @@
+---
+- name: Install oda
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/ppreeper/oda/main/oda"
+    dest: "/usr/local/bin/oda"
+    mode: "0775"
+
+- name: Install oda_db.py
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/ppreeper/oda/main/oda_db.py"
+    dest: "/usr/local/bin/oda_db.py"
+    mode: "0775"

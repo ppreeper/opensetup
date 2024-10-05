@@ -1,7 +1,0 @@
----
-- name: Snap support
-  ansible.builtin.apt:
-    name:
-      - gnome-software-backend-snap
-    state: present
-  when: ansible_distribution == "Ubuntu"

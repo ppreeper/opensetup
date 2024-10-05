@@ -1,0 +1,19 @@
+---
+- name: Caddy Install
+  ansible.builtin.get_url:
+    url: "https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fcaddy-dns%2Fcloudflare"
+    dest: "/usr/local/bin/caddy"
+    mode: "0755"
+    force: true
+
+- name: Sysctl caddy local
+  ansible.builtin.blockinfile:
+    path: /etc/sysctl.conf
+    mode: "0644"
+    create: true
+    marker: "# {mark} caddy local"
+    block: |
+      net.ipv4.ip_unprivileged_port_start=80
+
+- name: Sysctl load
+  ansible.builtin.command: sysctl --system

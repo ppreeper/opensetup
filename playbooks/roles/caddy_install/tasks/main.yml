@@ -1,0 +1,6 @@
+---
+- name: Install caddy2 with cloudflare dns
+  ansible.builtin.get_url:
+    url: "https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fcaddy-dns%2Fcloudflare"
+    dest: /usr/local/bin/caddy
+    mode: "0775"

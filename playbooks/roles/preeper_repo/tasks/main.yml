@@ -1,0 +1,9 @@
+---
+- name: Preeper repository add
+  ansible.builtin.apt_repository:
+    validate_certs: false
+    repo: "deb [trusted=yes] https://www.preeper.org/debs ./"
+    state: present
+    filename: preeper
+    update_cache: true
+  when: ansible_os_family == 'Debian'

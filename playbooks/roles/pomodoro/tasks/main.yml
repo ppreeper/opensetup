@@ -1,0 +1,14 @@
+---
+- name: Timer install
+  become_user: "{{ USER }}"
+  ansible.builtin.command: "go install github.com/caarlos0/timer@latest"
+
+- name: Pomodoro
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
+  with_items:
+    - { src: "pomodoro.cfg", dest: "{{ CONFIGDIR }}/bash", mode: "0640" }

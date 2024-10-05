@@ -1,0 +1,17 @@
+---
+- name: Gopls
+  become_user: "{{ USER }}"
+  ansible.builtin.command: "go install golang.org/x/tools/gopls@latest"
+- name: Gofumpt
+  become_user: "{{ USER }}"
+  ansible.builtin.command: "go install mvdan.cc/gofumpt@latest"
+- name: Gomodifytags
+  become_user: "{{ USER }}"
+  ansible.builtin.command: "go install github.com/fatih/gomodifytags@latest"
+- name: Goplay
+  become_user: "{{ USER }}"
+  ansible.builtin.command: "go install github.com/haya14busa/goplay@latest"
+- name: Gotests
+  become_user: "{{ USER }}"
+  ansible.builtin.command: "go install github.com/cweill/gotests@latest"
+

@@ -1,3 +1,0 @@
-#!/bin/bash
-MEDIA='/var/data/dvd'
-vobcopy -o "${MEDIA}/rip" -M -t ${1}

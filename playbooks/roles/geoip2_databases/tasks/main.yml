@@ -1,0 +1,19 @@
+---
+- name: GeoIP2 Database Download ASN
+  ansible.builtin.get_url:
+    url: "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb"
+    dest: /usr/share/GeoIP/GeoLite2-ASN.mmdb
+    mode: "0644"
+    force: true
+- name: GeoIP2 Database Download City
+  ansible.builtin.get_url:
+    url: "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-City.mmdb"
+    dest: /usr/share/GeoIP/GeoLite2-City.mmdb
+    mode: "0644"
+    force: true
+- name: GeoIP2 Database Download Country
+  ansible.builtin.get_url:
+    url: "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb"
+    dest: /usr/share/GeoIP/GeoLite2-Country.mmdb
+    mode: "0644"
+    force: true

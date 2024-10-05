@@ -1,5 +1,0 @@
----
-- name: MS Teams client
-  community.general.flatpak:
-    name: com.microsoft.Teams
-    state: present

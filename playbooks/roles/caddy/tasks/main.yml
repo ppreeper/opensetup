@@ -1,0 +1,12 @@
+---
+- name: Caddy config directory
+  ansible.builtin.file:
+    path: "/etc/caddy"
+    state: directory
+    mode: "0775"
+
+- name: Caddyfile
+  ansible.builtin.template:
+    src: Caddyfile
+    dest: "/etc/caddy/Caddyfile"
+    mode: "0644"

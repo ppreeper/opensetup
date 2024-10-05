@@ -1,0 +1,9 @@
+---
+- name: Create local bridge
+  community.general.nmcli:
+    conn_name: br0
+    ifname: br0
+    type: bridge
+    ip4:
+      - 10.250.250.10/32
+    state: present

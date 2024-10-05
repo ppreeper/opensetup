@@ -1,0 +1,8 @@
+---
+- hosts: all
+  name: Odoo Dev Setup
+  become: true
+  roles:
+    - nmcli_local_bridge
+    - caddy_local
+    - oda

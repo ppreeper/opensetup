@@ -1,0 +1,7 @@
+---
+- name: Caddy service enable
+  ansible.builtin.systemd:
+    name: caddy.service
+    state: stopped
+    enabled: true
+    daemon_reload: true

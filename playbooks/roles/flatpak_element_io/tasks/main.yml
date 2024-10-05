@@ -1,0 +1,5 @@
+---
+- name: Element
+  community.general.flatpak:
+    name: im.riot.Riot
+    state: present
