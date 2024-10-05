@@ -5,7 +5,7 @@
       - wget
       - curl
       - aria2
-      - netcat
+      - netcat-openbsd
       - pv
     state: present
 - name: CLI file utils
