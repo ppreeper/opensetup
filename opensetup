@@ -331,7 +331,7 @@ inspect_args() {
 opensetup_setup_command() {
 	# src/setup_command.sh
 	# install prereqs
-	sudo bash -c "apt update -y && apt install -y python3-full python3-venv direnv git && pip install pipenv"
+	sudo bash -c "apt update -y && apt install -y python3-full python3-venv pipenv direnv git"
 
 	# enable direnv
 	if grep -q "direnv hook bash" $HOME/.bashrc; then
