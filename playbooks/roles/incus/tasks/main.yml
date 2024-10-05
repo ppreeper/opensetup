@@ -1,13 +1,14 @@
 ---
-- name: LXD
+- name: Incus
   community.general.snap:
-    name: lxd
+    name: incus
     state: present
   when: ansible_distribution == "Ubuntu"
-- name: Add existing user to group lxd "{{ USER }}"
+- name: Add existing user to incus incus-admin "{{ USER }}"
   ansible.builtin.user:
     name: "{{ USER }}"
     groups:
-      - lxd
+      - incus
+      - incus-admin
     append: true
   when: ansible_distribution == "Ubuntu"

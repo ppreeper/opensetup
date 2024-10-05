@@ -1,54 +1,9 @@
 ---
-- name: Get distro information
-  ansible.builtin.set_fact:
-    keydir: "/etc/apt/trusted.gpg.d"
-    id: "{{ lookup('ini', 'ID type=properties file=' + ansible_distribution_file_path) }}"
-    version_codename: "{{ lookup('ini', 'VERSION_CODENAME type=properties file=' + ansible_distribution_file_path) }}"
-    version_id: "{{ lookup('ini', 'VERSION_ID type=properties file=' + ansible_distribution_file_path) }}"
-    debian_codename: "{{ lookup('ini', 'DEBIAN_CODENAME type=properties file=' + ansible_distribution_file_path) }}"
-    ubuntu_codename: "{{ lookup('ini', 'UBUNTU_CODENAME type=properties file=' + ansible_distribution_file_path) }}"
-  when: ansible_os_family == 'Debian'
-
-- name: Set Release LinuxMint LMDE6
-  ansible.builtin.set_fact:
-    release: "Debian_Testing"
-  when: ansible_os_family == 'Debian' and id == 'linuxmint' and debian_codename == 'bookworm'
-- name: Set Release LinuxMint 21.2
-  ansible.builtin.set_fact:
-    release: "xUbuntu_22.04"
-  when: ansible_os_family == 'Debian' and id == 'linuxmint' and ubuntu_codename == 'jammy'
-- name: Set Release Debian 12
-  ansible.builtin.set_fact:
-    release: "Debian_Testing"
-  when: ansible_os_family == 'Debian' and id == 'debian'
-- name: Set Release Ubuntu 22.04
-  ansible.builtin.set_fact:
-    release: "xUbuntu_22.04"
-  when: ansible_os_family == 'Debian' and id == 'ubuntu'
-
-- name: Podman repo key
-  ansible.builtin.get_url:
-    url: "https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/{{ release }}/Release.key"
-    dest: "{{ keydir }}/podman.gpg.asc"
-    mode: "0644"
-    force: true
-  when: ansible_os_family == 'Debian'
-
-- name: Podman repository add
-  ansible.builtin.apt_repository:
-    validate_certs: false
-    repo: "deb [arch=amd64 signed-by={{ keydir }}/podman.gpg.asc] https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/{{ release }}/ /"
-    filename: podman
-    state: present
-    update_cache: true
-  when: ansible_os_family == 'Debian'
-
 - name: Podman
   ansible.builtin.apt:
     name:
       - podman
-      - fuse-overlayfs
-      - slirp4netns
+      - podman-compose
     state: present
     update_cache: true
   when: ansible_os_family == 'Debian'
