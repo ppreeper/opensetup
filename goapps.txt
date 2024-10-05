@@ -1,0 +1,58 @@
+go install github.com/ppreeper/fdup@latest
+go install github.com/ppreeper/commit@latest
+go install github.com/ppreeper/gensum@latest
+go install github.com/ppreeper/sshconfig@latest
+go install github.com/ppreeper/webserver@latest
+
+go install github.com/air-verse/air@latest
+go install github.com/itchyny/bed/cmd/bed@latest
+go install github.com/mr-karan/doggo/cmd/doggo@latest
+go install github.com/go-delve/delve/cmd/dlv@latest
+go install github.com/dundee/gdu/v5/cmd/gdu@latest
+go install golang.org/x/tools/gopls@latest
+
+
+go install github.com/davidrjenni/reftools/cmd/fillstruct@latest
+go install github.com/davidrjenni/reftools/cmd/fillswitch@latest
+
+
+git clone https://github.com/muesli/duf.git
+cd duf
+go build
+
+callgraph
+distrobuilder
+
+gobench
+go-blueprint
+goforge
+gohttpbench
+goimports
+golines
+gotests
+govulncheck
+gowebly
+gowitness
+go-wrk
+gum
+guru
+iferr
+impl
+lazygit
+muffet
+pgweb
+rd
+scc
+sqlc
+staticcheck
+superfile
+swag
+task
+tbls
+templ
+
+
+# From Source (make sure `go` is installed)
+git clone https://github.com/gitleaks/gitleaks.git
+cd gitleaks
+make build
