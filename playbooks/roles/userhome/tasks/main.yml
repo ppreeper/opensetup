@@ -7,6 +7,13 @@
     owner: "{{ USER }}"
     group: "{{ USER }}"
     mode: "0775"
+- name: Add workspace dir
+  ansible.builtin.file:
+    path: "{{ HOME }}/workspace"
+    state: directory
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
+    mode: "0775"
 - name: Add bin dir
   ansible.builtin.file:
     path: "{{ HOME }}/.local/bin"

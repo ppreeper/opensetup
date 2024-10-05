@@ -9,28 +9,24 @@
     - baseline
     - userhome
     - gup
-    - neovim
-    - cli_utils
-    - cli_helpers
-    - cli_network
-    - cli_filesystems
-    - cli_file_utils
-    - cli_remote_filesystems
+    - syncthing
+    - syncthing_systemd
+    - gup_neovim
+    - cli
     - terminator
     - fonts_nerdfonts
     - lang_go_config
     - lang_python
-    - pyenv
     - db_sqlite3
     - wgvpn
     - podman
-    - media-codecs
-    - media-images
-    - media-audio
-    - media-video
+    - incus
+    - oda_cli
+    - media
     - virt_viewer
     - vscode
     - google_chrome
+    - brave_browser
     - libreoffice
     - flatpak_dbeaver
     - flatpak_evolution

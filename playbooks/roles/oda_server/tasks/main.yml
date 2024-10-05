@@ -1,0 +1,10 @@
+---
+- name: Preeper repo
+  ansible.builtin.import_role:
+    name: preeper_repo
+- name: Oda server
+  ansible.builtin.apt:
+    name:
+      - odaserver
+    state: present
+  when: ansible_os_family == 'Debian'

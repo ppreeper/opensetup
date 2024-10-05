@@ -1,0 +1,13 @@
+---
+- name: Media Codecs
+  ansible.builtin.import_role:
+    name: media-codecs
+- name: Media Image tools
+  ansible.builtin.import_role:
+    name: media-images
+- name: Media Audio tools
+  ansible.builtin.import_role:
+    name: media-audio
+- name: Media Video tools
+  ansible.builtin.import_role:
+    name: media-video

@@ -22,3 +22,9 @@
     filename: brave-browser-release
     update_cache: true
   when: ansible_os_family == 'Debian'
+- name: Brave browser
+  ansible.builtin.apt:
+    name:
+      - brave-browser
+    state: present
+  when: ansible_os_family == 'Debian'
