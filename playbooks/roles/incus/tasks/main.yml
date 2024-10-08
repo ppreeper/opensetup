@@ -1,9 +1,9 @@
 ---
 - name: Incus
-  community.general.snap:
+  ansible.builtin.apt:
     name: incus
     state: present
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_os_family == 'Debian'
 - name: Add existing user to incus incus-admin "{{ USER }}"
   ansible.builtin.user:
     name: "{{ USER }}"
@@ -11,4 +11,4 @@
       - incus
       - incus-admin
     append: true
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_os_family == 'Debian'
