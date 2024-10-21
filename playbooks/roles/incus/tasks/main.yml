@@ -1,7 +1,10 @@
 ---
 - name: Incus
   ansible.builtin.apt:
-    name: incus
+    name:
+      - incus
+      - qemu-utils
+      - qemu-system-x86
     state: present
   when: ansible_os_family == 'Debian'
 - name: Add existing user to incus incus-admin "{{ USER }}"
