@@ -1,5 +1,5 @@
 # install prereqs
-sudo bash -c "apt update -y && apt install -y python3-full python3-venv pipenv direnv git"
+sudo bash -c "apt update -y && apt install -y python3-full python3-venv pipenv direnv git ansible ansible-lint yamllint"
 
 # enable direnv
 if grep -q "direnv hook bash" $HOME/.bashrc; then
