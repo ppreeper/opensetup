@@ -22,4 +22,7 @@ Update your package list and install the Firefox .deb package:
 sudo apt-get update && sudo apt-get install firefox
 
 
+oathtool
 
+for winboat
+  flatpak install com.freerdp.FreeRDP
