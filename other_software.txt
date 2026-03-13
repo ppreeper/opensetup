@@ -24,5 +24,33 @@ sudo apt-get update && sudo apt-get install firefox
 
 oathtool
 
+
 for winboat
   flatpak install com.freerdp.FreeRDP
+
+helium.computer
+https://github.com/imputnet/helium-linux/releases/download/0.10.2.1/helium-0.10.2.1-x86_64.AppImage
+
+winboat.app
+https://github.com/TibixDev/winboat/releases/download/v0.9.0/winboat-0.9.0-x86_64.AppImage
+
+
+Name                                               Application ID                                         Version                              Branch                    Installation
+Bitwarden                                          com.bitwarden.desktop                                  2026.2.1                             stable                    system
+FreeRDP Client                                     com.freerdp.FreeRDP                                    3.24.0                               stable                    system
+OBS Studio                                         com.obsproject.Studio                                  32.1.0                               stable                    system
+RustDesk                                           com.rustdesk.RustDesk                                  1.4.6                                stable                    system
+Betterbird                                         eu.betterbird.Betterbird                               140.8.0esr-bb19                      stable                    system
+Element                                            im.riot.Riot                                           1.12.12                              stable                    system
+DBeaver Community                                  io.dbeaver.DBeaverCommunity                            26.0.0                               stable                    system
+Gear Lever                                         it.mijorus.gearlever                                   4.4.5                                stable                    system
+Obsidian                                           md.obsidian.Obsidian                                   1.12.4                               stable                    system
+Flameshot                                          org.flameshot.Flameshot                                13.3.0                               stable                    system
+FreeCAD                                            org.freecad.FreeCAD                                    1.0.2                                stable                    system
+KColorChooser                                      org.kde.kcolorchooser                                  25.12.3                              stable                    system
+Krita                                              org.kde.krita                                          5.2.16                               stable                    system
+Luanti                                             org.luanti.luanti                                      5.15.1                               stable                    system
+Parabolic                                          org.nickvision.tubeconverter                           2026.2.4                             stable                    system
+Remmina                                            org.remmina.Remmina                                    1.4.43                               stable                    system
+Signal Desktop                                     org.signal.Signal                                      8.2.0                                stable                    system
+
