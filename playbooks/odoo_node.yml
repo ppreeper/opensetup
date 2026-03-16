@@ -7,7 +7,7 @@
     - baseline
     - nfs_common
     - lang_python
-    - lang_nodejs
+    - lang_js
     - db_postgresql_client
     - wkhtmltopdf
     - odoo_base_packages

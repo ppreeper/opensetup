@@ -10,7 +10,7 @@
     - odoo_service
     - odoo_service_enable
     - userhome
-    - lang_nodejs
+    - lang_js
     - lang_python
-    - neovim_install
+    - gup_neovim
     - update

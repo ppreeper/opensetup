@@ -5,4 +5,4 @@
   roles:
     - nmcli_local_bridge
     - caddy_local
-    - oda
+    - oda_cli

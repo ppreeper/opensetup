@@ -35,7 +35,7 @@
     group: odoo
     uid: 1001
     home: "/home/odoo"
-    shell: /usr/sbin/nologin
+    ansible.builtin.shell: /usr/sbin/nologin
     state: present
 
 - name: Add /opt/odoo
@@ -135,7 +135,7 @@
       - fonts-noto
       - fonts-noto-cjk
       - fonts-noto-mono
-      - gnupg 
+      - gnupg
       - gsfonts
       - inetutils-ping
       - libgnutls-dane0

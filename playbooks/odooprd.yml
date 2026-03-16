@@ -8,11 +8,11 @@
     - odoo_db
     - userhome
     - lang_python
-    - lang_nodejs
-    - neovim_dev
+    - lang_js
+    - gup_neovim
   tasks:
     - name: Update odoo user
-      user:
+      ansible.builtin.user:
         name: "odoo"
         ansible.builtin.shell: "/bin/bash"
-        groups: odoo,sudo
+        groups: "odoo,sudo"

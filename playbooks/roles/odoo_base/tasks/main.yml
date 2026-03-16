@@ -6,18 +6,18 @@
 # python
 - name: Python
   ansible.builtin.import_role:
-    name: lang/python
+    name: lang_python
 
 # postgresql
 - name: Postgresql repo
   ansible.builtin.import_role:
-    name: db/postgresql_repo
+    name: db_postgresql_repo
 - name: Postgresql server
   ansible.builtin.import_role:
-    name: db/postgresql_server
+    name: db_postgresql_server
 - name: Postgresql client
   ansible.builtin.import_role:
-    name: db/postgresql_client
+    name: db_postgresql_client
 
 - name: Wkhtmltopdf
   ansible.builtin.import_role:
@@ -26,7 +26,7 @@
 # javascript
 - name: Nodejs
   ansible.builtin.import_role:
-    name: lang/nodejs
+    name: lang_js
 - name: Rtlcss
   community.general.npm:
     name: rtlcss

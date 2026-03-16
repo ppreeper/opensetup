@@ -6,4 +6,4 @@
   roles:
     - update
     - cli_utils
-    - gitlab-ce
+    - gitlab_ce

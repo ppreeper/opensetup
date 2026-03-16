@@ -3,9 +3,9 @@
   ansible.builtin.include_role:
     name: "{{ rolevar }}"
   loop:
-    - "db/postgresql_repo"
-    - "db/postgresql_server"
-    - "db/postgresql_server_open"
+    - db_postgresql_repo
+    - db_postgresql_server
+    - db_postgresql_server_open
     - "odoo/user"
 - name: Update odoo db role
   become_user: postgres
