@@ -5,7 +5,7 @@
       - jpegoptim
       - pngquant
       - gifsicle
-      - imagmagick
+      - imagemagick
     state: present
   when: ansible_os_family == 'Debian'
 - name: Media image cli helpers

@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  name: Desktop-mint21
+  name: Desktop LMDE6
   become: true
   roles:
     - nsswitch

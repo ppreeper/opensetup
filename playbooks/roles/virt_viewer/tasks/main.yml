@@ -4,4 +4,4 @@
     name:
       - virt-viewer
     state: present
-  when: ansible_os_family == 'Debian'
+  when: ansible_facts["os_family"] == 'Debian'

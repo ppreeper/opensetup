@@ -53,7 +53,7 @@
       - nmap
     state: present
     update_cache: true
-  when: ansible_os_family == 'Debian'
+  when: ansible_facts["os_family"] == 'Debian'
 - name: CLI fs utils
   ansible.builtin.apt:
     name:
@@ -64,7 +64,7 @@
     update_cache: true
     force: true
     state: present
-  when: ansible_os_family == 'Debian'
+  when: ansible_facts["os_family"] == 'Debian'
 - name: CLI file utils
   ansible.builtin.apt:
     name:
@@ -75,11 +75,11 @@
       - fzf
       - ripgrep
     state: present
-  when: ansible_os_family == 'Debian'
+  when: ansible_facts["os_family"] == 'Debian'
 - name: CLI remote file systems
   ansible.builtin.apt:
     name:
       - sshfs
       - nfs-common
     state: present
-  when: ansible_os_family == 'Debian'
+  when: ansible_facts["os_family"] == 'Debian'

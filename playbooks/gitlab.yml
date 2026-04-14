@@ -1,9 +1,0 @@
----
-- hosts: all
-  name: Gitlab
-  vars:
-    schema: "http"
-  roles:
-    - update
-    - cli_utils
-    - gitlab_ce

@@ -7,7 +7,7 @@
     autoclean: true
     update_cache: true
     cache_valid_time: 3600
-  when: ansible_os_family == 'Debian'
+  when: ansible_facts["os_family"] == 'Debian'
 
 - name: Upgrade all packages on Fedora
   ansible.builtin.dnf:

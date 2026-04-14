@@ -4,6 +4,14 @@
   ansible.builtin.import_role:
     name: gup
 
+- name: Add local fonts dir
+  ansible.builtin.file:
+    path: "{{ HOME }}/.local/share/fonts"
+    state: directory
+    owner: "{{ USER }}"
+    group: "{{ USER }}"
+    mode: "0775"
+
 - name: Install Nerdfonts
   ansible.builtin.command: "/usr/local/bin/gup install nerdfonts {{ item.font }}"
   become_user: "{{ USER }}"
