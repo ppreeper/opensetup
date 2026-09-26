@@ -5,7 +5,7 @@
   roles:
     - nsswitch
     - sysctl_custom
-    - preeper_repo
+    - odas_repo
     - baseline
     - userhome
     - gup

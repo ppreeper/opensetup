@@ -10,10 +10,16 @@
     - k3s-node
     - k3s-init
 
-- name: Pkill -9 -f "k3s/data/[^/]+/bin/containerd-shim-runc"
-  register: pkill_containerd_shim_runc
-  ansible.builtin.command: pkill -9 -f "k3s/data/[^/]+/bin/containerd-shim-runc"
-  changed_when: "pkill_containerd_shim_runc.rc == 0"
+- name: Check for running containerd-shim processes
+  ansible.builtin.command: pgrep -f "k3s/data/.*/bin/containerd-shim"
+  register: containerd_shim_pids
+  failed_when: false
+  changed_when: false
+
+- name: Kill containerd-shim processes
+  ansible.builtin.command: pkill -f "k3s/data/.*/bin/containerd-shim"
+  when: containerd_shim_pids.rc == 0
+  changed_when: true
   failed_when: false
 
 - name: Umount k3s filesystems

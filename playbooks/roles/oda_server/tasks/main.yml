@@ -1,7 +1,7 @@
 ---
 - name: Preeper repo
   ansible.builtin.import_role:
-    name: preeper_repo
+    name: odas_repo
 - name: Oda server
   ansible.builtin.apt:
     name:

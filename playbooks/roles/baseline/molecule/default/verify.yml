@@ -1,0 +1,28 @@
+---
+- name: Verify baseline
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Check curl is installed
+      ansible.builtin.package:
+        name: curl
+        state: present
+      check_mode: true
+      register: pkg_check
+      failed_when: pkg_check.changed
+
+    - name: Check git is installed
+      ansible.builtin.package:
+        name: git
+        state: present
+      check_mode: true
+      register: pkg_check
+      failed_when: pkg_check.changed
+
+    - name: Check wget is installed
+      ansible.builtin.package:
+        name: wget
+        state: present
+      check_mode: true
+      register: pkg_check
+      failed_when: pkg_check.changed
