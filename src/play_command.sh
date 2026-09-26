@@ -1,3 +1,8 @@
-[ "${args[target]}" = "localhost" ] && export BECOME="-K" || export BECOME=""
-echo ansible-playbook -l ${args[target]} -b ${PLAYBOOK_DIR}/${args[playbook]}.yml $BECOME
-ansible-playbook -l ${args[target]} -b ${PLAYBOOK_DIR}/${args[playbook]}.yml $BECOME
+local target playbook become_opts
+target="${args[target]}"
+playbook="${args[playbook]}"
+
+[ "$target" = "localhost" ] && become_opts="-K" || become_opts=""
+
+echo "ansible-playbook -l ${target} -b ${PLAYBOOK_DIR}/${playbook}.yml ${become_opts}"
+ansible-playbook -l "${target}" -b "${PLAYBOOK_DIR}/${playbook}.yml" ${become_opts}

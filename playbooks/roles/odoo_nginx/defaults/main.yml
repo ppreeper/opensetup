@@ -1,3 +1,0 @@
----
-ssl_crt: crt.pem
-ssl_key: key.pem

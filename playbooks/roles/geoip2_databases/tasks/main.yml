@@ -1,4 +1,8 @@
 ---
+# GeoIP2 databases downloaded from a third-party mirror (P3TERX/GeoLite.mmdb).
+# For production, consider using the official MaxMind geoipupdate tool
+# which requires a free license key: https://www.maxmind.com/en/geolite2
+
 - name: GeoIP2 Database Download ASN
   ansible.builtin.get_url:
     url: "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb"

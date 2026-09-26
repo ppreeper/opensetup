@@ -135,3 +135,5 @@ ansible_playbooks/
 collections/ansible_collections/**/*
 ansible_collections/
 .vscode/
+.vault_pass
+
