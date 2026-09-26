@@ -1,12 +1,13 @@
 [project]
 name = "opensetup"
 version = "0.1.0"
-description = "Add your description here"
+description = "Ansible-based sysadmin toolkit for deploying common software setups across hosts and clusters"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "ansible>=13.5.0",
     "ansible-lint>=26.4.0",
     "molecule>=26.4.0",
+    "molecule-plugins[docker]>=26.7.15",
     "yamllint>=1.38.0",
 ]
