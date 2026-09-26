@@ -20,7 +20,7 @@ cd opensetup
 uv sync
 
 # 4. Install Ansible collection dependencies
-ansible-galaxy collection install -r collections/requirements.yml
+uv run ansible-galaxy collection install -r collections/requirements.yml
 
 # 5. Set up vault password
 # If you have the vault password, create the file:
@@ -197,8 +197,31 @@ ansible-vault edit --vault-password-file=.vault_pass inventory/group_vars/<name>
 Some roles include Molecule test scenarios. Run them with:
 
 ```bash
-cd playbooks/roles/<role_name>
-molecule test
+cd playbooks/roles/baseline
+uv run molecule test
+```
+
+or from the repo root:
+
+```bash
+make test
 ```
 
 See `playbooks/roles/baseline/molecule/default/` for an example scenario.
+
+### Linting
+
+`ansible-lint` (which includes `yamllint`) checks playbooks, roles, and inventory:
+
+```bash
+uv run ansible-lint
+```
+
+or:
+
+```bash
+make lint
+```
+
+Both tools, along with `ansible`, `molecule`, and `yamllint`, run from the
+venv created by `uv sync` — an isolated, pinned Python environment.
